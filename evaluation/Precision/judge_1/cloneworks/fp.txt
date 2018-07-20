@@ -1,0 +1,358 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,87653.java,453,467
+default,87653.java,1270,1284
+----------------------------------------
+    private byte[] importAutoAddData(HTTPurl urlData) throws Exception {
+        String sessionID = urlData.getParameter("sessionID");
+        if (!store.checkSessionID(sessionID)) {
+            return "Security Warning: The Security Session ID you entered is not correct.".getBytes();
+        }
+        boolean append = "append".equalsIgnoreCase(urlData.getParameter("data_action"));
+        String data = urlData.getParameter("data");
+        if (data != null && data.length() > 0) {
+            store.importEpgAutoList(data.trim(), append);
+        }
+        StringBuffer buff = new StringBuffer();
+        buff.append("HTTP/1.0 302 Moved Temporarily\n");
+        buff.append("Location: /servlet/EpgAutoAddDataRes?action=01\n\n");
+        return buff.toString().getBytes();
+    }
+----------------------------------------
+    private byte[] addMatchList(HTTPurl urlData) throws Exception {
+        String name = urlData.getParameter("name");
+        if (name != null && name.trim().length() > 0) {
+            HashMap<String, EpgMatchList> matchLists = store.getMatchLists();
+            if (!matchLists.containsKey(name)) {
+                EpgMatchList matchList = new EpgMatchList();
+                matchLists.put(name.trim(), matchList);
+                store.saveMatchList(null);
+            }
+        }
+        StringBuffer out = new StringBuffer(256);
+        out.append("HTTP/1.0 302 Moved Temporarily\n");
+        out.append("Location: /servlet/" + urlData.getServletClass() + "?action=05\n\n");
+        return out.toString().getBytes();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,53104.java,648,665
+default,70088.java,524,546
+----------------------------------------
+    private boolean doPurgeSeries(DirWriter w, DirRecord parent, int[] counter) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (doPurgeInstances(w, rec, counter)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[0] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+    private boolean doRemoveStudy(DirWriter w, DirRecord parent, int[] counter, boolean delFiles) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (studyUIDs.contains(rec.getDataset().getString(Tags.StudyInstanceUID))) {
+                if (delFiles) {
+                    deleteRefFiles(w, rec, counter);
+                }
+                toRemove.add(rec);
+            } else if (doRemoveSeries(w, rec, counter, delFiles)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[1] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,33872.java,522,544
+default,53104.java,667,685
+----------------------------------------
+    private boolean doRemoveStudy(DirWriter w, DirRecord parent, int[] counter, boolean delFiles) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (studyUIDs.contains(rec.getDataset().getString(Tags.StudyInstanceUID))) {
+                if (delFiles) {
+                    deleteRefFiles(w, rec, counter);
+                }
+                toRemove.add(rec);
+            } else if (doRemoveSeries(w, rec, counter, delFiles)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[1] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+    private boolean doPurgeInstances(DirWriter w, DirRecord parent, int[] counter) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            File file = w.getRefFile(rec.getRefFileIDs());
+            if (!file.exists()) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[0] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,45549.java,667,685
+default,15343.java,522,544
+----------------------------------------
+    private boolean doPurgeInstances(DirWriter w, DirRecord parent, int[] counter) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            File file = w.getRefFile(rec.getRefFileIDs());
+            if (!file.exists()) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[0] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+    private boolean doRemoveStudy(DirWriter w, DirRecord parent, int[] counter, boolean delFiles) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (studyUIDs.contains(rec.getDataset().getString(Tags.StudyInstanceUID))) {
+                if (delFiles) {
+                    deleteRefFiles(w, rec, counter);
+                }
+                toRemove.add(rec);
+            } else if (doRemoveSeries(w, rec, counter, delFiles)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[1] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,98981.java,522,544
+default,86322.java,648,665
+----------------------------------------
+    private boolean doRemoveStudy(DirWriter w, DirRecord parent, int[] counter, boolean delFiles) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (studyUIDs.contains(rec.getDataset().getString(Tags.StudyInstanceUID))) {
+                if (delFiles) {
+                    deleteRefFiles(w, rec, counter);
+                }
+                toRemove.add(rec);
+            } else if (doRemoveSeries(w, rec, counter, delFiles)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[1] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+    private boolean doPurgeSeries(DirWriter w, DirRecord parent, int[] counter) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (doPurgeInstances(w, rec, counter)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[0] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,87849.java,50,59
+default,42519.java,1060,1069
+----------------------------------------
+    Brush(String name, String group, String color, int slice, String supergroupname, String supergroupcolor, int[] x, int[] y) {
+        this.name = name;
+        this.group = group;
+        this.slice = slice;
+        this.color = color;
+        this.supergroupname = supergroupname;
+        this.supergroupcolor = supergroupcolor;
+        this.x = x;
+        this.y = y;
+    }
+----------------------------------------
+        public KeyPressThread(int charCode, int keyCode, boolean alt, boolean ctrl, boolean shift, boolean meta, int delay) {
+            log("KeyPressThread constructor " + charCode + ", " + keyCode);
+            this.charCode = charCode;
+            this.keyCode = keyCode;
+            this.alt = alt;
+            this.ctrl = ctrl;
+            this.shift = shift;
+            this.meta = meta;
+            this.delay = delay;
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,49646.java,1670,1676
+default,30953.java,22,29
+----------------------------------------
+        public TextField(String text, Color color, int xpos, int ypos, int z) {
+            this.text = text;
+            this.color = color;
+            this.xpos = xpos;
+            this.ypos = ypos;
+            this.z = z;
+        }
+----------------------------------------
+    public OPT_CompilationState(OPT_Instruction call, int mcSizeEstimate, VM_Method computedTarget, boolean isExtant, OPT_Options options, int cmid) {
+        this.call = call;
+        this.mcSizeEstimate = mcSizeEstimate;
+        this.computedTarget = computedTarget;
+        this.isExtant = isExtant;
+        this.options = options;
+        this.cmid = cmid;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,75105.java,73,89
+default,98852.java,55,69
+----------------------------------------
+                public void run() {
+                    DataInputStream stdout = new DataInputStream(tac.getInputStream());
+                    try {
+                        for (int x = 0; x < 10000; x++) {
+                            for (int i = 0; i < testData.length; i++) {
+                                String in = stdout.readUTF();
+                                charsRead += in.length();
+                                if (!in.equals(testData[i])) throw new Error("TestRuntimeExec FAILED: bad input " + in);
+                            }
+                        }
+                        int exitCode = tac.waitFor();
+                        if (exitCode == 0 && charsRead == charsExpected && charsWritten == charsExpected) System.err.println("TestRuntimeExec SUCCESS"); else System.err.println("TestRuntimeExec FAILED");
+                    } catch (Throwable e) {
+                        e.printStackTrace();
+                        throw new Error("TestRuntimeExec FAILED");
+                    }
+                }
+----------------------------------------
+                public void run() {
+                    DataOutputStream stdin = new DataOutputStream(tac.getOutputStream());
+                    try {
+                        for (int x = 0; x < 10000; x++) {
+                            for (int i = 0; i < testData.length; i++) {
+                                charsWritten += testData[i].length();
+                                stdin.writeUTF(testData[i]);
+                            }
+                        }
+                        stdin.flush();
+                        stdin.close();
+                    } catch (IOException e) {
+                        throw new Error("TestRuntimeExec FAILED");
+                    }
+                }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,116906.java,522,544
+default,118405.java,629,646
+----------------------------------------
+    private boolean doRemoveStudy(DirWriter w, DirRecord parent, int[] counter, boolean delFiles) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (studyUIDs.contains(rec.getDataset().getString(Tags.StudyInstanceUID))) {
+                if (delFiles) {
+                    deleteRefFiles(w, rec, counter);
+                }
+                toRemove.add(rec);
+            } else if (doRemoveSeries(w, rec, counter, delFiles)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[1] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+    private boolean doPurgeStudy(DirWriter w, DirRecord parent, int[] counter) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (doPurgeSeries(w, rec, counter)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[0] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------

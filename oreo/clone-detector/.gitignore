@@ -1,0 +1,7 @@
+/bin/
+NODE*
+*index
+# query*
+*.scc
+dist*
+SCC_LOGS*

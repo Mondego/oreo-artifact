@@ -1,0 +1,840 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1632131.java,605,620
+selected,1632131.java,574,589
+----------------------------------------
+            if (d > max) {
+                max = d;
+            }
+        }
+        return max;
+    }
+
+    /**
+   * @return the index of the max value; if max is a tie, returns the first one.
+   */
+    public static int argmax(float[] a) {
+        float max = Float.NEGATIVE_INFINITY;
+        int argmax = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] > max) {
+                max = a[i];
+----------------------------------------
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] > max) {
+                max = a[i];
+                argmax = i;
+            }
+        }
+        return argmax;
+    }
+
+    /**
+   * @return the index of the max value; if max is a tie, returns the last one.
+   */
+    public static int argmax_tieLast(double[] a) {
+        double max = Double.NEGATIVE_INFINITY;
+        int argmax = 0;
+        for (int i = 0; i < a.length; i++) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,174635.java,3,14
+selected,174635.java,4,14
+----------------------------------------
+import javax.vecmath.Point3f;
+import org.jmol.i18n.GT;
+import org.jmol.util.ColorUtil;
+
+class Widgets {
+
+    Widget[] widgetList = new Widget[5];
+
+    Widgets() {
+        widgetList[0] = new SpinOnWidget();
+        widgetList[1] = new BackgroundColorWidget();
+        widgetList[2] = new StereoViewWidget();
+----------------------------------------
+import org.jmol.i18n.GT;
+import org.jmol.util.ColorUtil;
+
+class Widgets {
+
+    Widget[] widgetList = new Widget[5];
+
+    Widgets() {
+        widgetList[0] = new SpinOnWidget();
+        widgetList[1] = new BackgroundColorWidget();
+        widgetList[2] = new StereoViewWidget();
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,120028.java,242,268
+selected,120028.java,256,270
+----------------------------------------
+        inFuncDef = true;
+    }
+
+    /**
+     * Set the auto_FLIP boolean to OFF
+     */
+    private void _flipoff() {
+        gs.auto_flip = false;
+    }
+
+    /**
+     * Set the auto_FLIP boolean to ON
+     */
+    private void _flipon() {
+        gs.auto_flip = true;
+    }
+
+    /**
+     * FLIP PoinT
+     *
+     * USES: loop
+     */
+    private void _flippt() {
+        while (gs.loop-- > 0) {
+            int index = pop();
+            zone[gs.zp0][index].onCurve = !zone[gs.zp0][index].onCurve;
+        }
+----------------------------------------
+        gs.auto_flip = true;
+    }
+
+    /**
+     * FLIP PoinT
+     *
+     * USES: loop
+     */
+    private void _flippt() {
+        while (gs.loop-- > 0) {
+            int index = pop();
+            zone[gs.zp0][index].onCurve = !zone[gs.zp0][index].onCurve;
+        }
+        gs.loop = 1;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1744946.java,138,155
+selected,1744946.java,150,162
+----------------------------------------
+        return 0;
+    }
+
+    public void setindexStatus(boolean indexStatus) {
+        mIndexStatus = indexStatus;
+    }
+
+    public void add(File file) {
+        add(file, DEFALUT_FILE_CLASS);
+    }
+
+    public void add(File file, String fileClass) {
+        if (file.isDirectory()) {
+            addDirectory(file, fileClass);
+        } else {
+            addOrdinaryFile(file, fileClass);
+        }
+    }
+----------------------------------------
+        if (file.isDirectory()) {
+            addDirectory(file, fileClass);
+        } else {
+            addOrdinaryFile(file, fileClass);
+        }
+    }
+
+    public void addDirectory(File dir, String fileClass) {
+        File files[] = dir.listFiles();
+        for (File file : files) {
+            add(file, fileClass);
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,103317.java,220,235
+selected,103317.java,219,229
+----------------------------------------
+                        deleteLine(y1 + 1);
+                    }
+                    editRec.mergeLine(y1);
+                }
+            }
+            cx = x1;
+            cy = y1;
+            if (y2 - y1 > 400) {
+                U.gc();
+            }
+            focusCursor();
+        }
+
+        void insert(char ch) {
+            if (ch == KeyEvent.VK_ENTER) {
+                if (ptSelection.isSelected()) {
+----------------------------------------
+                    for (int i = y1 + 1; i < y2; i++) {
+                        deleteLine(y1 + 1);
+                    }
+                    editRec.mergeLine(y1);
+                }
+            }
+            cx = x1;
+            cy = y1;
+            if (y2 - y1 > 400) {
+                U.gc();
+            }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,21199.java,77,87
+default,21199.java,79,90
+----------------------------------------
+            template.replaceAll("$usingCAPTCHA$", "true");
+        } else {
+            template.replaceAll("$usingCAPTCHA$", "false");
+        }
+        template.replaceAll("$title", "Channel Data Import");
+        template.replaceAll("$action", "/servlet/ChannelDataRes?action=13");
+        return template.getPageBytes();
+    }
+
+    private byte[] exportChannelList(HTTPurl urlData) throws Exception {
+        StringBuffer buff = new StringBuffer();
+----------------------------------------
+            template.replaceAll("$usingCAPTCHA$", "false");
+        }
+        template.replaceAll("$title", "Channel Data Import");
+        template.replaceAll("$action", "/servlet/ChannelDataRes?action=13");
+        return template.getPageBytes();
+    }
+
+    private byte[] exportChannelList(HTTPurl urlData) throws Exception {
+        StringBuffer buff = new StringBuffer();
+        buff.append("HTTP/1.0 200 OK\nContent-Type: text/xml\n");
+        buff.append("Content-Disposition: attachment; filename=\"channels.xml\"\n");
+        buff.append("Pragma: no-cache\n");
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1125396.java,355,369
+selected,1125396.java,365,380
+----------------------------------------
+            LOG.warning(e.toString());
+            this.io.error("Unable to initialize a secure protocol");
+            return null;
+        }
+    }
+
+    /**
+   * Starts the server by spawning and starting a new ServerThread
+   */
+    public boolean startServer() {
+        if (!this.listening && this.serverCreated) {
+            this.server = new ServerThread();
+            this.server.start();
+            this.listening = true;
+        }
+----------------------------------------
+        if (!this.listening && this.serverCreated) {
+            this.server = new ServerThread();
+            this.server.start();
+            this.listening = true;
+        }
+        return this.serverCreated;
+    }
+
+    /**
+   * Makes sure there exists an admin user and a default database, and if not, creates them
+   * @return Whether the initialisation of the database was successful or not
+   */
+    public boolean init() {
+        boolean success = true;
+        ensureAdminUser();
+        ensureDefaultDatabase();
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1512445.java,18,34
+selected,1007855.java,31,51
+----------------------------------------
+import org.xml.sax.InputSource;
+
+public class ValuePartitionCapacityTest extends TestBase {
+
+    public ValuePartitionCapacityTest(String name) {
+        super(name);
+    }
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+    }
+
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
+----------------------------------------
+import junit.framework.TestCase;
+
+/**
+ *
+ * @author ssg
+ */
+public class JSONSchemaTest extends TestCase {
+
+    public JSONSchemaTest(String testName) {
+        super(testName);
+    }
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+    }
+
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,124925.java,14,30
+default,124925.java,8,30
+----------------------------------------
+public class Screen {
+
+    static final Scanner com = new Scanner(System.in);
+
+    int div = 0;
+
+    String programP = "";
+
+    String dataP = "";
+
+    int wordSP = 3;
+
+    String matrix = "BLOSUM62";
+
+    int gapopP = 11;
+
+    int gapextP = 1;
+----------------------------------------
+import com.mysql.jdbc.Connection;
+
+/**
+ * Main class of the entire project: runs the Sequence Screening program This
+ * class implements a possible interpretation of the Government guidelines.
+ */
+public class Screen {
+
+    static final Scanner com = new Scanner(System.in);
+
+    int div = 0;
+
+    String programP = "";
+
+    String dataP = "";
+
+    int wordSP = 3;
+
+    String matrix = "BLOSUM62";
+
+    int gapopP = 11;
+
+    int gapextP = 1;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+sample,GCD.java,5,27
+sample,GCD.java,5,26
+----------------------------------------
+public class GCD {
+	
+	// while(b != 0) AND b = a % b
+	// while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*0\s*\)
+	// [a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*%\s*[a-z,A-Z,0-9,_,$]+
+	// while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*0\s*\).*[a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*%\s*[a-z,A-Z,0-9,_,$]+
+	public static int gcd1(int a, int b) {
+		while (b != 0) {
+			int t = b;
+			b = a % b;
+			a = t;
+		}
+		return a;
+	}
+	
+	// while(a != b) AND a = a - b
+	//while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*[a-z,A-Z,0-9,_,$]+\s*\)
+	//[a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*-\s*[a-z,A-Z,0-9,_,$]+
+	//while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*[a-z,A-Z,0-9,_,$]+\s*\).*[a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*-\s*[a-z,A-Z,0-9,_,$]+
+	public static int gcd2(int a, int b) {
+		while (a != b) {
+			if (a > b)
+				a = a - b;
+----------------------------------------
+public class GCD {
+	
+	// while(b != 0) AND b = a % b
+	// while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*0\s*\)
+	// [a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*%\s*[a-z,A-Z,0-9,_,$]+
+	// while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*0\s*\).*[a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*%\s*[a-z,A-Z,0-9,_,$]+
+	public static int gcd1(int a, int b) {
+		while (b != 0) {
+			int t = b;
+			b = a % b;
+			a = t;
+		}
+		return a;
+	}
+	
+	// while(a != b) AND a = a - b
+	//while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*[a-z,A-Z,0-9,_,$]+\s*\)
+	//[a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*-\s*[a-z,A-Z,0-9,_,$]+
+	//while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*[a-z,A-Z,0-9,_,$]+\s*\).*[a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*-\s*[a-z,A-Z,0-9,_,$]+
+	public static int gcd2(int a, int b) {
+		while (a != b) {
+			if (a > b)
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,486506.java,530,544
+selected,486506.java,532,545
+----------------------------------------
+        ys = newYs;
+        inDegree = newIn;
+        outDegree = newOut;
+        roads = newRoads;
+        distances = newDist;
+        invalid = newVal;
+    }
+
+    /**
+	 * Adjusts the datastructures when number of buildings gets too large.
+	 **/
+    private void resizeBs() {
+        int newSize = (buildingXs.length * 2);
+        int[] newXs = new int[newSize];
+        int[] newYs = new int[newSize];
+----------------------------------------
+        outDegree = newOut;
+        roads = newRoads;
+        distances = newDist;
+        invalid = newVal;
+    }
+
+    /**
+	 * Adjusts the datastructures when number of buildings gets too large.
+	 **/
+    private void resizeBs() {
+        int newSize = (buildingXs.length * 2);
+        int[] newXs = new int[newSize];
+        int[] newYs = new int[newSize];
+        int[] newEnt = new int[newSize];
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2297787.java,783,796
+selected,2297787.java,781,796
+----------------------------------------
+        public final String logintoken;
+
+        public final String logincaptcha;
+
+        public CaptchaRespond(String logintoken, String logincaptcha) {
+            this.logintoken = logintoken;
+            this.logincaptcha = logincaptcha;
+        }
+    }
+
+    private static CaptchaRespond getCapchaRespond(String respond) {
+        assert (respond != null);
+        final String[] res = respond.split("\\r?\\n");
+        final Map<String, String> map = new HashMap<String, String>();
+----------------------------------------
+    private static class CaptchaRespond {
+
+        public final String logintoken;
+
+        public final String logincaptcha;
+
+        public CaptchaRespond(String logintoken, String logincaptcha) {
+            this.logintoken = logintoken;
+            this.logincaptcha = logincaptcha;
+        }
+    }
+
+    private static CaptchaRespond getCapchaRespond(String respond) {
+        assert (respond != null);
+        final String[] res = respond.split("\\r?\\n");
+        final Map<String, String> map = new HashMap<String, String>();
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1631986.java,196,206
+selected,1631986.java,191,203
+----------------------------------------
+            zp.process();
+        }
+        if (zp._fpd == null) {
+            return;
+        }
+        int imageWidth = imgWidth;
+        int imageHeight = imgHeight;
+        if ((imageWidth <= 0) || (imageHeight <= 0)) {
+            imageHeight = _imageHeight;
+            imageWidth = _imageWidth;
+        }
+----------------------------------------
+        return tab;
+    }
+
+    public static void plot(ZoieIndexLogProcessor zp, String outputFile, String seriesDescription, int imgWidth, int imgHeight, boolean createPngs, String pngDir, boolean createHtml, String htmlOutFile) throws Exception {
+        if (zp._fpd == null) {
+            zp.process();
+        }
+        if (zp._fpd == null) {
+            return;
+        }
+        int imageWidth = imgWidth;
+        int imageHeight = imgHeight;
+        if ((imageWidth <= 0) || (imageHeight <= 0)) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,375718.java,164,178
+selected,375718.java,155,173
+----------------------------------------
+            ftp.logout();
+        } catch (Exception ex) {
+        }
+        try {
+            ftp.disconnect();
+        } catch (Exception ex) {
+        }
+        try {
+            db.close();
+        } catch (Exception ex) {
+        }
+    }
+
+    private void connectAndLogin() throws SocketException, IOException, ClassNotFoundException, SQLException, FileNotFoundException {
+        lastOperationTime = System.currentTimeMillis();
+----------------------------------------
+        return threadFinished;
+    }
+
+    public boolean finishedSuccessfully() {
+        return finishedSuccessfully;
+    }
+
+    public void exit() {
+        try {
+            ftp.logout();
+        } catch (Exception ex) {
+        }
+        try {
+            ftp.disconnect();
+        } catch (Exception ex) {
+        }
+        try {
+            db.close();
+        } catch (Exception ex) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,910797.java,29,47
+selected,2525433.java,34,50
+----------------------------------------
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.part.EditorPart;
+
+/**
+ * A GEF editor for an EMF resource. It supports
+ * <ul>
+ * <li>command stack operations</li>
+ * <li>selection</li>
+ * <li>zooming</li>
+ * <li>undoable property sheet page</li>
+ * <li>tree and graphical outline</li>
+ * <li>direct edit</li>
+ * </ul>
+ */
+public abstract class GraphicalResourceEditor extends EditorPart implements CommandStackListener, ISelectionListener {
+----------------------------------------
+import org.eclipse.ui.ISelectionService;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.part.EditorPart;
+import org.eclipse.ui.views.properties.PropertySheetPage;
+
+/**
+ * This class serves as a quick starting point for clients who are new to GEF. It will create an Editor
+ * containing a single GraphicalViewer as its control.
+ * <P>
+ * <EM>IMPORTANT</EM>This class should only be used as a reference for creating your own EditorPart
+ * implementation. This class will not suit everyone's needs, and may change in the future. Clients may copy
+ * the implementation.
+ * 
+ * @author hudsonr
+ */
+public abstract class GraphicalEditor extends EditorPart implements CommandStackListener, ISelectionListener {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,17407.java,10,21
+selected,431346.java,58,69
+----------------------------------------
+    public static boolean isPalindrome(String word) {
+        int left = 0;
+        int right = word.length() - 1;
+        while (left < right) {
+            if (word.charAt(left) != word.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+----------------------------------------
+                break;
+            }
+        }
+        return result;
+    }
+
+    private boolean isPalindrome(String w) {
+        for (int i = 0; i < w.length() / 2; i++) {
+            if (w.charAt(i) != w.charAt(w.length() - 1 - i)) {
+                return false;
+            }
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2232174.java,105,116
+selected,2232174.java,103,113
+----------------------------------------
+                        lz: while (dest == null) {
+                            dest = getDest();
+                            if (i == 15) {
+                                System.out.println("before continue");
+                                continue ly;
+                            }
+                            System.out.println("last statement of while-loop");
+                        }
+                    }
+                    lz: {
+                        if (i > 5) {
+                            System.out.println("before break");
+----------------------------------------
+                if (n == (int) 0L) dest = new URL("pp://localhost:7100/first"); else ly: for (int i = 0; i < 3; i++) {
+                    if (i < 1) {
+                        lz: while (dest == null) {
+                            dest = getDest();
+                            if (i == 15) {
+                                System.out.println("before continue");
+                                continue ly;
+                            }
+                            System.out.println("last statement of while-loop");
+                        }
+                    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,17407.java,13,26
+default,17407.java,10,21
+----------------------------------------
+        while (left < right) {
+            if (word.charAt(left) != word.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    public static boolean isMirrorString(String word, Hashtable table) {
+        int left = 0;
+        int right = word.length() - 1;
+        while (left <= right) {
+----------------------------------------
+    public static boolean isPalindrome(String word) {
+        int left = 0;
+        int right = word.length() - 1;
+        while (left < right) {
+            if (word.charAt(left) != word.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,38829.java,156,172
+default,47440.java,146,159
+----------------------------------------
+                    bridgeSpilledParamLocation -= 8;
+                } else if (bridgeParameterType.isFloatType()) {
+                    bridgeSpilledParamLocation -= 4;
+                } else {
+                    bridgeRegisterIndex += 1;
+                    bridgeRegisterLocation -= 4;
+                    bridgeSpilledParamLocation -= 4;
+                }
+            }
+        } else {
+            registerLocations[JTOC] = framePtr + JTOC_SAVE_OFFSET;
+        }
+        return 0;
+    }
+
+    int getNextReturnAddressAddress() {
+        if (mapId >= 0) {
+----------------------------------------
+                            return bridgeSpilledParamLocation + 4;
+                        } else {
+                            break;
+                        }
+                    }
+                } else if (bridgeParameterType.isLongType()) {
+                    bridgeRegisterIndex += 2;
+                    bridgeRegisterLocation -= 8;
+                    bridgeSpilledParamLocation -= 8;
+                } else if (bridgeParameterType.isDoubleType()) {
+                    bridgeSpilledParamLocation -= 8;
+                } else if (bridgeParameterType.isFloatType()) {
+                    bridgeSpilledParamLocation -= 4;
+                } else {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,7746.java,12,31
+default,7746.java,16,31
+----------------------------------------
+public class Api {
+
+    private int id;
+
+    private InterfaceServeur serveur = null;
+
+    private static String url;
+
+    private String user;
+
+    private GUI_Client parent;
+
+    public Api(String ur, GUI_Client par) {
+        url = ur;
+        parent = par;
+    }
+
+    public boolean connect(String us, String mdp) {
+        try {
+            if (serveur == null) serveur = (InterfaceServeur) Naming.lookup(url);
+----------------------------------------
+    private InterfaceServeur serveur = null;
+
+    private static String url;
+
+    private String user;
+
+    private GUI_Client parent;
+
+    public Api(String ur, GUI_Client par) {
+        url = ur;
+        parent = par;
+    }
+
+    public boolean connect(String us, String mdp) {
+        try {
+            if (serveur == null) serveur = (InterfaceServeur) Naming.lookup(url);
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1690820.java,258,268
+selected,1690820.java,260,270
+----------------------------------------
+        for (j = 0; j < this.nCols; j++) {
+            minorIJ = this.minor(0, j);
+            detIJ = minorIJ.det();
+            determinant += sign * detIJ * this.cell[0][j];
+            sign = -sign;
+        }
+        return determinant;
+    }
+
+    public Matrix cofactors() {
+        if (this.nLines == 1) return this;
+----------------------------------------
+            detIJ = minorIJ.det();
+            determinant += sign * detIJ * this.cell[0][j];
+            sign = -sign;
+        }
+        return determinant;
+    }
+
+    public Matrix cofactors() {
+        if (this.nLines == 1) return this;
+        int i, j;
+        double detIJ, sign = 1;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,17407.java,10,21
+selected,431346.java,58,69
+----------------------------------------
+    public static boolean isPalindrome(String word) {
+        int left = 0;
+        int right = word.length() - 1;
+        while (left < right) {
+            if (word.charAt(left) != word.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+----------------------------------------
+                break;
+            }
+        }
+        return result;
+    }
+
+    private boolean isPalindrome(String w) {
+        for (int i = 0; i < w.length() / 2; i++) {
+            if (w.charAt(i) != w.charAt(w.length() - 1 - i)) {
+                return false;
+            }
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,38829.java,156,172
+default,47440.java,146,159
+----------------------------------------
+                    bridgeSpilledParamLocation -= 8;
+                } else if (bridgeParameterType.isFloatType()) {
+                    bridgeSpilledParamLocation -= 4;
+                } else {
+                    bridgeRegisterIndex += 1;
+                    bridgeRegisterLocation -= 4;
+                    bridgeSpilledParamLocation -= 4;
+                }
+            }
+        } else {
+            registerLocations[JTOC] = framePtr + JTOC_SAVE_OFFSET;
+        }
+        return 0;
+    }
+
+    int getNextReturnAddressAddress() {
+        if (mapId >= 0) {
+----------------------------------------
+                            return bridgeSpilledParamLocation + 4;
+                        } else {
+                            break;
+                        }
+                    }
+                } else if (bridgeParameterType.isLongType()) {
+                    bridgeRegisterIndex += 2;
+                    bridgeRegisterLocation -= 8;
+                    bridgeSpilledParamLocation -= 8;
+                } else if (bridgeParameterType.isDoubleType()) {
+                    bridgeSpilledParamLocation -= 8;
+                } else if (bridgeParameterType.isFloatType()) {
+                    bridgeSpilledParamLocation -= 4;
+                } else {
+----------------------------------------

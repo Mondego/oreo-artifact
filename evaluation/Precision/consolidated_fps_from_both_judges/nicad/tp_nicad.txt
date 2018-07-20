@@ -1,0 +1,707 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,33328.java,63,112
+default,64999.java,61,122
+----------------------------------------
+    public static void main(String[] args) {
+        final String dbdriver = "org.postgresql.Driver";
+        final String dbconnect = "jdbc:postgresql://localhost:5432/wdb";
+        final String dbuser = "wcitest";
+        final String dbpasswd = "";
+        Connection con = null;
+        Statement statement = null;
+        try {
+            Class.forName(dbdriver);
+            con = DriverManager.getConnection(dbconnect, dbuser, dbpasswd);
+            statement = con.createStatement();
+        } catch (Exception e) {
+            System.out.println("FATAL: cant load the database driver <" + dbdriver + ">!");
+            System.exit(1);
+        }
+        String wdbInit = "SELECT wci.begin('" + dbuser + "')";
+        String sql = " SELECT * " + " FROM wci.read( array['test wci 5'], 'POINT( 10.0 59.0 )', " + "                '2009-11-13 00:00:00+00', " + "                NULL, " + "                array['air temperature', " + "                      'air pressure'], " + "                NULL, " + "                array[-1], " + "                NULL::wci.returnFloat )";
+        final String colNames[] = { "value", "valueParameterName", "validTimeFrom" };
+        ResultSet rs = null;
+        try {
+            statement.execute(wdbInit);
+            rs = statement.executeQuery(sql);
+            ResultSetMetaData rsMetaData = rs.getMetaData();
+            String data;
+            boolean first;
+            while (rs.next()) {
+                first = true;
+                for (String name : colNames) {
+                    data = rs.getString(name);
+                    if (first) {
+                        first = false;
+                    } else {
+                        System.out.print(", ");
+                    }
+                    if (data != null) System.out.print(data); else System.out.print("\\N");
+                }
+                System.out.println();
+            }
+        } catch (Exception ex) {
+            System.out.println("SELECT error: " + ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    System.out.println("EXCEPTION: rs.close: " + ex);
+                }
+            }
+        }
+    }
+----------------------------------------
+    public static void main(String[] args) {
+        final String dbdriver = "org.postgresql.Driver";
+        final String dbconnect = "jdbc:postgresql://localhost:5432/wdb";
+        final String dbuser = "wcitest";
+        final String dbpasswd = "";
+        Connection con = null;
+        Statement statement = null;
+        try {
+            Class.forName(dbdriver);
+            con = DriverManager.getConnection(dbconnect, dbuser, dbpasswd);
+            statement = con.createStatement();
+        } catch (Exception e) {
+            System.out.println("FATAL: cant load the database driver <" + dbdriver + ">!");
+            System.exit(1);
+        }
+        String wdbInit = "SELECT wci.begin('" + dbuser + "')";
+        String sql = " SELECT * " + " FROM wci.read( array['test wci 5'], NULL, " + "                '2009-11-13 00:00:00+00', " + "                NULL, " + "                array['air temperature', " + "                      'air pressure'], " + "                NULL, " + "                array[-1], " + "                NULL::wci.returngid )";
+        final String colNames[] = { "valueParameterName", "validTimeFrom" };
+        ResultSet rs = null;
+        try {
+            statement.execute(wdbInit);
+            rs = statement.executeQuery(sql);
+            ResultSetMetaData rsMetaData = rs.getMetaData();
+            String data;
+            boolean first;
+            while (rs.next()) {
+                Statement getGridStatement = con.createStatement();
+                first = true;
+                long gridId = rs.getLong("value");
+                ResultSet blobResult = getGridStatement.executeQuery("SELECT * FROM wci.fetch(" + gridId + ", NULL::wci.grid)");
+                while (blobResult.next()) {
+                    int size = blobResult.getInt("numberX") + blobResult.getInt("numberX");
+                    InputStream blob = blobResult.getBinaryStream("grid");
+                    DataInputStream blobReader = new DataInputStream(blob);
+                    int floatToRead = 42;
+                    blobReader.skip(floatToRead * 4);
+                    float value = blobReader.readFloat();
+                    System.out.print(value + "\t");
+                    for (String name : colNames) {
+                        data = rs.getString(name);
+                        if (first) {
+                            first = false;
+                        } else {
+                            System.out.print(", ");
+                        }
+                        if (data != null) System.out.print(data); else System.out.print("\\N");
+                    }
+                    System.out.print("  (BLOB size: " + size + ")");
+                    System.out.println();
+                }
+                blobResult.close();
+            }
+        } catch (Exception ex) {
+            System.out.println("SELECT error: " + ex);
+        } finally {
+            try {
+                if (rs != null) rs.close();
+            } catch (SQLException ex) {
+                System.out.println("EXCEPTION: rs.close: " + ex);
+            }
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,92452.java,205,257
+default,15697.java,318,370
+----------------------------------------
+    private byte[] showDelMatchList(HTTPurl urlData, HashMap<String, String> headers) throws Exception {
+        int index = -1;
+        try {
+            index = Integer.parseInt(urlData.getParameter("index"));
+        } catch (Exception e) {
+        }
+        EpgMatch item = (EpgMatch) store.getEpgMatchList().get(index);
+        if (item == null) {
+            String out = "HTTP/1.0 302 Moved Temporarily\nLocation: " + "/servlet/" + urlData.getServletClass() + "\n\n";
+            return out.getBytes();
+        }
+        String start = urlData.getParameter("start");
+        if (start == null || start.length() == 0) start = "0";
+        String show = urlData.getParameter("show");
+        if (show == null || show.length() == 0) show = "10";
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db = dbf.newDocumentBuilder();
+        DOMImplementation di = db.getDOMImplementation();
+        Document doc = di.createDocument("", "buttons", null);
+        Element root = doc.getDocumentElement();
+        root.setAttribute("start", start);
+        root.setAttribute("show", show);
+        root.setAttribute("back", "/servlet/" + urlData.getServletClass() + "?action=08&index=" + index);
+        root.setAttribute("title", "Select a Match List to Delete it");
+        Element button = null;
+        Element elm = null;
+        Text text = null;
+        button = doc.createElement("mainurl");
+        text = doc.createTextNode("/servlet/" + urlData.getServletClass() + "?action=10&index=" + index + "&");
+        button.appendChild(text);
+        root.appendChild(button);
+        String[] keys = (String[]) item.getMatchListNames().toArray(new String[0]);
+        Arrays.sort(keys, String.CASE_INSENSITIVE_ORDER);
+        int total = 0;
+        for (int x = 0; x < keys.length; x++) {
+            String action = "/servlet/KBAutoAddRes?action=11&index=" + index + "&name=" + URLEncoder.encode(keys[x], "UTF-8");
+            button = doc.createElement("button");
+            button.setAttribute("name", keys[x]);
+            elm = doc.createElement("url");
+            text = doc.createTextNode(action);
+            elm.appendChild(text);
+            button.appendChild(elm);
+            elm = doc.createElement("confirm");
+            text = doc.createTextNode("true");
+            elm.appendChild(text);
+            button.appendChild(elm);
+            root.appendChild(button);
+            total++;
+        }
+        root.setAttribute("total", new Integer(total).toString());
+        XSL transformer = new XSL(doc, "kb-list.xsl", urlData, headers);
+        return transformer.doTransform();
+    }
+----------------------------------------
+    private byte[] showMatchListMenu(HTTPurl urlData, HashMap<String, String> headers) throws Exception {
+        int index = -1;
+        try {
+            index = Integer.parseInt(urlData.getParameter("index"));
+        } catch (Exception e) {
+        }
+        EpgMatch item = (EpgMatch) store.getEpgMatchList().get(index);
+        if (item == null) {
+            String out = "HTTP/1.0 302 Moved Temporarily\nLocation: " + "/servlet/" + urlData.getServletClass() + "\n\n";
+            return out.getBytes();
+        }
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db = dbf.newDocumentBuilder();
+        DOMImplementation di = db.getDOMImplementation();
+        Document doc = di.createDocument("", "buttons", null);
+        Element root = doc.getDocumentElement();
+        root.setAttribute("back", "/servlet/" + urlData.getServletClass() + "?action=02&index=" + index);
+        root.setAttribute("title", "Auto-Add Match List Menu");
+        Element button = null;
+        Element elm = null;
+        Text text = null;
+        String actionURL = "";
+        button = doc.createElement("button");
+        button.setAttribute("name", "Back");
+        elm = doc.createElement("url");
+        actionURL = "/servlet/" + urlData.getServletClass() + "?action=02&index=" + index;
+        text = doc.createTextNode(actionURL);
+        elm.appendChild(text);
+        button.appendChild(elm);
+        root.appendChild(button);
+        if (item.getMatchListNames().size() > 0) {
+            button = doc.createElement("button");
+            button.setAttribute("name", "Show Current");
+            elm = doc.createElement("url");
+            actionURL = "/servlet/" + urlData.getServletClass() + "?action=10&index=" + index;
+            text = doc.createTextNode(actionURL);
+            elm.appendChild(text);
+            button.appendChild(elm);
+            root.appendChild(button);
+        }
+        if (store.getMatchLists().size() > 0) {
+            button = doc.createElement("button");
+            button.setAttribute("name", "Add");
+            elm = doc.createElement("url");
+            actionURL = "/servlet/" + urlData.getServletClass() + "?action=09&index=" + index;
+            text = doc.createTextNode(actionURL);
+            elm.appendChild(text);
+            button.appendChild(elm);
+            root.appendChild(button);
+        }
+        XSL transformer = new XSL(doc, "kb-buttons.xsl", urlData, headers);
+        return transformer.doTransform();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,175022.java,135,174
+selected,639925.java,312,353
+----------------------------------------
+    private void find() {
+        stopFind();
+        console = extensionConsoleFactory.getLastOpenedConsole();
+        document = console.getDocument();
+        WorkspaceSaveContainer.findCurrent = comboFind.getText();
+        WorkspaceSaveContainer.directionForward = ((Button) radioForward).getSelection();
+        WorkspaceSaveContainer.regularExpression = ((Button) checkRegExp).getSelection();
+        WorkspaceSaveContainer.caseSensitive = ((Button) checkCaseSensitive).getSelection();
+        if (WorkspaceSaveContainer.findCurrent.equals("")) {
+            ((StyledText) editResult).setText("The string to look for is empty.");
+            colorizeEdit(((StyledText) editResult));
+            return;
+        }
+        boolean found = false;
+        int findHistoryCount = WorkspaceSaveContainer.findHistoryList.size();
+        int findHistoryIndex;
+        for (findHistoryIndex = 0; findHistoryIndex < findHistoryCount; findHistoryIndex++) {
+            String elt = (String) WorkspaceSaveContainer.findHistoryList.get(findHistoryIndex);
+            if (elt.equals(WorkspaceSaveContainer.findCurrent)) {
+                WorkspaceSaveContainer.findHistoryList.remove(findHistoryIndex);
+                found = true;
+                break;
+            }
+        }
+        WorkspaceSaveContainer.findHistoryList.add(0, WorkspaceSaveContainer.findCurrent);
+        if (!found && WorkspaceSaveContainer.findHistoryList.size() > comboItemCount) WorkspaceSaveContainer.findHistoryList.remove(WorkspaceSaveContainer.findHistoryList.size() - 1);
+        findHistoryCount = WorkspaceSaveContainer.findHistoryList.size();
+        String[] fields = new String[findHistoryCount];
+        for (findHistoryIndex = 0; findHistoryIndex < findHistoryCount; findHistoryIndex++) {
+            fields[findHistoryIndex] = (String) WorkspaceSaveContainer.findHistoryList.get(findHistoryIndex);
+        }
+        comboFind.setItems(fields);
+        comboFind.setText(WorkspaceSaveContainer.findCurrent);
+        comboFind.setSelection(new Point(0, WorkspaceSaveContainer.findCurrent.length()));
+        comboFind.setFocus();
+        nowFinding = find(onFindCompletedNotification, WorkspaceSaveContainer.findCurrent, WorkspaceSaveContainer.directionForward, WorkspaceSaveContainer.regularExpression, WorkspaceSaveContainer.caseSensitive);
+        if (nowFinding) {
+            PlatformUI.getWorkbench().getDisplay().getShells()[0].setCursor(new Cursor(PlatformUI.getWorkbench().getDisplay(), SWT.CURSOR_WAIT));
+        }
+    }
+----------------------------------------
+    private void find() {
+        stopFind();
+        state.findCurrent = ((Combo) comboFind).getText();
+        state.directionForward = ((Button) radioForward).getSelection();
+        state.regularExpression = ((Button) checkRegExp).getSelection();
+        state.caseSensitive = ((Button) checkCaseSensitive).getSelection();
+        if (state.findCurrent.equals("")) {
+            ((StyledText) editResult).setText("The string to look for is empty.");
+            colorizeEdit(((StyledText) editResult));
+            return;
+        }
+        boolean found = false;
+        int findHistoryCount = state.findHistoryList.size();
+        int findHistoryIndex;
+        for (findHistoryIndex = 0; findHistoryIndex < findHistoryCount; findHistoryIndex++) {
+            String elt = (String) state.findHistoryList.get(findHistoryIndex);
+            if (elt.equals(state.findCurrent)) {
+                state.findHistoryList.remove(findHistoryIndex);
+                found = true;
+                break;
+            }
+        }
+        state.findHistoryList.add(0, state.findCurrent);
+        if (!found && state.findHistoryList.size() > comboItemCount) state.findHistoryList.remove(state.findHistoryList.size() - 1);
+        findHistoryCount = state.findHistoryList.size();
+        String[] fields = new String[findHistoryCount];
+        for (findHistoryIndex = 0; findHistoryIndex < findHistoryCount; findHistoryIndex++) {
+            fields[findHistoryIndex] = (String) state.findHistoryList.get(findHistoryIndex);
+        }
+        ((Combo) comboFind).setItems(fields);
+        ((Combo) comboFind).setText(state.findCurrent);
+        ((Combo) comboFind).setSelection(new Point(0, state.findCurrent.length()));
+        ((Combo) comboFind).setFocus();
+        LogControlView activeLogControlView = (LogControlView) viewReference.getView(false);
+        StringBuffer findResultStr = new StringBuffer();
+        nowFinding = activeLogControlView.find(findResultStr, onFindCompletedNotification, state.findCurrent, state.directionForward, state.regularExpression, state.caseSensitive);
+        if (!nowFinding) {
+            ((StyledText) editResult).setText(findResultStr.toString());
+            colorizeEdit(((StyledText) editResult));
+            update();
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1465010.java,306,338
+selected,1161059.java,596,631
+----------------------------------------
+    private boolean _jspx_meth_html_005flink_005f2(javax.servlet.jsp.tagext.JspTag _jspx_th_html_005fform_005f0, PageContext _jspx_page_context) throws Throwable {
+        PageContext pageContext = _jspx_page_context;
+        JspWriter out = _jspx_page_context.getOut();
+        org.apache.struts.taglib.html.LinkTag _jspx_th_html_005flink_005f2 = (org.apache.struts.taglib.html.LinkTag) _005fjspx_005ftagPool_005fhtml_005flink_005fstyleId_005fstyleClass_005fonclick_005fhref.get(org.apache.struts.taglib.html.LinkTag.class);
+        _jspx_th_html_005flink_005f2.setPageContext(_jspx_page_context);
+        _jspx_th_html_005flink_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_005fform_005f0);
+        _jspx_th_html_005flink_005f2.setStyleId("linkGerar");
+        _jspx_th_html_005flink_005f2.setHref("#");
+        _jspx_th_html_005flink_005f2.setOnclick("submeter2()");
+        _jspx_th_html_005flink_005f2.setStyleClass("botao");
+        int _jspx_eval_html_005flink_005f2 = _jspx_th_html_005flink_005f2.doStartTag();
+        if (_jspx_eval_html_005flink_005f2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+            if (_jspx_eval_html_005flink_005f2 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+                out = _jspx_page_context.pushBody();
+                _jspx_th_html_005flink_005f2.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
+                _jspx_th_html_005flink_005f2.doInitBody();
+            }
+            do {
+                out.write("Aplicar Script");
+                int evalDoAfterBody = _jspx_th_html_005flink_005f2.doAfterBody();
+                if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN) break;
+            } while (true);
+            if (_jspx_eval_html_005flink_005f2 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+                out = _jspx_page_context.popBody();
+            }
+        }
+        if (_jspx_th_html_005flink_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+            _005fjspx_005ftagPool_005fhtml_005flink_005fstyleId_005fstyleClass_005fonclick_005fhref.reuse(_jspx_th_html_005flink_005f2);
+            return true;
+        }
+        _005fjspx_005ftagPool_005fhtml_005flink_005fstyleId_005fstyleClass_005fonclick_005fhref.reuse(_jspx_th_html_005flink_005f2);
+        return false;
+    }
+----------------------------------------
+    private boolean _jspx_meth_html_005fselect_005f0(javax.servlet.jsp.tagext.JspTag _jspx_th_html_005fform_005f0, PageContext _jspx_page_context) throws Throwable {
+        PageContext pageContext = _jspx_page_context;
+        JspWriter out = _jspx_page_context.getOut();
+        org.apache.struts.taglib.html.SelectTag _jspx_th_html_005fselect_005f0 = (org.apache.struts.taglib.html.SelectTag) _005fjspx_005ftagPool_005fhtml_005fselect_005fstyleId_005fstyleClass_005fproperty.get(org.apache.struts.taglib.html.SelectTag.class);
+        _jspx_th_html_005fselect_005f0.setPageContext(_jspx_page_context);
+        _jspx_th_html_005fselect_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_005fform_005f0);
+        _jspx_th_html_005fselect_005f0.setProperty("tipoRecibo");
+        _jspx_th_html_005fselect_005f0.setStyleId("tipoRecibo");
+        _jspx_th_html_005fselect_005f0.setStyleClass("campo");
+        int _jspx_eval_html_005fselect_005f0 = _jspx_th_html_005fselect_005f0.doStartTag();
+        if (_jspx_eval_html_005fselect_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+            if (_jspx_eval_html_005fselect_005f0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+                out = _jspx_page_context.pushBody();
+                _jspx_th_html_005fselect_005f0.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
+                _jspx_th_html_005fselect_005f0.doInitBody();
+            }
+            do {
+                out.write("\r\n");
+                out.write("\t\t\t\t");
+                if (_jspx_meth_html_005foptionsCollection_005f0(_jspx_th_html_005fselect_005f0, _jspx_page_context)) return true;
+                out.write("\r\n");
+                out.write("\t\t");
+                int evalDoAfterBody = _jspx_th_html_005fselect_005f0.doAfterBody();
+                if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN) break;
+            } while (true);
+            if (_jspx_eval_html_005fselect_005f0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+                out = _jspx_page_context.popBody();
+            }
+        }
+        if (_jspx_th_html_005fselect_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+            _005fjspx_005ftagPool_005fhtml_005fselect_005fstyleId_005fstyleClass_005fproperty.reuse(_jspx_th_html_005fselect_005f0);
+            return true;
+        }
+        _005fjspx_005ftagPool_005fhtml_005fselect_005fstyleId_005fstyleClass_005fproperty.reuse(_jspx_th_html_005fselect_005f0);
+        return false;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,828322.java,201,235
+selected,2177206.java,274,306
+----------------------------------------
+    public File doPostGetFile(String url, String postData, File inFile) throws IOException {
+        long t1 = System.currentTimeMillis();
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("##### doPost-start #####, url=" + url + ", postData=\n" + postData);
+        }
+        InputStream responseBodyInputStream = null;
+        PostMethod pMethod = new PostMethod(url);
+        if ("yes".equalsIgnoreCase(config.getProperty(XDriveConstant.CONFIG_HTTPCLIENT_IGNORECOOKIES))) {
+            pMethod.getParams().setCookiePolicy(CookiePolicy.IGNORE_COOKIES);
+        }
+        try {
+            NameValuePair type = new NameValuePair("data", postData);
+            pMethod.setRequestBody(new NameValuePair[] { type });
+            this.hc.executeMethod(pMethod);
+            responseBodyInputStream = pMethod.getResponseBodyAsStream();
+            final int bufferSize = 2048;
+            FileOutputStream fout = new FileOutputStream(inFile);
+            byte[] buffer = new byte[bufferSize];
+            int readCount = 0;
+            while ((readCount = responseBodyInputStream.read(buffer)) != -1) {
+                if (readCount < bufferSize) {
+                    fout.write(buffer, 0, readCount);
+                } else {
+                    fout.write(buffer);
+                }
+            }
+            fout.close();
+        } finally {
+            pMethod.releaseConnection();
+        }
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("##### doPost-end   #####, used time: " + (System.currentTimeMillis() - t1) + " ms,response=[InputStream]\n");
+        }
+        return inFile;
+    }
+----------------------------------------
+    public File doGetFile(String url, File inFile) throws IOException {
+        long t1 = System.currentTimeMillis();
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("##### doGet-start  #####, url=" + url);
+        }
+        InputStream responseBodyInputStream = null;
+        GetMethod gMethod = new GetMethod(url);
+        if ("yes".equalsIgnoreCase(config.getProperty(BoxConstant.CONFIG_HTTPCLIENT_IGNORECOOKIES))) {
+            gMethod.getParams().setCookiePolicy(CookiePolicy.IGNORE_COOKIES);
+        }
+        try {
+            this.hc.executeMethod(gMethod);
+            responseBodyInputStream = gMethod.getResponseBodyAsStream();
+            final int bufferSize = 2048;
+            FileOutputStream fout = new FileOutputStream(inFile);
+            byte[] buffer = new byte[bufferSize];
+            int readCount = 0;
+            while ((readCount = responseBodyInputStream.read(buffer)) != -1) {
+                if (readCount < bufferSize) {
+                    fout.write(buffer, 0, readCount);
+                } else {
+                    fout.write(buffer);
+                }
+            }
+            fout.close();
+        } finally {
+            gMethod.releaseConnection();
+        }
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("##### doGet-end    #####, used time: " + (System.currentTimeMillis() - t1) + " ms,response=[InputStream]\n");
+        }
+        return inFile;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2666453.java,240,269
+selected,245970.java,17,48
+----------------------------------------
+    public void cosProcessTerminating(java.lang.String entity, tcg.syscontrol.cos.CosTerminationCodeEnum p_code) {
+        while (true) {
+            if (!this._is_local()) {
+                org.omg.CORBA.portable.InputStream _is = null;
+                try {
+                    org.omg.CORBA.portable.OutputStream _os = _request("cosProcessTerminating", true);
+                    _os.write_string(entity);
+                    tcg.syscontrol.cos.CosTerminationCodeEnumHelper.write(_os, p_code);
+                    _is = _invoke(_os);
+                    return;
+                } catch (org.omg.CORBA.portable.RemarshalException _rx) {
+                } catch (org.omg.CORBA.portable.ApplicationException _ax) {
+                    String _id = _ax.getId();
+                    throw new RuntimeException("Unexpected exception " + _id);
+                } finally {
+                    this._releaseReply(_is);
+                }
+            } else {
+                org.omg.CORBA.portable.ServantObject _so = _servant_preinvoke("cosProcessTerminating", _opsClass);
+                if (_so == null) throw new org.omg.CORBA.UNKNOWN("local invocations not supported!");
+                ICosProcessManagerOperations _localServant = (ICosProcessManagerOperations) _so.servant;
+                try {
+                    _localServant.cosProcessTerminating(entity, p_code);
+                } finally {
+                    _servant_postinvoke(_so);
+                }
+                return;
+            }
+        }
+    }
+----------------------------------------
+    public void set_attribute_config_4(fr.esrf.Tango.AttributeConfig_3[] new_conf, fr.esrf.Tango.ClntIdent cl_ident) throws fr.esrf.Tango.DevFailed {
+        while (true) {
+            if (!this._is_local()) {
+                org.omg.CORBA.portable.InputStream _is = null;
+                try {
+                    org.omg.CORBA.portable.OutputStream _os = _request("set_attribute_config_4", true);
+                    fr.esrf.Tango.AttributeConfigList_3Helper.write(_os, new_conf);
+                    fr.esrf.Tango.ClntIdentHelper.write(_os, cl_ident);
+                    _is = _invoke(_os);
+                    return;
+                } catch (org.omg.CORBA.portable.RemarshalException _rx) {
+                } catch (org.omg.CORBA.portable.ApplicationException _ax) {
+                    String _id = _ax.getId();
+                    if (_id.equals("IDL:Tango/DevFailed:1.0")) {
+                        throw fr.esrf.Tango.DevFailedHelper.read(_ax.getInputStream());
+                    } else throw new RuntimeException("Unexpected exception " + _id);
+                } finally {
+                    this._releaseReply(_is);
+                }
+            } else {
+                org.omg.CORBA.portable.ServantObject _so = _servant_preinvoke("set_attribute_config_4", _opsClass);
+                if (_so == null) throw new org.omg.CORBA.UNKNOWN("local invocations not supported!");
+                Device_4Operations _localServant = (Device_4Operations) _so.servant;
+                try {
+                    _localServant.set_attribute_config_4(new_conf, cl_ident);
+                } finally {
+                    _servant_postinvoke(_so);
+                }
+                return;
+            }
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1580182.java,143,167
+selected,946507.java,105,130
+----------------------------------------
+    public void moveRowDown(int id, int row) throws FidoDatabaseException {
+        try {
+            Connection conn = null;
+            Statement stmt = null;
+            try {
+                conn = fido.util.FidoDataSource.getConnection();
+                conn.setAutoCommit(false);
+                stmt = conn.createStatement();
+                int max = findMaxRank(stmt, id);
+                if ((row < 1) || (row > (max - 1))) throw new IllegalArgumentException("Row number not between 1 and " + (max - 1));
+                stmt.executeUpdate("update InstructionGroups set Rank = -1 where InstructionId = '" + id + "' and Rank = " + row);
+                stmt.executeUpdate("update InstructionGroups set Rank = " + row + " where InstructionId = '" + id + "' and Rank = " + (row + 1));
+                stmt.executeUpdate("update InstructionGroups set Rank = " + (row + 1) + " where InstructionId = '" + id + "' and Rank = -1");
+                conn.commit();
+            } catch (SQLException e) {
+                if (conn != null) conn.rollback();
+                throw e;
+            } finally {
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            }
+        } catch (SQLException e) {
+            throw new FidoDatabaseException(e);
+        }
+    }
+----------------------------------------
+    public void delete(String name, int row) throws FidoDatabaseException {
+        try {
+            Connection conn = null;
+            Statement stmt = null;
+            try {
+                String sql = "delete from ProperNouns where Noun = '" + name + "' and SenseNumber = " + row;
+                conn = fido.util.FidoDataSource.getConnection();
+                conn.setAutoCommit(false);
+                stmt = conn.createStatement();
+                int max = findMaxRank(stmt, name);
+                stmt.executeUpdate(sql);
+                for (int i = row; i < max; ++i) {
+                    stmt.executeUpdate("update ProperNouns set SenseNumber = " + i + " where SenseNumber = " + (i + 1) + " and Noun = '" + name + "'");
+                }
+                conn.commit();
+            } catch (SQLException e) {
+                if (conn != null) conn.rollback();
+                throw e;
+            } finally {
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            }
+        } catch (SQLException e) {
+            throw new FidoDatabaseException(e);
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,767.java,344,370
+selected,2480045.java,658,684
+----------------------------------------
+    void makeCutoffPlotFile(PrintStream ps) {
+        ps.println("reset");
+        ps.println("clear");
+        ps.println("cd \"" + project_path + "\"");
+        ps.println("set term png large size 960,720");
+        ps.println("set output \"CutoffsSurfPlot.png\"");
+        ps.println("set border");
+        ps.println("set grid");
+        ps.println("set log yzcb");
+        ps.println("set pm3d at s");
+        ps.println("set title \"TP and FDR by G-statistic & T-Test p-value Cutoffs\"");
+        ps.println("set xlabel \"G-statistic\"");
+        ps.println("set ylabel \"p-value\"");
+        ps.println("set label 1 \"TP\" center rotate by 90 at graph 0, graph 0, graph 0.5 offset -5");
+        ps.println("set key off");
+        ps.println("splot \"pepcResults.txt\"");
+        ps.println("reset");
+        ps.println("set term png large size 960,720");
+        ps.println("set output \"Cutoffs.png\"");
+        ps.println("set border");
+        ps.println("set log ycb");
+        ps.println("set title \"FDR by G-statistict & T-Test p-value Cutoffs\"");
+        ps.println("set xlabel \"G-statistic\"");
+        ps.println("set ylabel \"p-value\"");
+        ps.println("splot \"pepcResults.txt\" with view");
+        ps.flush();
+    }
+----------------------------------------
+    static void monthlyHeader() throws IOException {
+        File f = new File("output/cvreport2.html");
+        FileOutputStream out = new FileOutputStream(f, true);
+        PrintStream os2 = new PrintStream(out);
+        os2.println("<br style=\"page-break-before: always;\"></br>");
+        os2.println("<table style=\"-fs-table-paginate: paginate;\" cellSpacing=\"0\" cellPadding=\"5\" border=\"1\" id=\"table31\" width=\"650\">");
+        os2.println("<thead>");
+        os2.println("<tr vAlign=\"center\">");
+        os2.println("<th></th>");
+        os2.println("<th>Jan</th>");
+        os2.println("<th>Feb</th>");
+        os2.println("<th>Mar</th>");
+        os2.println("<th>Apr</th>");
+        os2.println("<th>May</th>");
+        os2.println("<th>Jun</th>");
+        os2.println("<th>Jul</th>");
+        os2.println("<th>Aug</th>");
+        os2.println("<th>Sep</th>");
+        os2.println("<th>Oct</th>");
+        os2.println("<th>Nov</th>");
+        os2.println("<th>Dec</th>");
+        os2.println("<th>Total</th>");
+        os2.println("</tr>");
+        os2.println("</thead>");
+        os2.println("<tbody>");
+        os2.close();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2235486.java,393,415
+selected,633992.java,351,376
+----------------------------------------
+    private boolean _jspx_meth_ae_IfTrue_1(PageContext _jspx_page_context) throws Throwable {
+        PageContext pageContext = _jspx_page_context;
+        JspWriter out = _jspx_page_context.getOut();
+        org.activebpel.rt.bpeladmin.war.tags.AeIfTrueTag _jspx_th_ae_IfTrue_1 = (org.activebpel.rt.bpeladmin.war.tags.AeIfTrueTag) _jspx_tagPool_ae_IfTrue_property_name.get(org.activebpel.rt.bpeladmin.war.tags.AeIfTrueTag.class);
+        _jspx_th_ae_IfTrue_1.setPageContext(_jspx_page_context);
+        _jspx_th_ae_IfTrue_1.setParent(null);
+        _jspx_th_ae_IfTrue_1.setName("configBean");
+        _jspx_th_ae_IfTrue_1.setProperty("allowEmptyQuery");
+        int _jspx_eval_ae_IfTrue_1 = _jspx_th_ae_IfTrue_1.doStartTag();
+        if (_jspx_eval_ae_IfTrue_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+            do {
+                out.write("checked");
+                int evalDoAfterBody = _jspx_th_ae_IfTrue_1.doAfterBody();
+                if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN) break;
+            } while (true);
+        }
+        if (_jspx_th_ae_IfTrue_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+            _jspx_tagPool_ae_IfTrue_property_name.reuse(_jspx_th_ae_IfTrue_1);
+            return true;
+        }
+        _jspx_tagPool_ae_IfTrue_property_name.reuse(_jspx_th_ae_IfTrue_1);
+        return false;
+    }
+----------------------------------------
+    private boolean _jspx_meth_logic_005fempty_005f0(PageContext _jspx_page_context) throws Throwable {
+        PageContext pageContext = _jspx_page_context;
+        JspWriter out = _jspx_page_context.getOut();
+        org.apache.struts.taglib.logic.EmptyTag _jspx_th_logic_005fempty_005f0 = (org.apache.struts.taglib.logic.EmptyTag) _005fjspx_005ftagPool_005flogic_005fempty_0026_005fname.get(org.apache.struts.taglib.logic.EmptyTag.class);
+        _jspx_th_logic_005fempty_005f0.setPageContext(_jspx_page_context);
+        _jspx_th_logic_005fempty_005f0.setParent(null);
+        _jspx_th_logic_005fempty_005f0.setName("newMsgs");
+        int _jspx_eval_logic_005fempty_005f0 = _jspx_th_logic_005fempty_005f0.doStartTag();
+        if (_jspx_eval_logic_005fempty_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+            do {
+                out.write("\r\n");
+                out.write("\t\t\t\t\t<tr>\r\n");
+                out.write("\t\t\t\t\t\t<td colspan=\"3\">暂无记录</td>\r\n");
+                out.write("\t\t\t\t\t</tr>\r\n");
+                out.write("\t\t\t\t");
+                int evalDoAfterBody = _jspx_th_logic_005fempty_005f0.doAfterBody();
+                if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN) break;
+            } while (true);
+        }
+        if (_jspx_th_logic_005fempty_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+            _005fjspx_005ftagPool_005flogic_005fempty_0026_005fname.reuse(_jspx_th_logic_005fempty_005f0);
+            return true;
+        }
+        _005fjspx_005ftagPool_005flogic_005fempty_0026_005fname.reuse(_jspx_th_logic_005fempty_005f0);
+        return false;
+    }
+----------------------------------------

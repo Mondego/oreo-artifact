@@ -1,0 +1,1558 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,81841.java,799,805
+default,58393.java,675,688
+----------------------------------------
+    public static String[] cloneString(String strArray[]) {
+        if (strArray == null) return (null);
+        int lth = strArray.length;
+        String sRtn[] = new String[lth];
+        for (int i = 0; i < lth; i++) sRtn[i] = strArray[i];
+        return (sRtn);
+    }
+----------------------------------------
+    public void _setFileNameRoots(String[] rFileNameRoots) {
+        if (null == rFileNameRoots) {
+            return;
+        }
+        String[] roots = (String[]) rFileNameRoots.clone();
+        int numRoots = roots.length;
+        for (int rootI = 0; rootI < numRoots; rootI++) {
+            if (null == roots[rootI]) {
+                roots[rootI] = "";
+            }
+        }
+        writer__iFileNameRoots = roots;
+        writer__iNumFiles = numRoots;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1352740.java,123,130
+default,53106.java,64,71
+----------------------------------------
+        public static String getHexString(byte[] bytes) {
+            if (bytes == null) return null;
+            StringBuilder hex = new StringBuilder(2 * bytes.length);
+            for (byte b : bytes) {
+                hex.append(HEX_CHARS[(b & 0xF0) >> 4]).append(HEX_CHARS[(b & 0x0F)]);
+            }
+            return hex.toString();
+        }
+----------------------------------------
+    String sequenceUsingFor(int start, int stop) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = start; i <= stop; i++) {
+            if (i > start) builder.append(',');
+            builder.append(i);
+        }
+        return builder.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,87099.java,100,113
+default,86184.java,293,304
+----------------------------------------
+    public static boolean deleteDir(File dir, boolean deleteRootDir) {
+        if (dir.isDirectory()) {
+            File[] children = dir.listFiles();
+            for (int i = 0; i < children.length; i++) {
+                if (!deleteDir(children[i])) {
+                    return false;
+                }
+            }
+        }
+        if (deleteRootDir) {
+            return dir.delete();
+        }
+        return true;
+    }
+----------------------------------------
+    private void send(ActiveAssociation active, File file) throws InterruptedException, IOException {
+        if (!file.isDirectory()) {
+            for (int i = 0; i < repeatSingle; ++i) {
+                sendFile(active, file);
+            }
+            return;
+        }
+        File[] list = file.listFiles();
+        for (int i = 0; i < list.length; ++i) {
+            send(active, list[i]);
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1202455.java,91,98
+selected,1710788.java,571,578
+----------------------------------------
+    public static double[][] scalarMultiply(double[][] mat, double scalar) {
+        for (int r = 0; r < mat.length; r++) {
+            for (int c = 0; c < mat[0].length; c++) {
+                mat[r][c] *= scalar;
+            }
+        }
+        return mat;
+    }
+----------------------------------------
+        public static void fromMatrixByRow(double[][] in, double[] out) {
+            int eleI = 0;
+            for (int rowI = 0; rowI < 2; rowI++) {
+                for (int colI = 0; colI < 2; colI++) {
+                    out[eleI++] = in[rowI][colI];
+                }
+            }
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,100172.java,473,481
+selected,2678801.java,253,259
+----------------------------------------
+    public double[] getColumnPackedCopy() {
+        double[] vals = new double[m * n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                vals[i + j * m] = A[i][j];
+            }
+        }
+        return vals;
+    }
+----------------------------------------
+    private void clearMappedData() {
+        for (int i = 0; i < mappedDatas.length; i++) {
+            for (int j = 0; j < mappedDatas[i].length; j++) {
+                mappedDatas[i][j] = null;
+            }
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,840915.java,718,730
+selected,1429821.java,1253,1270
+----------------------------------------
+    @SuppressWarnings("unchecked")
+    ArrayList new25() {
+        @SuppressWarnings("hiding") ArrayList nodeList = new ArrayList();
+        @SuppressWarnings("unused") ArrayList nodeArrayList1 = pop();
+        PBinaryPrim pbinaryprimNode1;
+        {
+            TIdent tidentNode2;
+            tidentNode2 = (TIdent) nodeArrayList1.get(0);
+            pbinaryprimNode1 = new ABinaryPrim(tidentNode2);
+        }
+        nodeList.add(pbinaryprimNode1);
+        return nodeList;
+    }
+----------------------------------------
+    ArrayList new32() {
+        ArrayList nodeList = new ArrayList();
+        ArrayList nodeArrayList1 = (ArrayList) pop();
+        PPhrase pphraseNode1;
+        {
+            TypedLinkedList listNode3 = new TypedLinkedList();
+            {
+                TypedLinkedList listNode2 = new TypedLinkedList();
+                listNode2 = (TypedLinkedList) nodeArrayList1.get(0);
+                if (listNode2 != null) {
+                    listNode3.addAll(listNode2);
+                }
+            }
+            pphraseNode1 = new APhrase(listNode3);
+        }
+        nodeList.add(pphraseNode1);
+        return nodeList;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,273144.java,504,513
+default,51882.java,117,131
+----------------------------------------
+    public static void copy(String a, String b) throws IOException {
+        File inputFile = new File(a);
+        File outputFile = new File(b);
+        FileReader in = new FileReader(inputFile);
+        FileWriter out = new FileWriter(outputFile);
+        int c;
+        while ((c = in.read()) != -1) out.write(c);
+        in.close();
+        out.close();
+    }
+----------------------------------------
+    File createJar(String name, String... entries) throws IOException {
+        File jar = new File(name);
+        OutputStream out = new FileOutputStream(jar);
+        try {
+            JarOutputStream jos = new JarOutputStream(out);
+            for (String e : entries) {
+                jos.putNextEntry(new ZipEntry(e));
+                jos.write(e.getBytes());
+            }
+            jos.close();
+        } finally {
+            out.close();
+        }
+        return jar;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,902418.java,52,56
+default,9758.java,409,412
+----------------------------------------
+    private boolean equalsByteArray(byte[] aa, byte[] bb) {
+        if (aa.length != bb.length) return false;
+        for (int i = 0; i < aa.length; i++) if (aa[i] != bb[i]) return false;
+        return true;
+    }
+----------------------------------------
+    public static int method384(char ac[], int i) {
+        for (int j = i; j < ac.length && j >= 0; j++) if (ac[j] < '0' || ac[j] > '9') return j;
+        return ac.length;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1206162.java,247,254
+selected,211182.java,595,605
+----------------------------------------
+    public Matrix transpose() {
+        final Ring.Member array[][] = new Ring.Member[numCols][numRows];
+        for (int j, i = 0; i < numRows; i++) {
+            array[0][i] = matrix[i][0];
+            for (j = 1; j < numCols; j++) array[j][i] = matrix[i][j];
+        }
+        return new RingMatrix(array);
+    }
+----------------------------------------
+    public Matrix arrayRightDivide(Matrix B) {
+        checkMatrixDimensions(B);
+        Matrix X = new Matrix(m, n);
+        double[][] C = X.getArray();
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                C[i][j] = A[i][j] / B.A[i][j];
+            }
+        }
+        return X;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,919373.java,7,18
+selected,264796.java,286,296
+----------------------------------------
+    private static String convertToHex(byte[] data) {
+        StringBuffer buf = new StringBuffer();
+        for (int i = 0; i < data.length; i++) {
+            int halfbyte = (data[i] >>> 4) & 0x0F;
+            int two_halfs = 0;
+            do {
+                if ((0 <= halfbyte) && (halfbyte <= 9)) buf.append((char) ('0' + halfbyte)); else buf.append((char) ('a' + (halfbyte - 10)));
+                halfbyte = data[i] & 0x0F;
+            } while (two_halfs++ < 1);
+        }
+        return buf.toString();
+    }
+----------------------------------------
+    public String fetchSite(URL url) throws IOException {
+        InputStream in = url.openStream();
+        StringBuffer sb = new StringBuffer();
+        byte[] buffer = new byte[256];
+        while (true) {
+            int bytesRead = in.read(buffer);
+            if (bytesRead == -1) break;
+            for (int i = 0; i < bytesRead; i++) sb.append((char) buffer[i]);
+        }
+        return sb.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1611108.java,41,54
+default,34939.java,73,82
+----------------------------------------
+    public static String createStrWithZeroFromStr(String src, int strLength, boolean preFlag) {
+        StringBuffer result = new StringBuffer();
+        if (preFlag) {
+            result.append(src);
+        }
+        int zeroNum = strLength - src.length();
+        for (int i = 0; i < zeroNum; i++) {
+            result.append("0");
+        }
+        if (!preFlag) {
+            result.append(src);
+        }
+        return result.toString();
+    }
+----------------------------------------
+    String sequenceUsingWhile(int start, int stop) {
+        StringBuilder builder = new StringBuilder();
+        int i = start;
+        while (i <= stop) {
+            if (i > start) builder.append(',');
+            builder.append(i);
+            i++;
+        }
+        return builder.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,240671.java,471,479
+default,103325.java,101,110
+----------------------------------------
+    public static String print(double[][] x) {
+        if (x == null) return "null";
+        StringBuffer b = new StringBuffer();
+        for (int i = 0; i < x.length - 1; i++) {
+            b.append(print(x[i])).append("\n");
+        }
+        b.append(print(x[x.length - 1]));
+        return b.toString();
+    }
+----------------------------------------
+    private static String toHexString(byte[] bytes) {
+        StringBuilder sb = new StringBuilder(bytes.length * 3);
+        for (int b : bytes) {
+            b &= 0xff;
+            sb.append(HEXDIGITS[b >> 4]);
+            sb.append(HEXDIGITS[b & 15]);
+            sb.append(' ');
+        }
+        return sb.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2236457.java,88,97
+selected,2593456.java,707,726
+----------------------------------------
+    private String toHexString(byte[] bytes) {
+        StringBuilder str = new StringBuilder(bytes.length * 2);
+        for (int i = 0; i < bytes.length; i++) {
+            int value = bytes[i];
+            if (value < 0) value += 256;
+            str.append(toHexChar(value >>> 4));
+            str.append(toHexChar(value & 15));
+        }
+        return str.toString();
+    }
+----------------------------------------
+    public static String nullSafeToString(short[] array) {
+        if (array == null) {
+            return NULL_STRING;
+        }
+        int length = array.length;
+        if (length == 0) {
+            return EMPTY_ARRAY;
+        }
+        StringBuffer buffer = new StringBuffer();
+        for (int i = 0; i < length; i++) {
+            if (i == 0) {
+                buffer.append(ARRAY_START);
+            } else {
+                buffer.append(ARRAY_ELEMENT_SEPARATOR);
+            }
+            buffer.append(array[i]);
+        }
+        buffer.append(ARRAY_END);
+        return buffer.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,527654.java,256,263
+selected,1955546.java,95,105
+----------------------------------------
+    public static String byteArrayToHex(byte... buffer) {
+        StringBuilder result = new StringBuilder();
+        for (byte b : buffer) {
+            result.append(hexdigits[(b >> 4) & 0x0F]);
+            result.append(hexdigits[b & 0x0F]);
+        }
+        return result.toString();
+    }
+----------------------------------------
+    private static String vectorToString(Vector vec) {
+        int n = vec.size();
+        StringBuffer ret = new StringBuffer();
+        for (int i = 0; i < n; i++) {
+            ret.append((String) vec.elementAt(i));
+            if (i < n - 1) {
+                ret.append(",");
+            }
+        }
+        return ret.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,328735.java,954,957
+selected,1710788.java,1087,1094
+----------------------------------------
+    private String selectTransferSyntax(String[] available, String[] tsuids) {
+        for (int i = 0; i < tsuids.length; i++) for (int j = 0; j < available.length; j++) if (available[j].equals(tsuids[i])) return available[j];
+        return null;
+    }
+----------------------------------------
+        public static void copyMatrix(double[][] in, double[][] out) {
+            if (in == out) return;
+            for (int rowI = 0; rowI < 4; rowI++) {
+                for (int colI = 0; colI < 4; colI++) {
+                    out[rowI][colI] = in[rowI][colI];
+                }
+            }
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,161563.java,125,134
+default,59570.java,93,97
+----------------------------------------
+    public static int indexOfFirstLetter(String string) {
+        int index = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if (isLetter(string.charAt(i))) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+----------------------------------------
+    public String endTrim(String source) {
+        int i = source.length();
+        while (--i >= 0) if (source.charAt(i) != ' ') break;
+        return source.substring(0, i + 1);
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1899190.java,165,171
+default,43916.java,521,525
+----------------------------------------
+    public static String getUpdatedStr(String original, String code) {
+        if (code.length() > original.length()) {
+            return code;
+        } else {
+            return original.substring(0, original.length() - code.length()) + code;
+        }
+    }
+----------------------------------------
+        private boolean pathStartsWith(String path, String prefix) {
+            if (path == null || prefix == null) return false;
+            if (path.length() < prefix.length()) return false;
+            return pathEqual(path.substring(0, prefix.length()), prefix);
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,736221.java,81,91
+selected,2094508.java,243,253
+----------------------------------------
+    public static String join(Object[] array, String delimeter) {
+        StringBuilder sb = new StringBuilder();
+        if (array != null && array.length > 0) {
+            sb.append(array[0]);
+            for (int i = 1; i < array.length; i++) {
+                sb.append(delimeter);
+                sb.append(array[i]);
+            }
+        }
+        return sb.toString();
+    }
+----------------------------------------
+    public String buildHexaString(byte[] hash) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < hash.length; i++) {
+            int v = hash[i] & 0xFF;
+            if (v < 16) {
+                sb.append("0");
+            }
+            sb.append(Integer.toString(v, 16).toUpperCase() + " ");
+        }
+        return sb.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1039401.java,417,432
+selected,1836262.java,449,467
+----------------------------------------
+    @Override
+    public String toString(List<ProvaVariable> variables) {
+        if (this == emptyRList) return "[]";
+        StringBuilder sb = new StringBuilder("[");
+        final int fixedLength = fixed.length;
+        for (int i = 0; i < fixedLength; i++) {
+            if (i != 0) sb.append(',');
+            sb.append(fixed[i].toString(variables));
+        }
+        if (tail != null) {
+            sb.append('|');
+            sb.append(tail.toString(variables));
+        }
+        sb.append(']');
+        return sb.toString();
+    }
+----------------------------------------
+    private PreparedStatement simpleInsert(Connection connection) {
+        StringBuffer sql = new StringBuffer();
+        sql.append("INSERT INTO " + quotedName() + " (");
+        for (int c = 0; c < columns.length; ++c) {
+            if (c > 0) sql.append(", ");
+            sql.append(columns[c].quotedName());
+        }
+        sql.append(") VALUES (");
+        for (int c = 0; c < columns.length; ++c) {
+            if (c > 0) sql.append(", ");
+            sql.append("?");
+        }
+        sql.append(")");
+        try {
+            return connection.prepareStatement(sql.toString());
+        } catch (SQLException e) {
+            throw new SimplePrepareFailedPoemException(sql.toString(), e);
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2676849.java,95,102
+default,62476.java,54,62
+----------------------------------------
+    private String stripNewlinesAndTabs(String str) {
+        char[] buf = str.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        for (char c : buf) {
+            if (c != '\t' && c != '\n') sb.append(c);
+        }
+        return sb.toString();
+    }
+----------------------------------------
+    String sequenceUsingDo(int start, int stop) {
+        StringBuilder builder = new StringBuilder();
+        int i = start;
+        do {
+            if (i > start) builder.append(',');
+            builder.append(i);
+        } while (++i <= stop);
+        return builder.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,271253.java,170,183
+selected,1814816.java,430,438
+----------------------------------------
+    public static int[][] computeEdges(int[][] contab) {
+        int N = contab.length;
+        int[][] edges = new int[N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (contab[i][j] > 0) {
+                    edges[i][j] = 1;
+                } else {
+                    edges[i][j] = INFINITY;
+                }
+            }
+        }
+        return edges;
+    }
+----------------------------------------
+    public static double[] matrixProd(final double[] m1, final double[][] m2) {
+        final double[] res = new double[m2[0].length];
+        for (int i = 0; i < m2[0].length; i++) {
+            for (int k = 0; k < m1.length; k++) {
+                res[i] += m1[k] * m2[k][i];
+            }
+        }
+        return res;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1352740.java,123,130
+default,53106.java,64,71
+----------------------------------------
+        public static String getHexString(byte[] bytes) {
+            if (bytes == null) return null;
+            StringBuilder hex = new StringBuilder(2 * bytes.length);
+            for (byte b : bytes) {
+                hex.append(HEX_CHARS[(b & 0xF0) >> 4]).append(HEX_CHARS[(b & 0x0F)]);
+            }
+            return hex.toString();
+        }
+----------------------------------------
+    String sequenceUsingFor(int start, int stop) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = start; i <= stop; i++) {
+            if (i > start) builder.append(',');
+            builder.append(i);
+        }
+        return builder.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,87099.java,100,113
+default,86184.java,293,304
+----------------------------------------
+    public static boolean deleteDir(File dir, boolean deleteRootDir) {
+        if (dir.isDirectory()) {
+            File[] children = dir.listFiles();
+            for (int i = 0; i < children.length; i++) {
+                if (!deleteDir(children[i])) {
+                    return false;
+                }
+            }
+        }
+        if (deleteRootDir) {
+            return dir.delete();
+        }
+        return true;
+    }
+----------------------------------------
+    private void send(ActiveAssociation active, File file) throws InterruptedException, IOException {
+        if (!file.isDirectory()) {
+            for (int i = 0; i < repeatSingle; ++i) {
+                sendFile(active, file);
+            }
+            return;
+        }
+        File[] list = file.listFiles();
+        for (int i = 0; i < list.length; ++i) {
+            send(active, list[i]);
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,594524.java,224,244
+selected,2252964.java,204,217
+----------------------------------------
+    private static Class<?> getPrimitiveWrapper(Class<?> primitiveType) {
+        if (boolean.class.equals(primitiveType)) {
+            return Boolean.class;
+        } else if (float.class.equals(primitiveType)) {
+            return Float.class;
+        } else if (long.class.equals(primitiveType)) {
+            return Long.class;
+        } else if (int.class.equals(primitiveType)) {
+            return Integer.class;
+        } else if (short.class.equals(primitiveType)) {
+            return Short.class;
+        } else if (byte.class.equals(primitiveType)) {
+            return Byte.class;
+        } else if (double.class.equals(primitiveType)) {
+            return Double.class;
+        } else if (char.class.equals(primitiveType)) {
+            return Character.class;
+        } else {
+            return null;
+        }
+    }
+----------------------------------------
+    public HashMap<String, Date> getStartDateMap(String type) {
+        if (type.equals(ST_INST)) {
+            return instanceDateMap;
+        } else if (type.equals(ST_ORIG)) {
+            return originatorDateMap;
+        } else if (type.equals(ST_TASK)) {
+            return taskDateMap;
+        } else if (type.equals(ST_EVEN)) {
+            return eventDateMap;
+        } else if (type.equals(ST_DATA)) {
+            return dataDateMap;
+        }
+        return null;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1202455.java,91,98
+selected,1710788.java,571,578
+----------------------------------------
+    public static double[][] scalarMultiply(double[][] mat, double scalar) {
+        for (int r = 0; r < mat.length; r++) {
+            for (int c = 0; c < mat[0].length; c++) {
+                mat[r][c] *= scalar;
+            }
+        }
+        return mat;
+    }
+----------------------------------------
+        public static void fromMatrixByRow(double[][] in, double[] out) {
+            int eleI = 0;
+            for (int rowI = 0; rowI < 2; rowI++) {
+                for (int colI = 0; colI < 2; colI++) {
+                    out[eleI++] = in[rowI][colI];
+                }
+            }
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,840057.java,67,74
+default,122700.java,36,41
+----------------------------------------
+    private static void generateUploadBoxID() throws Exception {
+        String rand = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 16; i++) {
+            sb.append(rand.charAt((int) Math.round(1 + (int) (Math.random() * 60))));
+        }
+        uid = sb.toString();
+    }
+----------------------------------------
+    public void testForSkip() {
+        StringBuilder builder = new StringBuilder();
+        String string = "123456";
+        for (int i = 0; i < string.length(); i += 2) builder.append(string.charAt(i));
+        assertEquals("135", builder.toString());
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,100172.java,473,481
+selected,2678801.java,253,259
+----------------------------------------
+    public double[] getColumnPackedCopy() {
+        double[] vals = new double[m * n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                vals[i + j * m] = A[i][j];
+            }
+        }
+        return vals;
+    }
+----------------------------------------
+    private void clearMappedData() {
+        for (int i = 0; i < mappedDatas.length; i++) {
+            for (int j = 0; j < mappedDatas[i].length; j++) {
+                mappedDatas[i][j] = null;
+            }
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2257917.java,449,451
+selected,16259.java,35,43
+----------------------------------------
+    public static void fill(double[][] m, double fill) {
+        for (int i = 0; i < m.length; i++) for (int j = 0; j < m[i].length; j++) m[i][j] = fill;
+    }
+----------------------------------------
+    public static double[][] transpose(double[][] object) {
+        double[][] transpose = new double[object[0].length][object.length];
+        for (int i = 0; i < object.length; i++) {
+            for (int x = 0; x < transpose.length; x++) {
+                transpose[x][i] = object[i][x];
+            }
+        }
+        return transpose;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,840915.java,718,730
+selected,1429821.java,1253,1270
+----------------------------------------
+    @SuppressWarnings("unchecked")
+    ArrayList new25() {
+        @SuppressWarnings("hiding") ArrayList nodeList = new ArrayList();
+        @SuppressWarnings("unused") ArrayList nodeArrayList1 = pop();
+        PBinaryPrim pbinaryprimNode1;
+        {
+            TIdent tidentNode2;
+            tidentNode2 = (TIdent) nodeArrayList1.get(0);
+            pbinaryprimNode1 = new ABinaryPrim(tidentNode2);
+        }
+        nodeList.add(pbinaryprimNode1);
+        return nodeList;
+    }
+----------------------------------------
+    ArrayList new32() {
+        ArrayList nodeList = new ArrayList();
+        ArrayList nodeArrayList1 = (ArrayList) pop();
+        PPhrase pphraseNode1;
+        {
+            TypedLinkedList listNode3 = new TypedLinkedList();
+            {
+                TypedLinkedList listNode2 = new TypedLinkedList();
+                listNode2 = (TypedLinkedList) nodeArrayList1.get(0);
+                if (listNode2 != null) {
+                    listNode3.addAll(listNode2);
+                }
+            }
+            pphraseNode1 = new APhrase(listNode3);
+        }
+        nodeList.add(pphraseNode1);
+        return nodeList;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1630118.java,48,57
+selected,978906.java,184,193
+----------------------------------------
+    public String toString() {
+        StringBuffer buf = new StringBuffer();
+        buf.append("type=");
+        buf.append(type);
+        buf.append("; serial=");
+        buf.append(Long.toString(serial));
+        buf.append("; created=");
+        buf.append(new Date(createDate));
+        return buf.toString();
+    }
+----------------------------------------
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append(target.getOriginalRequest().getMethod());
+        result.append(" ");
+        result.append(ResourceUtils.getHttpUrlWithQueryString(target));
+        result.append("\n");
+        result.append(target.getUserContext().toString());
+        return result.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1850264.java,143,150
+default,65107.java,64,71
+----------------------------------------
+    public static String padr(String topad, int size) {
+        StringBuilder result = new StringBuilder(size);
+        result.append(topad);
+        for (int i = topad.length(); i < size; i++) {
+            result.append(' ');
+        }
+        return result.toString();
+    }
+----------------------------------------
+    String sequenceUsingFor(int start, int stop) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = start; i <= stop; i++) {
+            if (i > start) builder.append(',');
+            builder.append(i);
+        }
+        return builder.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,902418.java,52,56
+default,9758.java,409,412
+----------------------------------------
+    private boolean equalsByteArray(byte[] aa, byte[] bb) {
+        if (aa.length != bb.length) return false;
+        for (int i = 0; i < aa.length; i++) if (aa[i] != bb[i]) return false;
+        return true;
+    }
+----------------------------------------
+    public static int method384(char ac[], int i) {
+        for (int j = i; j < ac.length && j >= 0; j++) if (ac[j] < '0' || ac[j] > '9') return j;
+        return ac.length;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1206162.java,247,254
+selected,211182.java,595,605
+----------------------------------------
+    public Matrix transpose() {
+        final Ring.Member array[][] = new Ring.Member[numCols][numRows];
+        for (int j, i = 0; i < numRows; i++) {
+            array[0][i] = matrix[i][0];
+            for (j = 1; j < numCols; j++) array[j][i] = matrix[i][j];
+        }
+        return new RingMatrix(array);
+    }
+----------------------------------------
+    public Matrix arrayRightDivide(Matrix B) {
+        checkMatrixDimensions(B);
+        Matrix X = new Matrix(m, n);
+        double[][] C = X.getArray();
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                C[i][j] = A[i][j] / B.A[i][j];
+            }
+        }
+        return X;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1373616.java,660,668
+selected,566349.java,116,126
+----------------------------------------
+    public String toString() {
+        StringBuffer sb = new StringBuffer("RadiusClient: HostName = ");
+        sb.append(this.getHostname());
+        sb.append(" Port = ");
+        sb.append(Integer.toString(this.getAuthPort()));
+        sb.append(" Shared Secret = ");
+        sb.append(this.getSharedSecret());
+        return sb.toString();
+    }
+----------------------------------------
+        private void close() {
+            final StringBuffer buff = new StringBuffer(5);
+            buff.append(inputSetConnected ? 'y' : 'n');
+            buff.append('|');
+            buff.append(songSetConnected ? 'y' : 'n');
+            buff.append('|');
+            buff.append(outputSetConnected ? 'y' : 'n');
+            Util.setProp(configKey, buff.toString());
+            if (device != null) device.close();
+            receiver = null;
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,773535.java,285,292
+selected,2017760.java,1042,1050
+----------------------------------------
+    public void optimize(boolean waitFlush, boolean waitSearcher) throws SolrClientException, SolrServerException {
+        StringBuilder xml = new StringBuilder();
+        xml.append("<optimize ");
+        xml.append(" waitFlush=\"").append(waitFlush).append("\" ");
+        xml.append(" waitSearcher=\"").append(waitSearcher).append("\" ");
+        xml.append("/>");
+        postUpdateXml(new ConstantRequestWriter(xml.toString()));
+    }
+----------------------------------------
+    void showFingerprint(byte[] blob, String type) {
+        StringBuffer msg = new StringBuffer();
+        msg.append("\r\nServer's hostkey (" + type + ") fingerprint:\r\n");
+        msg.append("openssh md5:  ");
+        msg.append(SSH2KeyFingerprint.md5Hex(blob));
+        msg.append("\r\nbubblebabble: ");
+        msg.append(SSH2KeyFingerprint.bubbleBabble(blob));
+        interactor.report(msg.toString());
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1611108.java,41,54
+default,34939.java,73,82
+----------------------------------------
+    public static String createStrWithZeroFromStr(String src, int strLength, boolean preFlag) {
+        StringBuffer result = new StringBuffer();
+        if (preFlag) {
+            result.append(src);
+        }
+        int zeroNum = strLength - src.length();
+        for (int i = 0; i < zeroNum; i++) {
+            result.append("0");
+        }
+        if (!preFlag) {
+            result.append(src);
+        }
+        return result.toString();
+    }
+----------------------------------------
+    String sequenceUsingWhile(int start, int stop) {
+        StringBuilder builder = new StringBuilder();
+        int i = start;
+        while (i <= stop) {
+            if (i > start) builder.append(',');
+            builder.append(i);
+            i++;
+        }
+        return builder.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2118971.java,17,23
+default,87653.java,929,938
+----------------------------------------
+    private static String getUnsigned(String method) {
+        StringBuilder b = new StringBuilder(1000);
+        b.append("api_key=").append(API_KEY);
+        b.append("&method=").append(method);
+        b.append("&perms=delete");
+        return b.toString();
+    }
+----------------------------------------
+    private byte[] exportAutoEpgList(HTTPurl urlData) throws Exception {
+        StringBuffer buff = new StringBuffer();
+        buff.append("HTTP/1.0 200 OK\nContent-Type: text/xml\n");
+        buff.append("Content-Disposition: attachment; filename=\"EpgAutoAdd.xml\"\n");
+        buff.append("Pragma: no-cache\n");
+        buff.append("Cache-Control: no-cache\n");
+        buff.append("\n");
+        store.saveEpgAutoList(buff);
+        return buff.toString().getBytes();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2485419.java,330,341
+selected,211182.java,521,529
+----------------------------------------
+    public CMatrix affineDifference() {
+        if (columns == 1) {
+            return this;
+        }
+        CMatrix m = new CMatrix(rows, columns);
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < columns; c++) {
+                m.coefficients[r][c] = coefficients[r][c].difference(coefficients[r][0]);
+            }
+        }
+        return m;
+    }
+----------------------------------------
+    public Matrix plusEquals(Matrix B) {
+        checkMatrixDimensions(B);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                A[i][j] = A[i][j] + B.A[i][j];
+            }
+        }
+        return this;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,240671.java,471,479
+default,103325.java,101,110
+----------------------------------------
+    public static String print(double[][] x) {
+        if (x == null) return "null";
+        StringBuffer b = new StringBuffer();
+        for (int i = 0; i < x.length - 1; i++) {
+            b.append(print(x[i])).append("\n");
+        }
+        b.append(print(x[x.length - 1]));
+        return b.toString();
+    }
+----------------------------------------
+    private static String toHexString(byte[] bytes) {
+        StringBuilder sb = new StringBuilder(bytes.length * 3);
+        for (int b : bytes) {
+            b &= 0xff;
+            sb.append(HEXDIGITS[b >> 4]);
+            sb.append(HEXDIGITS[b & 15]);
+            sb.append(' ');
+        }
+        return sb.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1802706.java,820,832
+selected,1718966.java,563,572
+----------------------------------------
+    public static void forceMkdir(final File file) throws IOException {
+        if (file.exists()) {
+            if (file.isFile()) {
+                final String message = "File " + file + " exists and is " + "not a directory. Unable to create directory.";
+                throw new IOException(message);
+            }
+        } else {
+            if (false == file.mkdirs()) {
+                final String message = "Unable to create directory " + file;
+                throw new IOException(message);
+            }
+        }
+    }
+----------------------------------------
+    public static final void checkCommand(String file) throws SecurityException, IOException {
+        File f = new File(file);
+        if (!f.exists()) {
+            throw new IOException(file + " does not exist");
+        } else if (!f.isFile()) {
+            throw new IOException(file + " is not a normal file");
+        } else if (!f.canRead()) {
+            throw new IOException("Cannot read from " + file);
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,845917.java,1101,1112
+selected,2490913.java,234,241
+----------------------------------------
+    protected boolean sameSenoneSequence(int[] ssid1, int[] ssid2) {
+        if (ssid1.length == ssid2.length) {
+            for (int i = 0; i < ssid1.length; i++) {
+                if (ssid1[i] != ssid2[i]) {
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+----------------------------------------
+    public int indexOf(Object elem) {
+        if (elem == null) {
+            for (int i = 0; i < size; i++) if (elementData[i] == null) return i;
+        } else {
+            for (int i = 0; i < size; i++) if (elem.equals(elementData[i])) return i;
+        }
+        return -1;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2236457.java,88,97
+selected,2593456.java,707,726
+----------------------------------------
+    private String toHexString(byte[] bytes) {
+        StringBuilder str = new StringBuilder(bytes.length * 2);
+        for (int i = 0; i < bytes.length; i++) {
+            int value = bytes[i];
+            if (value < 0) value += 256;
+            str.append(toHexChar(value >>> 4));
+            str.append(toHexChar(value & 15));
+        }
+        return str.toString();
+    }
+----------------------------------------
+    public static String nullSafeToString(short[] array) {
+        if (array == null) {
+            return NULL_STRING;
+        }
+        int length = array.length;
+        if (length == 0) {
+            return EMPTY_ARRAY;
+        }
+        StringBuffer buffer = new StringBuffer();
+        for (int i = 0; i < length; i++) {
+            if (i == 0) {
+                buffer.append(ARRAY_START);
+            } else {
+                buffer.append(ARRAY_ELEMENT_SEPARATOR);
+            }
+            buffer.append(array[i]);
+        }
+        buffer.append(ARRAY_END);
+        return buffer.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1966734.java,392,397
+selected,1519348.java,532,540
+----------------------------------------
+    public void notifyObserversUpdateStatusLine() {
+        java.util.Iterator it = this._uiObserverSet.iterator();
+        while (it.hasNext()) {
+            ((ftraq.gui.UiObserver) it.next()).updateStatusLine();
+        }
+    }
+----------------------------------------
+    synchronized void fireCtcpErrmsgReplyReceived(CtcpErrmsgReplyEvent event) {
+        for (Iterator it = ctcpListeners.iterator(); it.hasNext(); ) {
+            try {
+                ((CtcpListener) it.next()).errmsgReplyReceived(event);
+            } catch (Exception exc) {
+                handleException(exc);
+            }
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,671154.java,147,150
+selected,100172.java,345,353
+----------------------------------------
+    private String[][] alteraMatrizDeStringsResp(String[][] s) {
+        for (int i = 0; i < s.length; i++) for (int j = 0; j < s[i].length; j++) s[i][j] = alteraStringResp(s[i][j]);
+        return s;
+    }
+----------------------------------------
+    public Matrix arrayTimesEquals(Matrix B) {
+        checkMatrixDimensions(B);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                A[i][j] = A[i][j] * B.A[i][j];
+            }
+        }
+        return this;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,527654.java,256,263
+selected,1955546.java,95,105
+----------------------------------------
+    public static String byteArrayToHex(byte... buffer) {
+        StringBuilder result = new StringBuilder();
+        for (byte b : buffer) {
+            result.append(hexdigits[(b >> 4) & 0x0F]);
+            result.append(hexdigits[b & 0x0F]);
+        }
+        return result.toString();
+    }
+----------------------------------------
+    private static String vectorToString(Vector vec) {
+        int n = vec.size();
+        StringBuffer ret = new StringBuffer();
+        for (int i = 0; i < n; i++) {
+            ret.append((String) vec.elementAt(i));
+            if (i < n - 1) {
+                ret.append(",");
+            }
+        }
+        return ret.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,825294.java,44,54
+selected,2306307.java,149,162
+----------------------------------------
+    public static boolean bytesAreEqual(byte[] b1, byte[] b2) {
+        if (b1.length == b2.length) {
+            for (int ii = 0; ii < b1.length; ++ii) {
+                if (b1[ii] != b2[ii]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+----------------------------------------
+    public boolean contains(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (elements == null) {
+            return false;
+        }
+        for (int i = 0; i < size; i++) {
+            if (elements[i] != null && obj.equals(elements[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1067601.java,620,629
+selected,807009.java,306,310
+----------------------------------------
+    public Object getParentNode(Object contextNode) throws UnsupportedAxisException {
+        if (contextNode == null || contextNode instanceof OMDocument) {
+            return null;
+        } else if (contextNode instanceof OMAttributeEx) {
+            return ((OMAttributeEx) contextNode).getParent();
+        } else if (contextNode instanceof OMNamespaceEx) {
+            return ((OMNamespaceEx) contextNode).getParent();
+        }
+        return ((OMNode) contextNode).getParent();
+    }
+----------------------------------------
+    private JFrame getFrame(Component pane) {
+        JFrame rr = null;
+        if (pane instanceof JFrame) rr = (JFrame) pane; else if (pane.getParent() == null) rr = null; else rr = getFrame(pane.getParent());
+        return rr;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,328735.java,954,957
+selected,1710788.java,1087,1094
+----------------------------------------
+    private String selectTransferSyntax(String[] available, String[] tsuids) {
+        for (int i = 0; i < tsuids.length; i++) for (int j = 0; j < available.length; j++) if (available[j].equals(tsuids[i])) return available[j];
+        return null;
+    }
+----------------------------------------
+        public static void copyMatrix(double[][] in, double[][] out) {
+            if (in == out) return;
+            for (int rowI = 0; rowI < 4; rowI++) {
+                for (int colI = 0; colI < 4; colI++) {
+                    out[rowI][colI] = in[rowI][colI];
+                }
+            }
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1006345.java,315,335
+selected,2680234.java,719,737
+----------------------------------------
+    @SuppressWarnings("unchecked")
+    ArrayList new7() {
+        @SuppressWarnings("hiding") ArrayList nodeList = new ArrayList();
+        @SuppressWarnings("unused") ArrayList nodeArrayList4 = pop();
+        @SuppressWarnings("unused") ArrayList nodeArrayList3 = pop();
+        @SuppressWarnings("unused") ArrayList nodeArrayList2 = pop();
+        @SuppressWarnings("unused") ArrayList nodeArrayList1 = pop();
+        PPattern ppatternNode1;
+        {
+            TPathPattern tpathpatternNode2;
+            TPathPattern tpathpatternNode3;
+            LinkedList listNode4 = new LinkedList();
+            tpathpatternNode2 = (TPathPattern) nodeArrayList1.get(0);
+            tpathpatternNode3 = (TPathPattern) nodeArrayList2.get(0);
+            {
+            }
+            ppatternNode1 = new AMethodPattern(tpathpatternNode2, tpathpatternNode3, listNode4);
+        }
+        nodeList.add(ppatternNode1);
+        return nodeList;
+    }
+----------------------------------------
+    @SuppressWarnings("unchecked")
+    ArrayList new16() {
+        @SuppressWarnings("hiding") ArrayList nodeList = new ArrayList();
+        @SuppressWarnings("unused") ArrayList nodeArrayList3 = pop();
+        @SuppressWarnings("unused") ArrayList nodeArrayList2 = pop();
+        @SuppressWarnings("unused") ArrayList nodeArrayList1 = pop();
+        PSingleValue psinglevalueNode1;
+        {
+            TY tyNode2;
+            TMinus tminusNode3;
+            TFloatingPointLiteral tfloatingpointliteralNode4;
+            tyNode2 = (TY) nodeArrayList1.get(0);
+            tminusNode3 = (TMinus) nodeArrayList2.get(0);
+            tfloatingpointliteralNode4 = (TFloatingPointLiteral) nodeArrayList3.get(0);
+            psinglevalueNode1 = new AYFloatingPointValueSingleValue(tyNode2, tminusNode3, tfloatingpointliteralNode4);
+        }
+        nodeList.add(psinglevalueNode1);
+        return nodeList;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,161563.java,125,134
+default,59570.java,93,97
+----------------------------------------
+    public static int indexOfFirstLetter(String string) {
+        int index = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if (isLetter(string.charAt(i))) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+----------------------------------------
+    public String endTrim(String source) {
+        int i = source.length();
+        while (--i >= 0) if (source.charAt(i) != ' ') break;
+        return source.substring(0, i + 1);
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1899190.java,165,171
+default,43916.java,521,525
+----------------------------------------
+    public static String getUpdatedStr(String original, String code) {
+        if (code.length() > original.length()) {
+            return code;
+        } else {
+            return original.substring(0, original.length() - code.length()) + code;
+        }
+    }
+----------------------------------------
+        private boolean pathStartsWith(String path, String prefix) {
+            if (path == null || prefix == null) return false;
+            if (path.length() < prefix.length()) return false;
+            return pathEqual(path.substring(0, prefix.length()), prefix);
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1170505.java,643,647
+selected,2315461.java,103,108
+----------------------------------------
+    public boolean exaktq() {
+        boolean exakt = true;
+        for (int i = 0; i < a.length; i++) for (int k = 0; k < a[0].length; k++) exakt = exakt && a[i][k].exaktq();
+        return exakt;
+    }
+----------------------------------------
+    public void reset() {
+        for (int i = 0; i < systemConstants.length; i++) {
+            systemConstants[i] = 0;
+            for (int j = 0; j < systemConstants.length; j++) systemMatrix[i][j] = 0;
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,736221.java,81,91
+selected,2094508.java,243,253
+----------------------------------------
+    public static String join(Object[] array, String delimeter) {
+        StringBuilder sb = new StringBuilder();
+        if (array != null && array.length > 0) {
+            sb.append(array[0]);
+            for (int i = 1; i < array.length; i++) {
+                sb.append(delimeter);
+                sb.append(array[i]);
+            }
+        }
+        return sb.toString();
+    }
+----------------------------------------
+    public String buildHexaString(byte[] hash) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < hash.length; i++) {
+            int v = hash[i] & 0xFF;
+            if (v < 16) {
+                sb.append("0");
+            }
+            sb.append(Integer.toString(v, 16).toUpperCase() + " ");
+        }
+        return sb.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1039401.java,417,432
+selected,1836262.java,449,467
+----------------------------------------
+    @Override
+    public String toString(List<ProvaVariable> variables) {
+        if (this == emptyRList) return "[]";
+        StringBuilder sb = new StringBuilder("[");
+        final int fixedLength = fixed.length;
+        for (int i = 0; i < fixedLength; i++) {
+            if (i != 0) sb.append(',');
+            sb.append(fixed[i].toString(variables));
+        }
+        if (tail != null) {
+            sb.append('|');
+            sb.append(tail.toString(variables));
+        }
+        sb.append(']');
+        return sb.toString();
+    }
+----------------------------------------
+    private PreparedStatement simpleInsert(Connection connection) {
+        StringBuffer sql = new StringBuffer();
+        sql.append("INSERT INTO " + quotedName() + " (");
+        for (int c = 0; c < columns.length; ++c) {
+            if (c > 0) sql.append(", ");
+            sql.append(columns[c].quotedName());
+        }
+        sql.append(") VALUES (");
+        for (int c = 0; c < columns.length; ++c) {
+            if (c > 0) sql.append(", ");
+            sql.append("?");
+        }
+        sql.append(")");
+        try {
+            return connection.prepareStatement(sql.toString());
+        } catch (SQLException e) {
+            throw new SimplePrepareFailedPoemException(sql.toString(), e);
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,970915.java,568,577
+selected,1033185.java,360,369
+----------------------------------------
+    public static String toString(double[] array) {
+        StringBuffer buf = new StringBuffer(array.length);
+        int i;
+        for (i = 0; i < array.length - 1; i++) {
+            buf.append(array[i]);
+            buf.append(',');
+        }
+        buf.append(array[i]);
+        return buf.toString();
+    }
+----------------------------------------
+    private static String toHexString(byte[] bytes) {
+        StringBuilder sb = new StringBuilder(bytes.length * 3);
+        for (int b : bytes) {
+            b &= 0xff;
+            sb.append(HEXDIGITS[b >> 4]);
+            sb.append(HEXDIGITS[b & 15]);
+            sb.append(' ');
+        }
+        return sb.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2676849.java,95,102
+default,62476.java,54,62
+----------------------------------------
+    private String stripNewlinesAndTabs(String str) {
+        char[] buf = str.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        for (char c : buf) {
+            if (c != '\t' && c != '\n') sb.append(c);
+        }
+        return sb.toString();
+    }
+----------------------------------------
+    String sequenceUsingDo(int start, int stop) {
+        StringBuilder builder = new StringBuilder();
+        int i = start;
+        do {
+            if (i > start) builder.append(',');
+            builder.append(i);
+        } while (++i <= stop);
+        return builder.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1955057.java,25,31
+selected,904518.java,99,107
+----------------------------------------
+    private static String bytesToHex(byte[] b) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < b.length; ++i) {
+            sb.append((Integer.toHexString((b[i] & 0xFF) | 0x100)).substring(1, 3));
+        }
+        return sb.toString();
+    }
+----------------------------------------
+    private String generateCacheKey() {
+        byte[] bytes = IDUtil.pseudoUniqueByteSequence8();
+        StringBuffer buffer = new StringBuffer(17);
+        buffer.append("I");
+        for (int i = 0; i < bytes.length; i++) {
+            IDUtil.appendFormattedByte(buffer, bytes[i]);
+        }
+        return buffer.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,589840.java,62,70
+default,131022.java,603,609
+----------------------------------------
+    public static final String toString(byte[] array) {
+        if (array == null) return "null";
+        StringBuffer sb = new StringBuffer(128).append('[');
+        for (int j = 0; j < array.length; ++j) {
+            sb.append(array[j]);
+            if (j != array.length - 1) sb.append(", ");
+        }
+        return sb.append(']').toString();
+    }
+----------------------------------------
+        public String toString() {
+            StringBuffer s = new StringBuffer();
+            s.append("ed:");
+            for (int i = 0; i < count; i++) s.append(" " + encoding[args[i]]);
+            if (size != 0) s.append(" (" + encoding[size] + ")");
+            return s.toString();
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1359462.java,402,413
+selected,1316903.java,590,598
+----------------------------------------
+    public ZMatrix difference(ZMatrix m) {
+        if (!sameSize(m)) {
+            throw new ArithmeticException("Unmatched matrix dimensions.");
+        }
+        ZMatrix sum = new ZMatrix(rows, columns);
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < columns; c++) {
+                sum.coefficients[r][c] = coefficients[r][c] - m.coefficients[r][c];
+            }
+        }
+        return sum;
+    }
+----------------------------------------
+    public Matrix arrayTimesEquals(Matrix B) {
+        checkMatrixDimensions(B);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                A[i][j] = A[i][j] * B.A[i][j];
+            }
+        }
+        return this;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,271253.java,170,183
+selected,1814816.java,430,438
+----------------------------------------
+    public static int[][] computeEdges(int[][] contab) {
+        int N = contab.length;
+        int[][] edges = new int[N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (contab[i][j] > 0) {
+                    edges[i][j] = 1;
+                } else {
+                    edges[i][j] = INFINITY;
+                }
+            }
+        }
+        return edges;
+    }
+----------------------------------------
+    public static double[] matrixProd(final double[] m1, final double[][] m2) {
+        final double[] res = new double[m2[0].length];
+        for (int i = 0; i < m2[0].length; i++) {
+            for (int k = 0; k < m1.length; k++) {
+                res[i] += m1[k] * m2[k][i];
+            }
+        }
+        return res;
+    }
+----------------------------------------

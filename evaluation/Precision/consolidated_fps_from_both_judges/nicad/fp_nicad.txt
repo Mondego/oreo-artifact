@@ -1,0 +1,330 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,833516.java,508,552
+selected,833516.java,830,864
+----------------------------------------
+    public ItemSkuResult skuUpdate(ItemRequest itemRequest) throws UnsupportedOperationException {
+        ItemSkuResult res = new ItemSkuResult();
+        TaobaoSkuRequest itemSkuReq = (TaobaoSkuRequest) itemRequest;
+        if (itemSkuReq == null || itemSkuReq.getShopId() == null || itemSkuReq.getNumIid() == null || StringUtil.isBlank(itemSkuReq.getProperties())) {
+            logger.error("skuUpdate param error:itemSkuReq=" + itemSkuReq);
+            res.setError(ResultConstants.RESULT_PARAM_NULL, ResultConstants.RESULT_PARAM_NULL_INFO);
+            return res;
+        }
+        ItemSkuUpdateRequest req = new ItemSkuUpdateRequest();
+        if (itemSkuReq.getItemPrice() != null) {
+            req.setItemPrice(String.valueOf(itemSkuReq.getItemPrice()));
+        }
+        if (StringUtil.isNotBlank(itemSkuReq.getOuterId())) {
+            req.setOuterId(itemSkuReq.getOuterId());
+        }
+        if (StringUtil.isNotBlank(itemSkuReq.getLang())) {
+            req.setLang(itemSkuReq.getLang());
+        }
+        if (itemSkuReq.getQuantity() != null) {
+            req.setQuantity(itemSkuReq.getQuantity());
+        }
+        if (itemSkuReq.getPrice() != null) {
+            req.setPrice(String.valueOf(itemSkuReq.getPrice()));
+        }
+        String sessionKey = commonCache.getSessionKey(itemSkuReq.getShopId());
+        if (StringUtil.isBlank(sessionKey)) {
+            logger.error("skuUpdate shop[" + itemSkuReq.getShopId() + "] sessionKey is empty.");
+            res.setError(ResultConstants.RESULT_SESSIONKEY_NULL, ";shopId[" + itemSkuReq.getShopId() + "] " + ResultConstants.RESULT_SESSIONKEY_NULL_INFO);
+            return res;
+        }
+        try {
+            ItemSkuUpdateResponse response = taobaoClient.execute(req, sessionKey);
+            if (!response.isSuccess()) {
+                logger.error("skuUpdate ErrorCode=" + response.getErrorCode() + ";ErrorMsg=" + response.getMsg() + ";itemSkuReq=" + itemSkuReq);
+                res.setError(response.getErrorCode(), response.getMsg());
+                return res;
+            }
+            res.setSku(response.getSku());
+        } catch (ApiException e) {
+            logger.error("skuUpdate ApiException", e);
+            res.setError(ResultConstants.RESULT_TAOBAO_TOP_API_ERROR, ResultConstants.RESULT_TAOBAO_TOP_API_ERROR_INFO);
+            return res;
+        }
+        return res;
+    }
+----------------------------------------
+    public ItemResult itemsCustomGet(ItemRequest itemRequest) throws UnsupportedOperationException {
+        ItemResult res = new ItemResult();
+        TaobaoItemRequest itemReq = (TaobaoItemRequest) itemRequest;
+        if (itemReq == null || itemReq.getShopId() == null || StringUtil.isBlank(itemReq.getOuterId())) {
+            logger.error("itemsCustomGet param error:itemReq=" + itemReq);
+            res.setError(ResultConstants.RESULT_PARAM_NULL, ResultConstants.RESULT_PARAM_NULL_INFO);
+            return res;
+        }
+        ItemsCustomGetRequest req = new ItemsCustomGetRequest();
+        if (StringUtil.isNotBlank(itemReq.getFields())) {
+            req.setFields(itemReq.getFields());
+        } else {
+            req.setFields("num_iid,title,price,cid,after_sale_id,approve_status,auction_point,auto_fill,cod_postage_id,created," + "delist_time,desc,detail_url,ems_fee,express_fee,freight_payer,has_discount,has_invoice,has_showcase,has_warranty," + "increment,input_pids,input_str,is_3D,is_ex,is_fenxiao,is_lightning_consignment,is_prepay,is_taobao,is_timing," + "is_virtual,is_xinpin,item_img,list_time,location,modified,,nick,num,one_station,outer_id,pic_url,post_fee,postage_id" + "product_id,promoted_service,prop_img,property_alias,props,props_name,score,second_kill,sell_promise,seller_cids,sku" + "stuff_status,sub_stock,template_id,type,valid_thru,video,violation,volume,wap_desc,wap_detail_url,ww_status,");
+        }
+        String sessionKey = commonCache.getSessionKey(itemReq.getShopId());
+        if (StringUtil.isBlank(sessionKey)) {
+            logger.error("itemsCustomGet shop[" + itemReq.getShopId() + "] sessionKey is empty.");
+            res.setError(ResultConstants.RESULT_SESSIONKEY_NULL, ";shopId[" + itemReq.getShopId() + "] " + ResultConstants.RESULT_SESSIONKEY_NULL_INFO);
+            return res;
+        }
+        try {
+            ItemsCustomGetResponse response = taobaoClient.execute(req, sessionKey);
+            if (!response.isSuccess()) {
+                logger.error("itemsCustomGet ErrorCode=" + response.getErrorCode() + ";ErrorMsg=" + response.getMsg() + ";itemReq=" + itemReq);
+                res.setError(response.getErrorCode(), response.getMsg());
+                return res;
+            }
+            res.setItems(response.getItems());
+        } catch (ApiException e) {
+            logger.error("itemsCustomGet ApiException", e);
+            res.setError(ResultConstants.RESULT_TAOBAO_TOP_API_ERROR, ResultConstants.RESULT_TAOBAO_TOP_API_ERROR_INFO);
+            return res;
+        }
+        return res;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1566050.java,798,823
+selected,614326.java,239,266
+----------------------------------------
+    private void adjustMenuItems() {
+        openMenuItem.setEnabled(false);
+        switchMenuItem.setEnabled(false);
+        resetMenuItem.setEnabled(false);
+        deleteMenuItem.setEnabled(false);
+        saveMenuItem.setEnabled(false);
+        saveClippedMenuItem.setEnabled(false);
+        mergeMenuItem.setEnabled(false);
+        convertMenuItem.setEnabled(false);
+        captureMenuItem.setEnabled(false);
+        pushMenuItem.setEnabled(false);
+        aboutMenuItem.setEnabled(true);
+        if (extendedAction) return;
+        if (captureRunning) captureMenuItem.setEnabled(false); else captureMenuItem.setEnabled(true);
+        if (archiveCover.getSegmentsArray().length == 0) return;
+        openMenuItem.setEnabled(true);
+        switchMenuItem.setEnabled(true);
+        deleteMenuItem.setEnabled(true);
+        if (archiveCover.getSegmentsArray().length > 1) mergeMenuItem.setEnabled(true);
+        if (currentSegment == null) return;
+        convertMenuItem.setEnabled(true);
+        pushMenuItem.setEnabled(true);
+        resetMenuItem.setEnabled(true);
+        saveMenuItem.setEnabled(true);
+        saveClippedMenuItem.setEnabled(true);
+    }
+----------------------------------------
+    private void writeGraph(final PrintWriter out, final String name, final ObjectName objectname, final String redAttribute, final String greenAttribute, final String blueAttribute) {
+        out.println("        <graph name=\"" + name + "\" width=\"900\" height=\"200\">");
+        out.println("          <show_work_period>1</show_work_period>");
+        out.println("          <show_triggers>1</show_triggers>");
+        out.println("          <yaxismin>0.0000</yaxismin>");
+        out.println("          <yaxismax>100.0000</yaxismax>");
+        out.println("          <graph_elements>");
+        out.println("            <graph_element item=\"{HOSTNAME}:jmx[" + objectname + "][" + redAttribute + "]\">");
+        out.println("              <color>990000</color>");
+        out.println("              <yaxisside>1</yaxisside>");
+        out.println("              <calc_fnc>2</calc_fnc>");
+        out.println("              <periods_cnt>5</periods_cnt>");
+        out.println("            </graph_element>");
+        out.println("            <graph_element item=\"{HOSTNAME}:jmx[" + objectname + "][" + greenAttribute + "]\">");
+        out.println("              <color>009900</color>");
+        out.println("              <yaxisside>1</yaxisside>");
+        out.println("              <calc_fnc>2</calc_fnc>");
+        out.println("              <periods_cnt>5</periods_cnt>");
+        out.println("            </graph_element>");
+        out.println("            <graph_element item=\"{HOSTNAME}:jmx[" + objectname + "][" + blueAttribute + "]\">");
+        out.println("              <color>000099</color>");
+        out.println("              <yaxisside>1</yaxisside>");
+        out.println("              <calc_fnc>2</calc_fnc>");
+        out.println("              <periods_cnt>5</periods_cnt>");
+        out.println("            </graph_element>");
+        out.println("          </graph_elements>");
+        out.println("        </graph>");
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,109780.java,344,370
+selected,474742.java,40,70
+----------------------------------------
+    void makeCutoffPlotFile(PrintStream ps) {
+        ps.println("reset");
+        ps.println("clear");
+        ps.println("cd \"" + project_path + "\"");
+        ps.println("set term png large size 960,720");
+        ps.println("set output \"CutoffsSurfPlot.png\"");
+        ps.println("set border");
+        ps.println("set grid");
+        ps.println("set log yzcb");
+        ps.println("set pm3d at s");
+        ps.println("set title \"TP and FDR by G-statistic & T-Test p-value Cutoffs\"");
+        ps.println("set xlabel \"G-statistic\"");
+        ps.println("set ylabel \"p-value\"");
+        ps.println("set label 1 \"TP\" center rotate by 90 at graph 0, graph 0, graph 0.5 offset -5");
+        ps.println("set key off");
+        ps.println("splot \"pepcResults.txt\"");
+        ps.println("reset");
+        ps.println("set term png large size 960,720");
+        ps.println("set output \"Cutoffs.png\"");
+        ps.println("set border");
+        ps.println("set log ycb");
+        ps.println("set title \"FDR by G-statistict & T-Test p-value Cutoffs\"");
+        ps.println("set xlabel \"G-statistic\"");
+        ps.println("set ylabel \"p-value\"");
+        ps.println("splot \"pepcResults.txt\" with view");
+        ps.flush();
+    }
+----------------------------------------
+    public HtmlParser() {
+        super(fl);
+        synchronized (this) {
+            if (sentenceTagSet.size() == 0) {
+                sentenceTagSet.add("p");
+                sentenceTagSet.add("td");
+                sentenceTagSet.add("div");
+                sentenceTagSet.add("h1");
+                sentenceTagSet.add("h2");
+                sentenceTagSet.add("h3");
+                sentenceTagSet.add("h4");
+                sentenceTagSet.add("h5");
+                sentenceTagSet.add("h6");
+                sentenceTagSet.add("hr");
+                sentenceTagSet.add("li");
+                sentenceTagSet.add("option");
+                sentenceTagSet.add("pre");
+                sentenceTagSet.add("select");
+                sentenceTagSet.add("table");
+                sentenceTagSet.add("tbody");
+                sentenceTagSet.add("td");
+                sentenceTagSet.add("textarea");
+                sentenceTagSet.add("tfoot");
+                sentenceTagSet.add("thead");
+                sentenceTagSet.add("th");
+                sentenceTagSet.add("title");
+                sentenceTagSet.add("tr");
+                sentenceTagSet.add("ul");
+            }
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2547411.java,201,224
+selected,1347120.java,70,99
+----------------------------------------
+    public String getFieldName(int number) {
+        switch(number) {
+            case 1:
+                return "someInt";
+            case 2:
+                return "someString";
+            case 3:
+                return "someBaz";
+            case 4:
+                return "someEnum";
+            case 5:
+                return "someBytes";
+            case 6:
+                return "someBoolean";
+            case 7:
+                return "someFloat";
+            case 8:
+                return "someDouble";
+            case 9:
+                return "someLong";
+            default:
+                return null;
+        }
+    }
+----------------------------------------
+    private String getMonth(int month) {
+        switch(month) {
+            case 0:
+                return "01";
+            case 1:
+                return "02";
+            case 2:
+                return "03";
+            case 3:
+                return "04";
+            case 4:
+                return "05";
+            case 5:
+                return "06";
+            case 6:
+                return "07";
+            case 7:
+                return "08";
+            case 8:
+                return "09";
+            case 9:
+                return "10";
+            case 10:
+                return "11";
+            case 11:
+                return "12";
+            default:
+                return "";
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1566050.java,798,823
+selected,614326.java,239,266
+----------------------------------------
+    private void adjustMenuItems() {
+        openMenuItem.setEnabled(false);
+        switchMenuItem.setEnabled(false);
+        resetMenuItem.setEnabled(false);
+        deleteMenuItem.setEnabled(false);
+        saveMenuItem.setEnabled(false);
+        saveClippedMenuItem.setEnabled(false);
+        mergeMenuItem.setEnabled(false);
+        convertMenuItem.setEnabled(false);
+        captureMenuItem.setEnabled(false);
+        pushMenuItem.setEnabled(false);
+        aboutMenuItem.setEnabled(true);
+        if (extendedAction) return;
+        if (captureRunning) captureMenuItem.setEnabled(false); else captureMenuItem.setEnabled(true);
+        if (archiveCover.getSegmentsArray().length == 0) return;
+        openMenuItem.setEnabled(true);
+        switchMenuItem.setEnabled(true);
+        deleteMenuItem.setEnabled(true);
+        if (archiveCover.getSegmentsArray().length > 1) mergeMenuItem.setEnabled(true);
+        if (currentSegment == null) return;
+        convertMenuItem.setEnabled(true);
+        pushMenuItem.setEnabled(true);
+        resetMenuItem.setEnabled(true);
+        saveMenuItem.setEnabled(true);
+        saveClippedMenuItem.setEnabled(true);
+    }
+----------------------------------------
+    private void writeGraph(final PrintWriter out, final String name, final ObjectName objectname, final String redAttribute, final String greenAttribute, final String blueAttribute) {
+        out.println("        <graph name=\"" + name + "\" width=\"900\" height=\"200\">");
+        out.println("          <show_work_period>1</show_work_period>");
+        out.println("          <show_triggers>1</show_triggers>");
+        out.println("          <yaxismin>0.0000</yaxismin>");
+        out.println("          <yaxismax>100.0000</yaxismax>");
+        out.println("          <graph_elements>");
+        out.println("            <graph_element item=\"{HOSTNAME}:jmx[" + objectname + "][" + redAttribute + "]\">");
+        out.println("              <color>990000</color>");
+        out.println("              <yaxisside>1</yaxisside>");
+        out.println("              <calc_fnc>2</calc_fnc>");
+        out.println("              <periods_cnt>5</periods_cnt>");
+        out.println("            </graph_element>");
+        out.println("            <graph_element item=\"{HOSTNAME}:jmx[" + objectname + "][" + greenAttribute + "]\">");
+        out.println("              <color>009900</color>");
+        out.println("              <yaxisside>1</yaxisside>");
+        out.println("              <calc_fnc>2</calc_fnc>");
+        out.println("              <periods_cnt>5</periods_cnt>");
+        out.println("            </graph_element>");
+        out.println("            <graph_element item=\"{HOSTNAME}:jmx[" + objectname + "][" + blueAttribute + "]\">");
+        out.println("              <color>000099</color>");
+        out.println("              <yaxisside>1</yaxisside>");
+        out.println("              <calc_fnc>2</calc_fnc>");
+        out.println("              <periods_cnt>5</periods_cnt>");
+        out.println("            </graph_element>");
+        out.println("          </graph_elements>");
+        out.println("        </graph>");
+    }
+----------------------------------------

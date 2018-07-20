@@ -1,0 +1,5778 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1632131.java,605,620
+selected,1632131.java,574,589
+----------------------------------------
+            if (d > max) {
+                max = d;
+            }
+        }
+        return max;
+    }
+
+    /**
+   * @return the index of the max value; if max is a tie, returns the first one.
+   */
+    public static int argmax(float[] a) {
+        float max = Float.NEGATIVE_INFINITY;
+        int argmax = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] > max) {
+                max = a[i];
+----------------------------------------
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] > max) {
+                max = a[i];
+                argmax = i;
+            }
+        }
+        return argmax;
+    }
+
+    /**
+   * @return the index of the max value; if max is a tie, returns the last one.
+   */
+    public static int argmax_tieLast(double[] a) {
+        double max = Double.NEGATIVE_INFINITY;
+        int argmax = 0;
+        for (int i = 0; i < a.length; i++) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,474457.java,12,24
+selected,474457.java,16,28
+----------------------------------------
+    boolean palindrome = false;
+
+    boolean export = false;
+
+    public CutSite(int start, int end, RestrictionEnzyme enzyme) {
+        super(enzyme == null ? "stub" : enzyme.getName(), start, end);
+        this.enzyme = enzyme;
+        this.setFeatureType("cutsite");
+    }
+
+    public RestrictionEnzyme getRestrictionEnzyme() {
+        return this.enzyme;
+    }
+----------------------------------------
+    public CutSite(int start, int end, RestrictionEnzyme enzyme) {
+        super(enzyme == null ? "stub" : enzyme.getName(), start, end);
+        this.enzyme = enzyme;
+        this.setFeatureType("cutsite");
+    }
+
+    public RestrictionEnzyme getRestrictionEnzyme() {
+        return this.enzyme;
+    }
+
+    public boolean isPalindrome() {
+        return palindrome;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2015069.java,21,34
+selected,2581080.java,21,33
+----------------------------------------
+public class LayoutAction implements ActionListener {
+
+    public LayoutAction(DemoGraphScene s) {
+        this.scene = s;
+    }
+
+    public void actionPerformed(ActionEvent evt) {
+        node.clear();
+        edge.clear();
+        rootSet.clear();
+        struct.clear();
+        clearScene();
+        createNodes();
+        computeLayout();
+----------------------------------------
+    public HorizontalLayoutAction(DemoGraphScene s) {
+        this.scene = s;
+    }
+
+    public void actionPerformed(ActionEvent evt) {
+        node.clear();
+        edge.clear();
+        rootSet.clear();
+        struct.clear();
+        clearScene();
+        createNodes();
+        computeLayout();
+        displayNode();
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1360074.java,290,308
+selected,1360074.java,287,300
+----------------------------------------
+        return false;
+    }
+
+    /****************************************************************************************************
+	 * cleans the conflicts list an removes all conflicted marker
+	 ***************************************************************************************************/
+    private void cleanConflictLists() {
+        this.getDeletedLocallyConflicts().clear();
+        this.getDeletedRemotelyConflicts().clear();
+        this.getChangedLocalyAndRemotellyConflicts().clear();
+    }
+
+    /****************************************************************************************************
+	 * cleans the ignore list
+	 ***************************************************************************************************/
+    @Override
+    public void cleanIgnoreList() {
+        getIgnoreList().clear();
+    }
+----------------------------------------
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /****************************************************************************************************
+	 * cleans the conflicts list an removes all conflicted marker
+	 ***************************************************************************************************/
+    private void cleanConflictLists() {
+        this.getDeletedLocallyConflicts().clear();
+        this.getDeletedRemotelyConflicts().clear();
+        this.getChangedLocalyAndRemotellyConflicts().clear();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2397253.java,13,24
+selected,2397253.java,11,24
+----------------------------------------
+    static Category cat = Category.getInstance(DateUtils.class.getName());
+
+    private static SimpleDateFormat sdf;
+
+    private static String formatDate = "dd/MM/yyyy";
+
+    public static SimpleDateFormat getDateFormatter() {
+        if (sdf == null) {
+            sdf = new SimpleDateFormat(formatDate);
+        }
+        return sdf;
+    }
+----------------------------------------
+public class DateUtils {
+
+    static Category cat = Category.getInstance(DateUtils.class.getName());
+
+    private static SimpleDateFormat sdf;
+
+    private static String formatDate = "dd/MM/yyyy";
+
+    public static SimpleDateFormat getDateFormatter() {
+        if (sdf == null) {
+            sdf = new SimpleDateFormat(formatDate);
+        }
+        return sdf;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,95190.java,468,479
+selected,329203.java,495,506
+----------------------------------------
+        if (result.Great(new F(999999, -6))) return new F(1L);
+        if (result.Great(new F(-5, -4)) && result.Less(new F(5, -4))) return new F(0L);
+        return result;
+    }
+
+    /**
+   * Returns the correctly rounded positive square root of a double value. Special cases: If the argument is NaN or less than zero, then the result is NaN. If the argument is positive infinity, then the result is positive infinity. If the argument is positive zero or negative zero, then the result is the same as the argument. Otherwise, the result is the double value closest to the true mathematical square root of the argument value
+   * @param x F - a value
+   * @return F - the positive square root of a. If the argument is NaN or less than zero, the result is NaN
+   */
+    public static F sqrt(F x) {
+        int sp = 0;
+----------------------------------------
+        if (result.Great(new Float(999999, -6))) return new Float(1L);
+        if (result.Great(new Float(-5, -4)) && result.Less(new Float(5, -4))) return new Float(0L);
+        return result;
+    }
+
+    /**
+   * Returns the correctly rounded positive square root of a double value. Special cases: If the argument is NaN or less than zero, then the result is NaN. If the argument is positive infinity, then the result is positive infinity. If the argument is positive zero or negative zero, then the result is the same as the argument. Otherwise, the result is the double value closest to the true mathematical square root of the argument value
+   * @param x Float - a value
+   * @return Float - the positive square root of a. If the argument is NaN or less than zero, the result is NaN
+   */
+    public static Float sqrt(Float x) {
+        int sp = 0;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,479500.java,230,241
+selected,479500.java,225,237
+----------------------------------------
+        String state = Integer.toString(value);
+        setProperty(option, state);
+        writeSettings();
+    }
+
+    public String readString(String option) {
+        return getProperty(option, "");
+    }
+
+    public boolean isOptionFromPatch(String option) {
+        return patchSettings.containsKey(option);
+    }
+----------------------------------------
+        setProperty(option, state);
+        writeSettings();
+    }
+
+    public void writeInt(String option, int value) {
+        String state = Integer.toString(value);
+        setProperty(option, state);
+        writeSettings();
+    }
+
+    public String readString(String option) {
+        return getProperty(option, "");
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1209925.java,98,108
+selected,9359.java,100,110
+----------------------------------------
+        while (chain != null) {
+            bytes += write_entry(chain, false);
+            ++count;
+            chain = chain.next;
+        }
+        put4(0x06054b50);
+        put2(0);
+        put2(0);
+        put2(count);
+        put2(count);
+        put4(bytes);
+----------------------------------------
+        if (current != null) closeEntry();
+        long offset = bytes_written;
+        int count = 0;
+        int bytes = 0;
+        while (chain != null) {
+            bytes += write_entry(chain, false);
+            ++count;
+            chain = chain.next;
+        }
+        put4(0x06054b50);
+        put2(0);
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1787423.java,13,26
+selected,1787423.java,15,26
+----------------------------------------
+import ssmith.lang.Functions;
+
+public class IOFunctions {
+
+    public static void WaitForData(InputStream is, int time) throws IOException {
+        Functions.delay(100);
+        long now = System.currentTimeMillis();
+        while (is.available() <= 0) {
+            Functions.delay(100);
+            if (System.currentTimeMillis() - now > time) {
+                throw new IOException("Timeout waiting for data");
+            }
+        }
+    }
+----------------------------------------
+public class IOFunctions {
+
+    public static void WaitForData(InputStream is, int time) throws IOException {
+        Functions.delay(100);
+        long now = System.currentTimeMillis();
+        while (is.available() <= 0) {
+            Functions.delay(100);
+            if (System.currentTimeMillis() - now > time) {
+                throw new IOException("Timeout waiting for data");
+            }
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2391070.java,127,138
+selected,2391070.java,125,137
+----------------------------------------
+                jsniMethods.put(method, new JsniMethodImpl(jsniSignature, jsFunction));
+            }
+        }
+    }
+
+    public static final String JSNI_BLOCK_END = "}-*/";
+
+    public static final String JSNI_BLOCK_START = "/*-{";
+
+    public static Map<AbstractMethodDeclaration, JsniMethod> collectJsniMethods(final CompilationUnitDeclaration cud, final String source, final JsProgram program) {
+        Map<AbstractMethodDeclaration, JsniMethod> jsniMethods = new IdentityHashMap<AbstractMethodDeclaration, JsniMethod>();
+        new Visitor(source, program, jsniMethods).collect(cud);
+----------------------------------------
+            if (jsFunction != null) {
+                String jsniSignature = getJsniSignature(enclosingType, method);
+                jsniMethods.put(method, new JsniMethodImpl(jsniSignature, jsFunction));
+            }
+        }
+    }
+
+    public static final String JSNI_BLOCK_END = "}-*/";
+
+    public static final String JSNI_BLOCK_START = "/*-{";
+
+    public static Map<AbstractMethodDeclaration, JsniMethod> collectJsniMethods(final CompilationUnitDeclaration cud, final String source, final JsProgram program) {
+        Map<AbstractMethodDeclaration, JsniMethod> jsniMethods = new IdentityHashMap<AbstractMethodDeclaration, JsniMethod>();
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,152463.java,1096,1107
+selected,152463.java,1091,1105
+----------------------------------------
+        protected BatchObjectArray(BatchObject[] obj) {
+            this.obj = obj;
+        }
+
+        public DataFlavor[] getTransferDataFlavors() {
+            return flavors;
+        }
+
+        public boolean isDataFlavorSupported(DataFlavor fl) {
+            for (int i = 0; i < flavors.length; i++) {
+                if (fl.match(flavors[i])) return true;
+            }
+----------------------------------------
+                flavors = new DataFlavor[1];
+                flavors[0] = flavor;
+            }
+        }
+
+        protected BatchObjectArray(BatchObject[] obj) {
+            this.obj = obj;
+        }
+
+        public DataFlavor[] getTransferDataFlavors() {
+            return flavors;
+        }
+
+        public boolean isDataFlavorSupported(DataFlavor fl) {
+            for (int i = 0; i < flavors.length; i++) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1466807.java,84,101
+selected,2531630.java,88,99
+----------------------------------------
+            throw new IOException("Object deserialization failed. Reason: " + e);
+        }
+    }
+
+    /**
+    * Copy all the data from an ImputStream to an OutputStream. The output and input stream is not flushed or closed.
+    *
+    * @param src the source <code>InputStream</code>
+    * @param dst the destination <code>OutputStream</code>
+    * @return the number of bytes that are copied
+    * @throws java.io.IOException If the copy operation fails due to I/O problems
+    */
+    public static long copy(InputStream src, OutputStream dst) throws IOException {
+        byte[] buff = new byte[BUFFER_SIZE];
+        long count = 0L;
+        int readcount;
+        while ((readcount = src.read(buff)) > -1) {
+            dst.write(buff, 0, readcount);
+----------------------------------------
+            out.close();
+        } catch (Throwable t) {
+            throw new BlogunityException(I18NStatusFactory.createUnknown(t));
+        }
+    }
+
+    public static synchronized void copyFile(InputStream in, File destination) throws BlogunityException {
+        try {
+            OutputStream out = new FileOutputStream(destination);
+            byte[] buf = new byte[1024];
+            int len;
+            while ((len = in.read(buf)) > 0) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,174635.java,3,14
+selected,174635.java,4,14
+----------------------------------------
+import javax.vecmath.Point3f;
+import org.jmol.i18n.GT;
+import org.jmol.util.ColorUtil;
+
+class Widgets {
+
+    Widget[] widgetList = new Widget[5];
+
+    Widgets() {
+        widgetList[0] = new SpinOnWidget();
+        widgetList[1] = new BackgroundColorWidget();
+        widgetList[2] = new StereoViewWidget();
+----------------------------------------
+import org.jmol.i18n.GT;
+import org.jmol.util.ColorUtil;
+
+class Widgets {
+
+    Widget[] widgetList = new Widget[5];
+
+    Widgets() {
+        widgetList[0] = new SpinOnWidget();
+        widgetList[1] = new BackgroundColorWidget();
+        widgetList[2] = new StereoViewWidget();
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,120028.java,242,268
+selected,120028.java,256,270
+----------------------------------------
+        inFuncDef = true;
+    }
+
+    /**
+     * Set the auto_FLIP boolean to OFF
+     */
+    private void _flipoff() {
+        gs.auto_flip = false;
+    }
+
+    /**
+     * Set the auto_FLIP boolean to ON
+     */
+    private void _flipon() {
+        gs.auto_flip = true;
+    }
+
+    /**
+     * FLIP PoinT
+     *
+     * USES: loop
+     */
+    private void _flippt() {
+        while (gs.loop-- > 0) {
+            int index = pop();
+            zone[gs.zp0][index].onCurve = !zone[gs.zp0][index].onCurve;
+        }
+----------------------------------------
+        gs.auto_flip = true;
+    }
+
+    /**
+     * FLIP PoinT
+     *
+     * USES: loop
+     */
+    private void _flippt() {
+        while (gs.loop-- > 0) {
+            int index = pop();
+            zone[gs.zp0][index].onCurve = !zone[gs.zp0][index].onCurve;
+        }
+        gs.loop = 1;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1744946.java,138,155
+selected,1744946.java,150,162
+----------------------------------------
+        return 0;
+    }
+
+    public void setindexStatus(boolean indexStatus) {
+        mIndexStatus = indexStatus;
+    }
+
+    public void add(File file) {
+        add(file, DEFALUT_FILE_CLASS);
+    }
+
+    public void add(File file, String fileClass) {
+        if (file.isDirectory()) {
+            addDirectory(file, fileClass);
+        } else {
+            addOrdinaryFile(file, fileClass);
+        }
+    }
+----------------------------------------
+        if (file.isDirectory()) {
+            addDirectory(file, fileClass);
+        } else {
+            addOrdinaryFile(file, fileClass);
+        }
+    }
+
+    public void addDirectory(File dir, String fileClass) {
+        File files[] = dir.listFiles();
+        for (File file : files) {
+            add(file, fileClass);
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1931931.java,46,61
+selected,195073.java,55,67
+----------------------------------------
+        user = userName;
+    }
+
+    public void setKeyStore(String fileName) {
+        keyFile = fileName;
+    }
+
+    public boolean ChangeKeyPassPhrase(String oldPassword, String newPassword, String fileName) {
+        FileInputStream fsKeysIn;
+        FileOutputStream fsKeysOut;
+        try {
+            if ((keyFile == null) || (keyFile.length() == 0)) {
+                fsKeysIn = null;
+            } else {
+                fsKeysIn = new FileInputStream(keyFile);
+            }
+----------------------------------------
+        keyFile = fileName;
+    }
+
+    public boolean ChangeKeyPassPhrase(String oldPassword, String newPassword, String fileName) {
+        FileInputStream fsKeysIn;
+        FileOutputStream fsKeysOut;
+        try {
+            if ((keyFile == null) || (keyFile.length() == 0)) {
+                fsKeysIn = null;
+            } else {
+                fsKeysIn = new FileInputStream(keyFile);
+            }
+            KeyStore ks = KeyStore.getInstance("JCEKS");
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,994653.java,452,467
+selected,994653.java,450,465
+----------------------------------------
+        for (i = 0; ((mask & 1) == 0) && (i < 32); ++i) {
+            mask >>>= 1;
+        }
+        return i;
+    }
+
+    /**
+	 * Computes the required channel width (depth) from a mask.
+	 */
+    static int getChannelWidth(int mask, int shift) {
+        if (mask == 0) return 0;
+        int i;
+        mask >>>= shift;
+        for (i = shift; ((mask & 1) != 0) && (i < 32); ++i) {
+            mask >>>= 1;
+        }
+----------------------------------------
+        if (mask == 0) return 0;
+        int i;
+        for (i = 0; ((mask & 1) == 0) && (i < 32); ++i) {
+            mask >>>= 1;
+        }
+        return i;
+    }
+
+    /**
+	 * Computes the required channel width (depth) from a mask.
+	 */
+    static int getChannelWidth(int mask, int shift) {
+        if (mask == 0) return 0;
+        int i;
+        mask >>>= shift;
+        for (i = shift; ((mask & 1) != 0) && (i < 32); ++i) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,125352.java,1131,1151
+default,61445.java,1156,1176
+----------------------------------------
+    class LButtonPrevCard implements ActionListener {
+
+        public LButtonPrevCard(GUImain guiFrame) {
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            prevCard();
+        }
+    }
+
+    class LButtonSearchCancel implements ActionListener {
+
+        public LButtonSearchCancel(GUImain guiFrame) {
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            cancelSearch();
+        }
+    }
+
+    class LRadioFrontVisible implements ActionListener {
+----------------------------------------
+    class LButtonFlipCard implements ActionListener {
+
+        public LButtonFlipCard(GUImain guiFrame) {
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            flipActiveCard();
+        }
+    }
+
+    class LButtonNextCard implements ActionListener {
+
+        public LButtonNextCard(GUImain guiFrame) {
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            nextCard();
+        }
+    }
+
+    class LButtonPrevCard implements ActionListener {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,52346.java,97,107
+default,123913.java,97,107
+----------------------------------------
+            createParent(is_a_is_a_nr, nr2name, ready, ec_entries);
+        }
+    }
+
+    public void start(String infilesdir, String outfilesdir) {
+        try {
+            System.out.println("Creating EC import files ...");
+            Vector ec_entries = new Vector();
+            String filename_ec_classes = infilesdir + "enzclass.txt";
+            String filename_ec_enzymes = infilesdir + "enzyme.dat";
+            BufferedReader in_ec_classes = new BufferedReader(new FileReader(filename_ec_classes));
+----------------------------------------
+            createParent(is_a_is_a_nr, nr2name, ready, ec_entries);
+        }
+    }
+
+    public void start(String infilesdir, String outfilesdir) {
+        try {
+            System.out.println("Creating EC import files ...");
+            Vector ec_entries = new Vector();
+            String filename_ec_classes = infilesdir + "enzclass.txt";
+            String filename_ec_enzymes = infilesdir + "enzyme.dat";
+            BufferedReader in_ec_classes = new BufferedReader(new FileReader(filename_ec_classes));
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,103317.java,220,235
+selected,103317.java,219,229
+----------------------------------------
+                        deleteLine(y1 + 1);
+                    }
+                    editRec.mergeLine(y1);
+                }
+            }
+            cx = x1;
+            cy = y1;
+            if (y2 - y1 > 400) {
+                U.gc();
+            }
+            focusCursor();
+        }
+
+        void insert(char ch) {
+            if (ch == KeyEvent.VK_ENTER) {
+                if (ptSelection.isSelected()) {
+----------------------------------------
+                    for (int i = y1 + 1; i < y2; i++) {
+                        deleteLine(y1 + 1);
+                    }
+                    editRec.mergeLine(y1);
+                }
+            }
+            cx = x1;
+            cy = y1;
+            if (y2 - y1 > 400) {
+                U.gc();
+            }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,422143.java,35,45
+selected,422143.java,34,45
+----------------------------------------
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.actions.ActionFactory;
+import org.eclipse.ui.part.ViewPart;
+
+public abstract class GraphicalView extends ViewPart implements CommandStackListener, ISelectionListener {
+
+    @Override
+    public void setFocus() {
+    }
+
+    public abstract static class GraphicalAction implements IViewActionDelegate, IPropertyChangeListener, IActionDelegate2 {
+----------------------------------------
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.actions.ActionFactory;
+import org.eclipse.ui.part.ViewPart;
+
+public abstract class GraphicalView extends ViewPart implements CommandStackListener, ISelectionListener {
+
+    @Override
+    public void setFocus() {
+    }
+
+    public abstract static class GraphicalAction implements IViewActionDelegate, IPropertyChangeListener, IActionDelegate2 {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,997449.java,119,138
+selected,1169293.java,114,132
+----------------------------------------
+            if (tmpE < 0) {
+                tmpVal /= 10;
+                tmpE++;
+            } else {
+                tmpVal *= 10;
+                tmpE--;
+            }
+        }
+        return tmpVal;
+    }
+
+    /**
+   * Convert Float object to string without exponent
+   * @return String - string
+   */
+    public String toShortString() {
+        if (isError()) return "NaN";
+        StringBuffer sb = new StringBuffer();
+        sb.append(m_Val);
+        int len = (int) m_E;
+----------------------------------------
+            if (tmpE < 0) {
+                tmpVal /= 10;
+                tmpE++;
+            } else {
+                tmpVal *= 10;
+                tmpE--;
+            }
+        }
+        return tmpVal;
+    }
+
+    /**
+   * Convert Float object to string without exponent
+   * @return String - string
+   */
+    public String toShortString() {
+        if (isError()) return "NaN";
+        Long l = new Long(m_Val);
+        String str = l.toString();
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1518497.java,1,14
+selected,1919703.java,1,16
+----------------------------------------
+package Warden;
+
+import java.io.*;
+import util.ByteFromIntArray;
+
+public class WardenSHA1 {
+
+    private int[] bitlen = new int[2];
+
+    private int[] state = new int[0x15];
+
+    public static int[] hash(byte[] data) {
+        return WardenSHA1.hash(byteArrayToCharArray(data));
+    }
+----------------------------------------
+package org.jbls.Warden;
+
+import org.jbls.util.ByteFromIntArray;
+
+/**
+ * @author iago
+ */
+public class WardenSHA1 {
+
+    private int[] bitlen = new int[2];
+
+    private int[] state = new int[0x15];
+
+    public static int[] hash(byte[] data) {
+        return WardenSHA1.hash(byteArrayToCharArray(data));
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2020414.java,338,360
+selected,2020414.java,359,381
+----------------------------------------
+            if (getRowCount() == 2 && matrixAction != null) matrixAction.setEnabled(true);
+            if (shouldNotyfy()) fireTableRowsInserted(index, index);
+        }
+
+        /**
+		 * ���������� ��������� ���������� "������" � ������ ������.
+		 * @param index - �����, ��� ������� ����������� ������.
+		 */
+        protected abstract void addDataRow(int index);
+
+        /**
+		 * ���������� "�������" ������ � ������.
+		 * ����� ���������� ���������� ������ �������� ����� ������������� ��
+		 * ��������� ���� ��������������. ��� ��������� ��������� ����� ������
+		 * ��������� � ��������� ����� (addDataColumn).
+		 * ����� ����������� ���������� ������ ���� ��������.
+		 * @param index - ������, ��� ������� ������ ���� �������� �������.
+		 * @see #newData(Object)
+		 * @see #addDataColumn(int)
+		 */
+        public void addColumn(int index) {
+            addDataColumn(index);
+            if (getColumnCount() == 2 && matrixAction != null) matrixAction.setEnabled(true);
+----------------------------------------
+            addDataColumn(index);
+            if (getColumnCount() == 2 && matrixAction != null) matrixAction.setEnabled(true);
+            if (shouldNotyfy()) fireTableStructureChanged();
+        }
+
+        /**
+		 * ���������� ��������� ���������� "�������" � ������ ������.
+		 * @param index - �����, ��� ������� ����������� �������.
+		 */
+        protected abstract void addDataColumn(int index);
+
+        /**
+		 * �������� "�������" ������ �� ������.
+		 * ����� ���������� �������� ������ �������� ����� ������������� ��
+		 * ��������� ���� ��������������.
+		 * ��� ��������� ��������� ����� ������ ��������� � ��������� �����
+		 * (removeDataColumn).
+		 * ����� ����������� ��������� ������ ���� ��������.
+		 * @param index - ������ �������, ������� ����� ������.
+		 */
+        public void removeColumn(int index) {
+            removeDataColumn(index);
+            if (getTableModel().getColumnCount() == 1 && matrixAction != null) matrixAction.setEnabled(false);
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,76696.java,9,21
+default,76696.java,9,19
+----------------------------------------
+import com.lowagie.text.Image;
+import com.lowagie.text.List;
+import com.lowagie.text.pdf.*;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.*;
+import ml.options.*;
+import java.util.*;
+
+class TocGenerator extends PdfPageEventHelper {
+
+    List _toc;
+----------------------------------------
+import com.lowagie.text.Image;
+import com.lowagie.text.List;
+import com.lowagie.text.pdf.*;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.*;
+import ml.options.*;
+import java.util.*;
+
+class TocGenerator extends PdfPageEventHelper {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2296813.java,43,58
+selected,2296813.java,42,58
+----------------------------------------
+        this.optimisation = optimisation;
+    }
+
+    /**
+	 * Implements the scheduling algorithm, based on cost/time/cost-time optimisation.
+	 * This scheduler works only for jobs where it is not required to consider
+	 * the cost of data and its transfer. It is used with jobs which do not require remote data files.
+	 * @see org.gridbus.broker.farming.common.Scheduler#schedule()
+	 */
+    protected void schedule() throws Exception {
+        try {
+            float budget = 0, budgetSpent = 0, budgetLeft = 0;
+            long deadline = 0, timeSpent = 0, timeLeft = 0;
+            while (!finished) {
+                Qos qos = store.getQos(applicationID);
+                budget = qos.getBudget();
+----------------------------------------
+        super(applicationID);
+        this.optimisation = optimisation;
+    }
+
+    /**
+	 * Implements the scheduling algorithm, based on cost/time/cost-time optimisation.
+	 * This scheduler works only for jobs where it is not required to consider
+	 * the cost of data and its transfer. It is used with jobs which do not require remote data files.
+	 * @see org.gridbus.broker.farming.common.Scheduler#schedule()
+	 */
+    protected void schedule() throws Exception {
+        try {
+            float budget = 0, budgetSpent = 0, budgetLeft = 0;
+            long deadline = 0, timeSpent = 0, timeLeft = 0;
+            while (!finished) {
+                Qos qos = store.getQos(applicationID);
+                budget = qos.getBudget();
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2250061.java,1076,1094
+selected,2250061.java,1084,1102
+----------------------------------------
+            textPage.getSelectionManager().selectFirstOccurrence();
+            textPage.requestFocusInWindow();
+        }
+
+        /**
+     * Select previous occurrence. 
+     */
+        private void actionPreviousOccurrence() {
+            textPage.getSelectionManager().selectPreviousOccurrence();
+            textPage.requestFocusInWindow();
+        }
+
+        /**
+     * Select next occurrence.
+     */
+        private void actionNextOccurrence() {
+            textPage.getSelectionManager().selectNextOccurrence();
+            textPage.requestFocusInWindow();
+        }
+----------------------------------------
+            textPage.getSelectionManager().selectPreviousOccurrence();
+            textPage.requestFocusInWindow();
+        }
+
+        /**
+     * Select next occurrence.
+     */
+        private void actionNextOccurrence() {
+            textPage.getSelectionManager().selectNextOccurrence();
+            textPage.requestFocusInWindow();
+        }
+
+        /**
+     * Select last occurrence.
+     */
+        private void actionLastOccurrence() {
+            textPage.getSelectionManager().selectLastOccurrence();
+            textPage.requestFocusInWindow();
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1213174.java,664,674
+selected,1213174.java,655,665
+----------------------------------------
+        return maxSessionTimeout == -1 ? tickTime * 20 : maxSessionTimeout;
+    }
+
+    public void setMaxSessionTimeout(int max) {
+        LOG.info("maxSessionTimeout set to " + max);
+        this.maxSessionTimeout = max;
+    }
+
+    public int getClientPort() {
+        return serverCnxnFactory != null ? serverCnxnFactory.getLocalPort() : -1;
+    }
+----------------------------------------
+        return minSessionTimeout == -1 ? tickTime * 2 : minSessionTimeout;
+    }
+
+    public void setMinSessionTimeout(int min) {
+        LOG.info("minSessionTimeout set to " + min);
+        this.minSessionTimeout = min;
+    }
+
+    public int getMaxSessionTimeout() {
+        return maxSessionTimeout == -1 ? tickTime * 20 : maxSessionTimeout;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,21199.java,77,87
+default,21199.java,79,90
+----------------------------------------
+            template.replaceAll("$usingCAPTCHA$", "true");
+        } else {
+            template.replaceAll("$usingCAPTCHA$", "false");
+        }
+        template.replaceAll("$title", "Channel Data Import");
+        template.replaceAll("$action", "/servlet/ChannelDataRes?action=13");
+        return template.getPageBytes();
+    }
+
+    private byte[] exportChannelList(HTTPurl urlData) throws Exception {
+        StringBuffer buff = new StringBuffer();
+----------------------------------------
+            template.replaceAll("$usingCAPTCHA$", "false");
+        }
+        template.replaceAll("$title", "Channel Data Import");
+        template.replaceAll("$action", "/servlet/ChannelDataRes?action=13");
+        return template.getPageBytes();
+    }
+
+    private byte[] exportChannelList(HTTPurl urlData) throws Exception {
+        StringBuffer buff = new StringBuffer();
+        buff.append("HTTP/1.0 200 OK\nContent-Type: text/xml\n");
+        buff.append("Content-Disposition: attachment; filename=\"channels.xml\"\n");
+        buff.append("Pragma: no-cache\n");
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,201857.java,228,247
+selected,201857.java,232,249
+----------------------------------------
+        } catch (IOException e) {
+            e.printStackTrace();
+            return in;
+        }
+        return out;
+    }
+
+    private class MenuEntry {
+
+        String name = "";
+
+        String link = "";
+
+        String args = "";
+
+        byte level = 0;
+
+        boolean open = false;
+
+        MenuEntry parent = null;
+----------------------------------------
+        return out;
+    }
+
+    private class MenuEntry {
+
+        String name = "";
+
+        String link = "";
+
+        String args = "";
+
+        byte level = 0;
+
+        boolean open = false;
+
+        MenuEntry parent = null;
+
+        ArrayList<MenuEntry> children = new ArrayList<MenuEntry>();
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1804068.java,282,305
+selected,1804068.java,280,301
+----------------------------------------
+        } catch (PartInitException e) {
+        } catch (JavaModelException e) {
+        }
+    }
+
+    /**
+   * The name says it all
+   */
+    private static class DoNothingSorter extends PropertySheetSorter {
+
+        public void sort(IPropertySheetEntry[] entries) {
+        }
+    }
+
+    /**
+   * Extension to PropertySheetPage that doesn't sort
+   */
+    private static class NonSortingPropertySheetPage extends PropertySheetPage {
+
+        public NonSortingPropertySheetPage() {
+            super();
+            setSorter(new DoNothingSorter());
+        }
+    }
+----------------------------------------
+        try {
+            JavaUI.openInEditor(toOpen);
+        } catch (PartInitException e) {
+        } catch (JavaModelException e) {
+        }
+    }
+
+    /**
+   * The name says it all
+   */
+    private static class DoNothingSorter extends PropertySheetSorter {
+
+        public void sort(IPropertySheetEntry[] entries) {
+        }
+    }
+
+    /**
+   * Extension to PropertySheetPage that doesn't sort
+   */
+    private static class NonSortingPropertySheetPage extends PropertySheetPage {
+
+        public NonSortingPropertySheetPage() {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,26117.java,397,408
+default,26117.java,403,413
+----------------------------------------
+                juego_empezado = false;
+                en_menu_principal = true;
+                repaint();
+            }
+            aviso_teclas = false;
+            if (sin_asignar) {
+                atras = e.VK_LEFT;
+                salto = e.VK_A;
+                adelante = e.VK_RIGHT;
+                disparo = e.VK_S;
+                sin_asignar = false;
+            }
+----------------------------------------
+                atras = e.VK_LEFT;
+                salto = e.VK_A;
+                adelante = e.VK_RIGHT;
+                disparo = e.VK_S;
+                sin_asignar = false;
+            }
+            if (opcion2 == 1) {
+                atras = e.getKeyCode();
+                opcion2 = 5;
+                repaint();
+            }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,535093.java,68,80
+selected,855698.java,50,62
+----------------------------------------
+    private int midCloudAlt = 5000;
+
+    private int highCloudAlt = 9000;
+
+    private int rainAlt = 10000;
+
+    private static String[] conditionsNames = { "Rain", "Cloudy", "Few_Showers", "Mostly_Cloudy", "Mostly_Sunny", "Sunny" };
+
+    private int start;
+
+    private int end;
+
+    String day;
+----------------------------------------
+    private int lowCloudAlt = 2000;
+
+    private int midCloudAlt = 5000;
+
+    private int highCloudAlt = 9000;
+
+    private static String[] conditionsNames = { "Rain", "Cloudy", "Few_Showers", "Mostly_Cloudy", "Mostly_Sunny", "Sunny" };
+
+    private int start;
+
+    private int end;
+
+    String day;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1648039.java,4,14
+selected,1648039.java,3,14
+----------------------------------------
+import java.net.*;
+import java.util.*;
+
+public class ListNets {
+
+    private static final PrintStream console = System.out;
+
+    public static void main(String args[]) throws SocketException {
+        Enumeration<NetworkInterface> nets = NetworkInterface.getNetworkInterfaces();
+        for (NetworkInterface netint : Collections.list(nets)) {
+            if (netint.isUp() && !netint.isVirtual() && !netint.isLoopback()) displayInterfaceInformation(netint);
+----------------------------------------
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+public class ListNets {
+
+    private static final PrintStream console = System.out;
+
+    public static void main(String args[]) throws SocketException {
+        Enumeration<NetworkInterface> nets = NetworkInterface.getNetworkInterfaces();
+        for (NetworkInterface netint : Collections.list(nets)) {
+            if (netint.isUp() && !netint.isVirtual() && !netint.isLoopback()) displayInterfaceInformation(netint);
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,42519.java,1004,1021
+default,42519.java,1008,1022
+----------------------------------------
+            return false;
+        }
+    }
+
+    private class ProfilingThread implements Runnable {
+
+        protected long delay = 0;
+
+        protected long duration = 0;
+
+        private long start;
+
+        private long oldDelay;
+
+        protected void startProfiling() {
+            if (delay > 0) {
+                oldDelay = delay;
+                delay -= timingError + (duration > 0 ? timingError : 0);
+----------------------------------------
+    private class ProfilingThread implements Runnable {
+
+        protected long delay = 0;
+
+        protected long duration = 0;
+
+        private long start;
+
+        private long oldDelay;
+
+        protected void startProfiling() {
+            if (delay > 0) {
+                oldDelay = delay;
+                delay -= timingError + (duration > 0 ? timingError : 0);
+                log("Timing error: " + timingError);
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2316344.java,185,196
+selected,2316344.java,185,195
+----------------------------------------
+        for (int i = 1; i <= listpc.size(); i++) {
+            String pathhost = pathexec + "host" + i;
+            File dirhost = new File(pathhost);
+            dirhost.mkdir();
+        }
+    }
+
+    private String createDirVue() {
+        String pathvue = getPathVue();
+        File filevue = new File(pathvue);
+        filevue.mkdir();
+        HashMap<String, LinkedList<String>> listpc = currentScenario.getPcList();
+----------------------------------------
+        for (int i = 1; i <= listpc.size(); i++) {
+            String pathhost = pathexec + "host" + i;
+            File dirhost = new File(pathhost);
+            dirhost.mkdir();
+        }
+    }
+
+    private String createDirVue() {
+        String pathvue = getPathVue();
+        File filevue = new File(pathvue);
+        filevue.mkdir();
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,106276.java,2,20
+default,81467.java,7,23
+----------------------------------------
+import java.util.ArrayList;
+
+public class GeoRetrieve {
+
+    private String taxID;
+
+    private FetchPage search = null;
+
+    private QueryXML xmlFile = null;
+
+    private String ret;
+
+    ArrayList<Integer> idList = null;
+
+    private String baseFetchLoc = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gds";
+
+    public boolean uncompressFile(String tgzFileBase) {
+        executeCommand("gunzip " + tgzFileBase + ".tgz");
+        executeCommand("tar -xvf " + tgzFileBase + ".tar");
+----------------------------------------
+import java.util.ArrayList;
+
+public class TaxonomyRetrieve {
+
+    private FetchPage search = null;
+
+    private QueryXML xmlFile = null;
+
+    private String ret;
+
+    ArrayList<Integer> idList = null;
+
+    private String baseFetchLoc = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=genome";
+
+    public boolean uncompressFile(String tgzFileBase) {
+        executeCommand("gunzip " + tgzFileBase + ".tgz");
+        executeCommand("tar -xvf " + tgzFileBase + ".tar");
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1017708.java,222,233
+selected,1008338.java,269,288
+----------------------------------------
+        return strMessage;
+    }
+
+    public static String getKeyName(int nKeyNumber) {
+        if (nKeyNumber > 127) {
+            return "illegal value";
+        } else {
+            int nNote = nKeyNumber % 12;
+            int nOctave = nKeyNumber / 12;
+            return sm_astrKeyNames[nNote] + (nOctave - 1);
+        }
+    }
+----------------------------------------
+        return strMessage;
+    }
+
+    /**
+     * TODO Document.
+     * 
+     * @param nKeyNumber
+     *            TODO Document
+     * 
+     * @return TODO Document
+     */
+    private static String getKeyName(int nKeyNumber) {
+        if (nKeyNumber > 127) {
+            return "illegal value";
+        } else {
+            int nNote = nKeyNumber % 12;
+            int nOctave = nKeyNumber / 12;
+            return sm_astrKeyNames[nNote] + (nOctave - 1);
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+sample,FTP_FTP4J_Samples.java,6,20
+sample,FTP_ApacheCommonsNet_Samples.java,5,16
+----------------------------------------
+import it.sauronsoftware.ftp4j.FTPIllegalReplyException;
+import it.sauronsoftware.ftp4j.FTPListParseException;
+
+import java.io.IOException;
+
+
+
+public class FTP_FTP4J_Samples {
+
+	public FTPClient sample1(String server, int port, String username, String password) throws IllegalStateException, IOException, FTPIllegalReplyException, FTPException {
+		FTPClient ftpClient = new FTPClient();
+		ftpClient.connect(server, port);
+		ftpClient.login(username, password);
+		return ftpClient;
+	}
+----------------------------------------
+import org.apache.commons.net.ftp.FTPHTTPClient;
+import org.apache.commons.net.ftp.FTPSClient;
+
+
+public class FTP_ApacheCommonsNet_Samples {
+
+	public FTPClient sample1a(String server, int port, String username, String password) throws SocketException, IOException {
+		FTPClient ftpClient = new FTPClient();
+		ftpClient.connect(server, port);
+		ftpClient.login(username, password);
+		return ftpClient;
+	}
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1445277.java,4,15
+selected,614134.java,4,15
+----------------------------------------
+import jniosemu.emulator.EmulatorException;
+
+public class BltuInstruction extends ITypeInstruction {
+
+    public BltuInstruction(int opCode) {
+        super(opCode);
+    }
+
+    public void run(Emulator em) throws EmulatorException {
+        if (this.signedToUnsigned(em.readRegister(this.rA)) < this.signedToUnsigned(em.readRegister(this.rB))) em.writePC(em.readPC() + this.imm);
+    }
+}
+----------------------------------------
+import jniosemu.emulator.EmulatorException;
+
+public class BgeuInstruction extends ITypeInstruction {
+
+    public BgeuInstruction(int opCode) {
+        super(opCode);
+    }
+
+    public void run(Emulator em) throws EmulatorException {
+        if (this.signedToUnsigned(em.readRegister(this.rA)) >= this.signedToUnsigned(em.readRegister(this.rB))) em.writePC(em.readPC() + this.imm);
+    }
+}
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2067841.java,65,82
+selected,2067841.java,76,92
+----------------------------------------
+        } catch (FTPException e) {
+            e.printStackTrace();
+        } finally {
+            speedTimer.cancel();
+        }
+    }
+
+    @Override
+    public void run() {
+    }
+
+    class FTPDTImpl implements FTPDataTransferListener {
+
+        @Override
+        public void aborted() {
+            setDownloading(false);
+            speedTimer.cancel();
+        }
+----------------------------------------
+    class FTPDTImpl implements FTPDataTransferListener {
+
+        @Override
+        public void aborted() {
+            setDownloading(false);
+            speedTimer.cancel();
+        }
+
+        @Override
+        public void completed() {
+            speedTimer.cancel();
+        }
+
+        @Override
+        public void failed() {
+            speedTimer.cancel();
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,21890.java,7,50
+default,21890.java,6,50
+----------------------------------------
+import globals.*;
+import circuit.*;
+import export.*;
+import timer.*;
+
+/** FidoMain.java 
+
+	The starting point of FidoCadJ.
+
+
+<pre>
+    This file is part of FidoCadJ.
+
+    FidoCadJ is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FidoCadJ is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FidoCadJ.  If not, see <http://www.gnu.org/licenses/>.
+
+    Copyright 2008-2011 by Davide Bucci
+</pre>
+
+    
+    @author Davide Bucci
+*/
+public class FidoMain {
+
+    /** The main method. Shows an instance of the FidoFrame */
+    public static void main(String[] args) {
+        String loadFile = "";
+        String libDirectory = "";
+        boolean commandLineOnly = false;
+        boolean convertFile = false;
+        int totx = 0, toty = 0;
+        String exportFormat = "";
+        String outputFile = "";
+        boolean headlessMode = false;
+----------------------------------------
+import java.lang.reflect.*;
+import globals.*;
+import circuit.*;
+import export.*;
+import timer.*;
+
+/** FidoMain.java 
+
+	The starting point of FidoCadJ.
+
+
+<pre>
+    This file is part of FidoCadJ.
+
+    FidoCadJ is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FidoCadJ is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FidoCadJ.  If not, see <http://www.gnu.org/licenses/>.
+
+    Copyright 2008-2011 by Davide Bucci
+</pre>
+
+    
+    @author Davide Bucci
+*/
+public class FidoMain {
+
+    /** The main method. Shows an instance of the FidoFrame */
+    public static void main(String[] args) {
+        String loadFile = "";
+        String libDirectory = "";
+        boolean commandLineOnly = false;
+        boolean convertFile = false;
+        int totx = 0, toty = 0;
+        String exportFormat = "";
+        String outputFile = "";
+        boolean headlessMode = false;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,54751.java,182,201
+default,80277.java,182,201
+----------------------------------------
+                    if ((mTraceOutput != null) && (msg != null)) {
+                        mTraceOutput.write(msg + "\n");
+                        mTraceOutput.flush();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        /**
+         * Initialize the trace stream.
+         *
+         * @param name The class name.
+         */
+        public static void initTrace(String name) {
+            if (TRACE) {
+                try {
+                    if (mTraceOutput == null) {
+                        String fileName = "cts_debug_dg_" + name + ".txt";
+----------------------------------------
+                    if ((mTraceOutput != null) && (msg != null)) {
+                        mTraceOutput.write(msg + "\n");
+                        mTraceOutput.flush();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        /**
+         * Initialize the trace stream.
+         *
+         * @param name The class name.
+         */
+        public static void initTrace(String name) {
+            if (TRACE) {
+                try {
+                    if (mTraceOutput == null) {
+                        String fileName = "cts_debug_dg_" + name + ".txt";
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1445379.java,20,32
+selected,1445379.java,19,30
+----------------------------------------
+import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.ui.INewWizard;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
+import org.eclipse.ui.statushandlers.StatusManager;
+
+/**
+ * Creates a generic AMF project; intended for specialization.
+ * @author milesparker
+ */
+public abstract class PluginProjectWizard extends Wizard implements INewWizard {
+
+    private WizardNewProjectCreationPage projectPage;
+----------------------------------------
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.ui.INewWizard;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
+import org.eclipse.ui.statushandlers.StatusManager;
+
+/**
+ * Creates a generic AMF project; intended for specialization.
+ * @author milesparker
+ */
+public abstract class PluginProjectWizard extends Wizard implements INewWizard {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1387911.java,48,59
+selected,1387911.java,49,59
+----------------------------------------
+        if (word.length() < 2) return true;
+        for (int i = 0; i < stopWords.length; i++) {
+            if (stopWords[i].equalsIgnoreCase(word)) return true;
+        }
+        return false;
+    }
+
+    private static class SongIndexHandler implements ContentHandler {
+
+        private SongIndex idx;
+
+        private Stack<IndexNode> nodeStack = new Stack<IndexNode>();
+----------------------------------------
+        for (int i = 0; i < stopWords.length; i++) {
+            if (stopWords[i].equalsIgnoreCase(word)) return true;
+        }
+        return false;
+    }
+
+    private static class SongIndexHandler implements ContentHandler {
+
+        private SongIndex idx;
+
+        private Stack<IndexNode> nodeStack = new Stack<IndexNode>();
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,394533.java,423,443
+selected,394533.java,422,441
+----------------------------------------
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void doStart() throws Exception {
+    }
+
+    @Override
+    protected void doStop() throws Exception {
+    }
+}
+
+class PageRectangle {
+
+    public final Rectangle r;
+
+    public final int page;
+
+    public PageRectangle(Rectangle r, int page) {
+----------------------------------------
+            currentDoc.load();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void doStart() throws Exception {
+    }
+
+    @Override
+    protected void doStop() throws Exception {
+    }
+}
+
+class PageRectangle {
+
+    public final Rectangle r;
+
+    public final int page;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2477675.java,8,29
+selected,2701834.java,8,29
+----------------------------------------
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
+/**
+ *
+ * @author d_frEak
+ */
+public class backsound {
+
+    File soundFile;
+
+    AudioInputStream audioIn;
+
+    Clip clip;
+
+    public void play(int a) throws LineUnavailableException, UnsupportedAudioFileException, IOException {
+        if (a == 0) {
+            soundFile = new File("sound\\title.wav");
+        } else if (a == 1) {
+            soundFile = new File("sound\\1.wav");
+        } else if (a == 2) {
+----------------------------------------
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
+/**
+ *
+ * @author d_frEak
+ */
+public class backsound {
+
+    File soundFile;
+
+    AudioInputStream audioIn;
+
+    Clip clip;
+
+    public void play(int a) throws LineUnavailableException, UnsupportedAudioFileException, IOException {
+        if (a == 0) {
+            soundFile = new File("sound\\title.wav");
+        } else if (a == 1) {
+            soundFile = new File("sound\\1.wav");
+        } else if (a == 2) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1666056.java,515,540
+selected,1666056.java,485,510
+----------------------------------------
+        return ref;
+    }
+
+    /**
+	 * Return the Inventory bean
+	 * 
+	 * @return IInventoryLocal
+	 * @throws NamingException
+	 */
+    private static Object getInventoryBean() throws NamingException {
+        if (refBeanContext == null) {
+            refBeanContext = new InitialContext();
+        }
+        String beanName = "InventoryBean/local";
+        Object ref = refBeanContext.lookup(beanName);
+        return ref;
+    }
+
+    /**
+	 * Return the Lab bean
+	 * 
+	 * @return ILabLocal
+	 * @throws NamingException
+	 */
+    private static Object getLabBean() throws NamingException {
+        if (refBeanContext == null) {
+----------------------------------------
+        return ref;
+    }
+
+    /**
+	 * Return the reference bean
+	 * 
+	 * @return IReferenceLocal
+	 * @throws NamingException
+	 */
+    private static Object getSecurityBean() throws NamingException {
+        if (refBeanContext == null) {
+            refBeanContext = new InitialContext();
+        }
+        String beanName = "SecurityBean/local";
+        Object ref = refBeanContext.lookup(beanName);
+        return ref;
+    }
+
+    /**
+	 * Return the Interface bean
+	 * 
+	 * @return IInterfaceLocal
+	 * @throws NamingException
+	 */
+    private static Object getInterfaceBean() throws NamingException {
+        if (refBeanContext == null) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1852562.java,276,297
+selected,1852562.java,252,274
+----------------------------------------
+    class ActionPageMoveInside extends AppAction {
+
+        @Override
+        public void action() {
+            bookEditor.editMovePageInside();
+        }
+    }
+
+    class ActionPageMoveOutside extends AppAction {
+
+        @Override
+        public void action() {
+            bookEditor.editMovePageOutside();
+        }
+    }
+
+    class ActionHelp extends AppAction {
+
+        private URI _uri;
+
+        public ActionHelp(String uri) {
+            try {
+----------------------------------------
+    class ActionPageRemove extends AppAction {
+
+        @Override
+        public void action() {
+            bookEditor.editRemovePage();
+        }
+    }
+
+    class ActionPageMoveUp extends AppAction {
+
+        @Override
+        public void action() {
+            bookEditor.editMovePageUp();
+        }
+    }
+
+    class ActionPageMoveDown extends AppAction {
+
+        @Override
+        public void action() {
+            bookEditor.editMovePageDown();
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,23355.java,134,144
+default,41099.java,134,144
+----------------------------------------
+            JOptionPane.showMessageDialog(Workbench.mainframe, "IO error whilst reading project file", "Project file format error", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+        }
+    }
+
+    public void save() {
+        try {
+            RandomAccessFile project_file = new RandomAccessFile(filename, "rw");
+            project_file.setLength(0);
+            project_file.writeBytes("# Do NOT modify the project file manually!!\n");
+            project_file.writeBytes("# Version 1.1\n");
+----------------------------------------
+            JOptionPane.showMessageDialog(Workbench.mainframe, "IO error whilst reading project file", "Project file format error", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+        }
+    }
+
+    public void save() {
+        try {
+            RandomAccessFile project_file = new RandomAccessFile(filename, "rw");
+            project_file.setLength(0);
+            project_file.writeBytes("# Do NOT modify the project file manually!!\n");
+            project_file.writeBytes("# Version 1.1\n");
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,18478.java,160,179
+default,106441.java,160,179
+----------------------------------------
+            return super.translate((JCCompilationUnit) tree);
+        }
+
+        /**
+         * compilation units: remove javadoc comments
+         * -- required, in order to remove @deprecated tags, since we
+         * (separately) remove all annotations, including @Deprecated
+         */
+        public void visitTopLevel(JCCompilationUnit tree) {
+            super.visitTopLevel(tree);
+            tree.docComments = Collections.emptyMap();
+        }
+
+        /**
+         * methods: remove method bodies, make methods native
+         */
+        @Override
+        public void visitMethodDef(JCMethodDecl tree) {
+            tree.mods = translate(tree.mods);
+            tree.restype = translate(tree.restype);
+----------------------------------------
+            return super.translate((JCCompilationUnit) tree);
+        }
+
+        /**
+         * compilation units: remove javadoc comments
+         * -- required, in order to remove @deprecated tags, since we
+         * (separately) remove all annotations, including @Deprecated
+         */
+        public void visitTopLevel(JCCompilationUnit tree) {
+            super.visitTopLevel(tree);
+            tree.docComments = Collections.emptyMap();
+        }
+
+        /**
+         * methods: remove method bodies, make methods native
+         */
+        @Override
+        public void visitMethodDef(JCMethodDecl tree) {
+            tree.mods = translate(tree.mods);
+            tree.restype = translate(tree.restype);
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,706754.java,21,35
+selected,706754.java,20,32
+----------------------------------------
+import com.itextpdf.text.html.simpleparser.HTMLWorker;
+import com.itextpdf.text.html.simpleparser.ImageProvider;
+import com.itextpdf.text.html.simpleparser.StyleSheet;
+import com.itextpdf.text.pdf.PdfWriter;
+
+public class HtmlMovies2 extends HtmlMovies1 {
+
+    /**
+     * Inner class implementing the ImageProvider class.
+     * This is needed if you want to resolve the paths to images.
+     */
+    public static class MyImageFactory implements ImageProvider {
+
+        public Image getImage(String src, Map<String, String> h, ChainedProperties cprops, DocListener doc) {
+            try {
+----------------------------------------
+import com.itextpdf.text.html.simpleparser.ChainedProperties;
+import com.itextpdf.text.html.simpleparser.HTMLWorker;
+import com.itextpdf.text.html.simpleparser.ImageProvider;
+import com.itextpdf.text.html.simpleparser.StyleSheet;
+import com.itextpdf.text.pdf.PdfWriter;
+
+public class HtmlMovies2 extends HtmlMovies1 {
+
+    /**
+     * Inner class implementing the ImageProvider class.
+     * This is needed if you want to resolve the paths to images.
+     */
+    public static class MyImageFactory implements ImageProvider {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1964126.java,9,28
+selected,1964126.java,11,29
+----------------------------------------
+import java.util.logging.Logger;
+
+public abstract class StandardDeviceInfo implements DeviceInfo, Serializable {
+
+    private String deviceIpAddress = "127.0.1.1";
+
+    private String deviceMacAddress = "0:0:0:0:0:0";
+
+    private String deviceUUID = null;
+
+    private DeviceLocator dl = null;
+
+    private String url;
+
+    /**
+     * 
+     */
+    public StandardDeviceInfo() {
+        try {
+            Enumeration<NetworkInterface> eni = NetworkInterface.getNetworkInterfaces();
+----------------------------------------
+public abstract class StandardDeviceInfo implements DeviceInfo, Serializable {
+
+    private String deviceIpAddress = "127.0.1.1";
+
+    private String deviceMacAddress = "0:0:0:0:0:0";
+
+    private String deviceUUID = null;
+
+    private DeviceLocator dl = null;
+
+    private String url;
+
+    /**
+     * 
+     */
+    public StandardDeviceInfo() {
+        try {
+            Enumeration<NetworkInterface> eni = NetworkInterface.getNetworkInterfaces();
+            while (eni.hasMoreElements()) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+sample,FileChooser.java,42,53
+sample,FileChooser.java,93,109
+----------------------------------------
+		JFileChooser fc = new JFileChooser();
+		fc.setDialogTitle("Select input file.");
+		fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		fc.setMultiSelectionEnabled(false);
+		
+		//Show dialog and wait for user input
+		int status = fc.showSaveDialog(frame);
+		
+		//React to input
+		if(status == JFileChooser.APPROVE_OPTION) {
+			retval = fc.getSelectedFile();
+		} else if (status == JFileChooser.CANCEL_OPTION) {
+----------------------------------------
+		return retval;
+	}
+	
+	public static File[] chooseFileDirectory(JFrame frame) {
+		File retval[];
+		
+		//Create and configure file chooser
+		JFileChooser fc = new JFileChooser();
+		fc.setDialogTitle("Select input file.");
+		fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		fc.setMultiSelectionEnabled(false);
+		
+		//Show dialog and wait for user input
+		int status = fc.showSaveDialog(frame);
+		
+		//React to input
+		if(status == JFileChooser.APPROVE_OPTION) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,1159.java,54,64
+default,128179.java,54,64
+----------------------------------------
+                serverportno = serverportno + 1;
+                e.printStackTrace();
+            }
+        }
+        System.out.println("Server bound to :" + serverportno);
+        try {
+            ld = new Loader("g:/newproj/tp.txt");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("Properties :" + ld.getIPeerIp() + " " + ld.getDirectory() + " " + ld.getClassName());
+----------------------------------------
+                serverportno = serverportno + 1;
+                e.printStackTrace();
+            }
+        }
+        System.out.println("Server bound to :" + serverportno);
+        try {
+            ld = new Loader("g:/newproj/tp.txt");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("Properties :" + ld.getIPeerIp() + " " + ld.getDirectory() + " " + ld.getClassName());
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,74994.java,1455,1465
+default,32744.java,824,834
+----------------------------------------
+            quotient[i] = (int) r;
+        }
+        return (int) (r >> 32);
+    }
+
+    private static int submul_1(int[] dest, int offset, int[] x, int len, int y) {
+        long yl = (long) y & 0xffffffffL;
+        int carry = 0;
+        int j = 0;
+        do {
+            long prod = ((long) x[j] & 0xffffffffL) * yl;
+----------------------------------------
+            quotient[i] = (int) r;
+        }
+        return (int) (r >> 32);
+    }
+
+    private static int submul_1(int[] dest, int offset, int[] x, int len, int y) {
+        long yl = (long) y & 0xffffffffL;
+        int carry = 0;
+        int j = 0;
+        do {
+            long prod = ((long) x[j] & 0xffffffffL) * yl;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,948406.java,313,327
+selected,948406.java,319,333
+----------------------------------------
+            String familyName = spec.getFamilyName();
+            m_specMapping.remove(spec);
+            if (!fontFamilyExists(familyName)) {
+                removeFontFamily(familyName);
+            }
+            markAsModified();
+            updateFallbackFamily();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private synchronized void installFontFile(String fileName, CoFontFaceSpec spec) throws CoFontException {
+        m_shower.showStatus("Installing font " + spec + " from file " + fileName);
+----------------------------------------
+            updateFallbackFamily();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private synchronized void installFontFile(String fileName, CoFontFaceSpec spec) throws CoFontException {
+        m_shower.showStatus("Installing font " + spec + " from file " + fileName);
+        File file;
+        try {
+            file = new ClassPathResource(fileName).getFile();
+        } catch (IOException e) {
+            throw new CoFontException(e);
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1796005.java,995,1005
+selected,1796005.java,675,685
+----------------------------------------
+    public void testFactoryMethodNoMatchingStaticMethod() {
+        DefaultListableBeanFactory xbf = new DefaultListableBeanFactory();
+        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(xbf);
+        reader.setValidating(true);
+        reader.loadBeanDefinitions(new ClassPathResource("factory-methods.xml", getClass()));
+        try {
+            xbf.getBean("noMatchPrototype");
+            fail("No static method matched");
+        } catch (BeanCreationException ex) {
+        }
+    }
+----------------------------------------
+            assertEquals("classNotFound", ex.getBeanName());
+            assertTrue(ex.getCause() instanceof ClassNotFoundException);
+        }
+    }
+
+    public void testClassNotFoundWithNoBeanClassLoader() {
+        try {
+            DefaultListableBeanFactory bf = new DefaultListableBeanFactory();
+            XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(bf);
+            reader.setBeanClassLoader(null);
+            reader.loadBeanDefinitions(new ClassPathResource("classNotFound.xml", getClass()));
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,92154.java,170,184
+default,92154.java,172,185
+----------------------------------------
+        if (rs.next()) stockDesc = rs.getString("name");
+        rs.close();
+        stmt.close();
+        return stockDesc;
+    }
+
+    public User getUser(String userID) throws SQLException, IOException, ClassNotFoundException {
+        Statement stmt = con.createStatement();
+        String dbUserID;
+        String dbLastName;
+        String dbFirstName;
+        Password dbPswd;
+        boolean isAdmin;
+        byte[] buf = null;
+        User user = null;
+----------------------------------------
+        stmt.close();
+        return stockDesc;
+    }
+
+    public User getUser(String userID) throws SQLException, IOException, ClassNotFoundException {
+        Statement stmt = con.createStatement();
+        String dbUserID;
+        String dbLastName;
+        String dbFirstName;
+        Password dbPswd;
+        boolean isAdmin;
+        byte[] buf = null;
+        User user = null;
+        ResultSet rs = stmt.executeQuery("SELECT * FROM Users WHERE userID = '" + userID + "'");
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1512445.java,18,34
+selected,1007855.java,31,51
+----------------------------------------
+import org.xml.sax.InputSource;
+
+public class ValuePartitionCapacityTest extends TestBase {
+
+    public ValuePartitionCapacityTest(String name) {
+        super(name);
+    }
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+    }
+
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
+----------------------------------------
+import junit.framework.TestCase;
+
+/**
+ *
+ * @author ssg
+ */
+public class JSONSchemaTest extends TestCase {
+
+    public JSONSchemaTest(String testName) {
+        super(testName);
+    }
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+    }
+
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1146619.java,37,50
+selected,1146619.java,39,52
+----------------------------------------
+        } catch (Throwable ex) {
+            parser.parse(str);
+            ex.printStackTrace();
+            throw ex;
+        }
+    }
+
+    /**
+     * Create a random date in a range of 100 years that 2 digit years can parse correctly
+     * @return a new date
+     */
+    static Date getRandomDate() {
+        Random random = new Random();
+        Date date = new Date(DEFAULT_START_2DIGIT_YEAR - 1900, 0, Math.abs(random.nextInt()) / 60000, 0, 0, 0);
+----------------------------------------
+            ex.printStackTrace();
+            throw ex;
+        }
+    }
+
+    /**
+     * Create a random date in a range of 100 years that 2 digit years can parse correctly
+     * @return a new date
+     */
+    static Date getRandomDate() {
+        Random random = new Random();
+        Date date = new Date(DEFAULT_START_2DIGIT_YEAR - 1900, 0, Math.abs(random.nextInt()) / 60000, 0, 0, 0);
+        return date;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1653112.java,297,310
+selected,1439149.java,298,312
+----------------------------------------
+        this.bHasFieldNames = bHasFieldNames;
+        this.bHasRowNames = bHasRowNames;
+        sSeriesType = null;
+        tChartRect = null;
+        tSeriesRect = null;
+        queryName = null;
+        seriesField = null;
+        xAxisField = null;
+        dataValueField = null;
+        this.prepareOtherColors();
+    }
+
+    public RDGModel() {
+        bHasFieldNames = false;
+----------------------------------------
+        tSeriesRect = null;
+        queryName = null;
+        seriesField = null;
+        xAxisField = null;
+        dataValueField = null;
+        this.prepareOtherColors();
+    }
+
+    public DRGModel() {
+        bHasFieldNames = false;
+        bHasRowNames = false;
+        tChartRect = null;
+        tSeriesRect = null;
+        queryName = null;
+        seriesField = null;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1931931.java,187,197
+selected,45856.java,194,204
+----------------------------------------
+                throw ksE;
+            } catch (NoSuchAlgorithmException nsaE) {
+                Log.out(nsaE);
+                throw nsaE;
+            } catch (UnrecoverableKeyException urkE) {
+                Log.out(urkE);
+                throw urkE;
+            }
+            in = new FileInputStream(fileName);
+            cipher = Cipher.getInstance(algorithm);
+            if (key == null) {
+----------------------------------------
+                throw ksE;
+            } catch (NoSuchAlgorithmException nsaE) {
+                Log.out(nsaE);
+                throw nsaE;
+            } catch (UnrecoverableKeyException urkE) {
+                Log.out(urkE);
+                throw urkE;
+            }
+            in = new FileInputStream(fileName);
+            cipher = Cipher.getInstance(algorithm);
+            if (key == null) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,124925.java,14,30
+default,124925.java,8,30
+----------------------------------------
+public class Screen {
+
+    static final Scanner com = new Scanner(System.in);
+
+    int div = 0;
+
+    String programP = "";
+
+    String dataP = "";
+
+    int wordSP = 3;
+
+    String matrix = "BLOSUM62";
+
+    int gapopP = 11;
+
+    int gapextP = 1;
+----------------------------------------
+import com.mysql.jdbc.Connection;
+
+/**
+ * Main class of the entire project: runs the Sequence Screening program This
+ * class implements a possible interpretation of the Government guidelines.
+ */
+public class Screen {
+
+    static final Scanner com = new Scanner(System.in);
+
+    int div = 0;
+
+    String programP = "";
+
+    String dataP = "";
+
+    int wordSP = 3;
+
+    String matrix = "BLOSUM62";
+
+    int gapopP = 11;
+
+    int gapextP = 1;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+sample,GCD.java,5,27
+sample,GCD.java,5,26
+----------------------------------------
+public class GCD {
+	
+	// while(b != 0) AND b = a % b
+	// while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*0\s*\)
+	// [a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*%\s*[a-z,A-Z,0-9,_,$]+
+	// while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*0\s*\).*[a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*%\s*[a-z,A-Z,0-9,_,$]+
+	public static int gcd1(int a, int b) {
+		while (b != 0) {
+			int t = b;
+			b = a % b;
+			a = t;
+		}
+		return a;
+	}
+	
+	// while(a != b) AND a = a - b
+	//while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*[a-z,A-Z,0-9,_,$]+\s*\)
+	//[a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*-\s*[a-z,A-Z,0-9,_,$]+
+	//while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*[a-z,A-Z,0-9,_,$]+\s*\).*[a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*-\s*[a-z,A-Z,0-9,_,$]+
+	public static int gcd2(int a, int b) {
+		while (a != b) {
+			if (a > b)
+				a = a - b;
+----------------------------------------
+public class GCD {
+	
+	// while(b != 0) AND b = a % b
+	// while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*0\s*\)
+	// [a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*%\s*[a-z,A-Z,0-9,_,$]+
+	// while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*0\s*\).*[a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*%\s*[a-z,A-Z,0-9,_,$]+
+	public static int gcd1(int a, int b) {
+		while (b != 0) {
+			int t = b;
+			b = a % b;
+			a = t;
+		}
+		return a;
+	}
+	
+	// while(a != b) AND a = a - b
+	//while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*[a-z,A-Z,0-9,_,$]+\s*\)
+	//[a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*-\s*[a-z,A-Z,0-9,_,$]+
+	//while\s*\(\s*[a-z,A-Z,0-9,_,$]+\s*!=\s*[a-z,A-Z,0-9,_,$]+\s*\).*[a-z,A-Z,0-9,_,$]+\s*=\s*[a-z,A-Z,0-9,_,$]+\s*-\s*[a-z,A-Z,0-9,_,$]+
+	public static int gcd2(int a, int b) {
+		while (a != b) {
+			if (a > b)
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1288877.java,1470,1480
+selected,953604.java,1595,1605
+----------------------------------------
+            if (sock != null) {
+                try {
+                    sock.close();
+                } catch (IOException ioe) {
+                    log.error("++++ error closing socket: " + toString() + " for host: " + getHost());
+                    log.error(ioe.getMessage(), ioe);
+                    errMsg.append("++++ error closing socket: " + toString() + " for host: " + getHost() + "\n");
+                    errMsg.append(ioe.getMessage());
+                    err = true;
+                }
+            }
+----------------------------------------
+            if (sock != null) {
+                try {
+                    sock.close();
+                } catch (IOException ioe) {
+                    log.error("++++ error closing socket: " + toString() + " for host: " + getHost());
+                    log.error(ioe.getMessage(), ioe);
+                    errMsg.append("++++ error closing socket: " + toString() + " for host: " + getHost() + "\n");
+                    errMsg.append(ioe.getMessage());
+                    err = true;
+                }
+            }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1709354.java,75,92
+default,51560.java,757,767
+----------------------------------------
+            carry >>>= 32;
+        }
+        return (int) carry;
+    }
+
+    /**
+   * Multiply x[0:xlen-1] and y[0:ylen-1], and
+   * write the result to dest[0:xlen+ylen-1].
+   * The destination has to have space for xlen+ylen words,
+   * even if the result might be one limb smaller.
+   * This function requires that xlen >= ylen.
+   * The destination must be distinct from either input operands.
+   * All operands are unsigned.
+   * This function is basically the same gmp's mpn_mul. */
+    public static void mul(int[] dest, int[] x, int xlen, int[] y, int ylen) {
+        dest[xlen] = MPN.mul_1(dest, x, xlen, y[0]);
+        for (int i = 1; i < ylen; i++) {
+            long yword = (long) y[i] & 0xffffffffL;
+----------------------------------------
+            carry >>>= 32;
+        }
+        return (int) carry;
+    }
+
+    private static int mul_1(int[] dest, int[] x, int len, int y) {
+        long yword = y & 0xffffffffL;
+        long carry = 0;
+        for (int j = 0; j < len; j++) {
+            carry += (x[j] & 0xffffffffL) * yword;
+            dest[j] = (int) carry;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+sample,FileChooser.java,51,61
+sample,FileChooser.java,109,119
+----------------------------------------
+		if(status == JFileChooser.APPROVE_OPTION) {
+			retval = fc.getSelectedFile();
+		} else if (status == JFileChooser.CANCEL_OPTION) {
+			retval = null;
+		} else {
+			retval = null;
+		}
+		
+		//Cleanup
+		fc.setEnabled(false);
+		fc.setVisible(false);
+----------------------------------------
+		if(status == JFileChooser.APPROVE_OPTION) {
+			retval = fc.getSelectedFiles();
+		} else if (status == JFileChooser.CANCEL_OPTION) {
+			retval = null;
+		} else {
+			retval = null;
+		}
+		
+		//Cleanup
+		fc.setEnabled(false);
+		fc.setVisible(false);
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,21990.java,402,417
+selected,1528893.java,253,268
+----------------------------------------
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
+            public void run() {
+                new mainWindow().setVisible(true);
+            }
+        });
+    }
+----------------------------------------
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+    * @param args the command line arguments
+    */
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
+            public void run() {
+                new V_Inventario().setVisible(true);
+            }
+        });
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,337496.java,284,300
+selected,854386.java,251,268
+----------------------------------------
+                                lapresult = 0xFCD2;
+                                break;
+                            case 0xFEA4:
+                                lapresult = 0xFCD3;
+                                break;
+                            case 0xFEA8:
+                                lapresult = 0xFCD4;
+                                break;
+                        }
+                        break;
+                    case 0xFEE8:
+                        switch(string.charAt(si)) {
+                            case 0xFEAE:
+                                lapresult = 0xFC8A;
+                                break;
+                            case 0xFEB0:
+                                lapresult = 0xFC8B;
+----------------------------------------
+                            case 0xFEE2:
+                                lapresult = 0xFC42;
+                                break;
+                            case 0xFEE4:
+                                lapresult = 0xFCCC;
+                                break;
+                        }
+                        break;
+                    case 0xFE97:
+                        switch(string.charAt(si)) {
+                            case 0xFEA0:
+                                lapresult = 0xFCA1;
+                                break;
+                            case 0xFEA4:
+                                lapresult = 0xFCA2;
+                                break;
+                            case 0xFEA8:
+                                lapresult = 0xFCA3;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1893609.java,98,109
+selected,1893609.java,75,86
+----------------------------------------
+            e1.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (oin != null) {
+                try {
+                    oin.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+----------------------------------------
+            e1.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (oout != null) {
+                try {
+                    oout.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,238795.java,640,657
+selected,2709434.java,652,669
+----------------------------------------
+        written += name.length;
+        writeOut(extra);
+        written += extra.length;
+        writeOut(commentB);
+        written += commentB.length;
+    }
+
+    /**
+     * Writes the &quot;End of central dir record&quot;.
+     * @throws IOException on error
+     *
+     * @since 1.1
+     */
+    protected void writeCentralDirectoryEnd() throws IOException {
+        writeOut(EOCD_SIG);
+        writeOut(ZERO);
+        writeOut(ZERO);
+        byte[] num = ZipShort.getBytes(entries.size());
+----------------------------------------
+        written += name.length;
+        writeOut(extra);
+        written += extra.length;
+        writeOut(commentB);
+        written += commentB.length;
+    }
+
+    /**
+     * Writes the &quot;End of central dir record&quot;.
+     * @throws IOException on error
+     *
+     * @since 1.1
+     */
+    protected void writeCentralDirectoryEnd() throws IOException {
+        writeOut(EOCD_SIG);
+        writeOut(ZERO);
+        writeOut(ZERO);
+        byte[] num = ZipShort.getBytes(entries.size());
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,102602.java,9,19
+default,102602.java,8,19
+----------------------------------------
+import javax.swing.table.*;
+
+public class Gui_Import extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+
+    private JPanel mainPanel = new JPanel();
+
+    private Object[] importHeader = { "import", "Stream Name", "Address", "Website" };
+
+    private String[][] allData = {};
+----------------------------------------
+import javax.swing.filechooser.FileFilter;
+import javax.swing.table.*;
+
+public class Gui_Import extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+
+    private JPanel mainPanel = new JPanel();
+
+    private Object[] importHeader = { "import", "Stream Name", "Address", "Website" };
+
+    private String[][] allData = {};
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2457533.java,470,484
+selected,2457533.java,476,486
+----------------------------------------
+        CellLocation.requestLocationUpdate();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updatePhoneState();
+        updateSignalStrength();
+        updateMessageWaiting();
+        updateCallRedirect();
+        updateServiceState();
+        updateLocation(mTelephonyManager.getCellLocation());
+        updateDataState();
+        updateDataStats();
+        updateDataStats2();
+----------------------------------------
+        updatePhoneState();
+        updateSignalStrength();
+        updateMessageWaiting();
+        updateCallRedirect();
+        updateServiceState();
+        updateLocation(mTelephonyManager.getCellLocation());
+        updateDataState();
+        updateDataStats();
+        updateDataStats2();
+        updatePowerState();
+        updateQxdmState(null);
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1878847.java,320,371
+selected,1878847.java,320,372
+----------------------------------------
+            if (REFLECT_DEBUG) System.out.println("getMethodContext failed: argument list did not match any parameter list");
+            return null;
+        }
+        return normalizeArgumentList((Class[]) vector.elementAt(maxindex), list);
+    }
+
+    /**
+     * There is more than one choice.  Some arguments in 'list' may not yet have an exact type.
+     * For example, the user may have provided a whole number where a double was expected:
+     * new AffineTransform( 1, 0, 0, 0, 1, 0, 0, 0, 1 );
+     * There are many cases where the argument list could feasibly apply to more than one parameter list.
+     * Therefore, a bit of "fuzzy logic" will be employed:  the parameter list will be "scored":
+     *
+     * Numbers:
+     * 
+     * Exact Match
+     * 	Definition: (expected <primative number class x>, found x)
+     * 	Score: (list.length * 2) per match
+     * 
+     * Good Match
+     * 	Definition: (expected float, found double)(expected (short|byte), found int)
+     * 	Score: (list.length) per match
+     * 
+     * Feasible Match
+     * 	Definition: (expected (double|float), found int)
+     * 	Score: 1 per match
+     * 
+     * Mismatch
+     * 	Definition: (expected (short|byte|int), found double)
+     * 	Score: a total score of -1 (ruling the list out as a possibility)
+     * 
+     *
+     * (Class|Interface):
+     * 
+     * Match
+     * 	Definition: (expected <T extends Object>, found T)
+     * 		(expected <? extends T>, found <? extends T>)
+     * 		(expected <? implements I>, found <? implements I>)
+     * 	Score: (list.length * 3) per match
+     * 
+     * Mismatch
+     * 	Definition: (expected <? extends T>, found <? extends U)
+     *  Score: a total score of -1 (ruling the list out as a possibility)
+     * 
+     * @param classes
+     * @param list
+     * @return
+     */
+    private int scoreArguments(Class[] classes, Object[] list) {
+        int score = 0;
+        int args = list.length;
+        int INSTANCE_EXACT_MATCH = args * 3;
+----------------------------------------
+            if (REFLECT_DEBUG) System.out.println("getMethodContext failed: argument list did not match any parameter list");
+            return null;
+        }
+        return normalizeArgumentList((Class[]) vector.elementAt(maxindex), list);
+    }
+
+    /**
+     * There is more than one choice.  Some arguments in 'list' may not yet have an exact type.
+     * For example, the user may have provided a whole number where a double was expected:
+     * new AffineTransform( 1, 0, 0, 0, 1, 0, 0, 0, 1 );
+     * There are many cases where the argument list could feasibly apply to more than one parameter list.
+     * Therefore, a bit of "fuzzy logic" will be employed:  the parameter list will be "scored":
+     *
+     * Numbers:
+     * 
+     * Exact Match
+     * 	Definition: (expected <primative number class x>, found x)
+     * 	Score: (list.length * 2) per match
+     * 
+     * Good Match
+     * 	Definition: (expected float, found double)(expected (short|byte), found int)
+     * 	Score: (list.length) per match
+     * 
+     * Feasible Match
+     * 	Definition: (expected (double|float), found int)
+     * 	Score: 1 per match
+     * 
+     * Mismatch
+     * 	Definition: (expected (short|byte|int), found double)
+     * 	Score: a total score of -1 (ruling the list out as a possibility)
+     * 
+     *
+     * (Class|Interface):
+     * 
+     * Match
+     * 	Definition: (expected <T extends Object>, found T)
+     * 		(expected <? extends T>, found <? extends T>)
+     * 		(expected <? implements I>, found <? implements I>)
+     * 	Score: (list.length * 3) per match
+     * 
+     * Mismatch
+     * 	Definition: (expected <? extends T>, found <? extends U)
+     *  Score: a total score of -1 (ruling the list out as a possibility)
+     * 
+     * @param classes
+     * @param list
+     * @return
+     */
+    private int scoreArguments(Class[] classes, Object[] list) {
+        int score = 0;
+        int args = list.length;
+        int INSTANCE_EXACT_MATCH = args * 3;
+        int PRIMATIVE_EXACT_MATCH = args * 2;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,131309.java,461,471
+default,7272.java,461,471
+----------------------------------------
+            throw new TestException(" classHasClass( RJavaTools_Test, 'DummyNonStaticClass', false ) == false");
+        }
+        System.out.println("  true : ok");
+    }
+
+    private static void classhasmethod() throws TestException {
+        System.out.print("    * classHasMethod( RJavaTools_Test, 'getX', false ) ");
+        if (!RJavaTools.classHasMethod(RJavaTools_Test.class, "getX", false)) {
+            throw new TestException(" classHasMethod( RJavaTools_Test, 'getX', false ) == false");
+        }
+        System.out.println("  true : ok");
+----------------------------------------
+            throw new TestException(" classHasClass( RJavaTools_Test, 'DummyNonStaticClass', false ) == false");
+        }
+        System.out.println("  true : ok");
+    }
+
+    private static void classhasmethod() throws TestException {
+        System.out.print("    * classHasMethod( RJavaTools_Test, 'getX', false ) ");
+        if (!RJavaTools.classHasMethod(RJavaTools_Test.class, "getX", false)) {
+            throw new TestException(" classHasMethod( RJavaTools_Test, 'getX', false ) == false");
+        }
+        System.out.println("  true : ok");
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,486506.java,530,544
+selected,486506.java,532,545
+----------------------------------------
+        ys = newYs;
+        inDegree = newIn;
+        outDegree = newOut;
+        roads = newRoads;
+        distances = newDist;
+        invalid = newVal;
+    }
+
+    /**
+	 * Adjusts the datastructures when number of buildings gets too large.
+	 **/
+    private void resizeBs() {
+        int newSize = (buildingXs.length * 2);
+        int[] newXs = new int[newSize];
+        int[] newYs = new int[newSize];
+----------------------------------------
+        outDegree = newOut;
+        roads = newRoads;
+        distances = newDist;
+        invalid = newVal;
+    }
+
+    /**
+	 * Adjusts the datastructures when number of buildings gets too large.
+	 **/
+    private void resizeBs() {
+        int newSize = (buildingXs.length * 2);
+        int[] newXs = new int[newSize];
+        int[] newYs = new int[newSize];
+        int[] newEnt = new int[newSize];
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1852562.java,228,250
+selected,1852562.java,256,276
+----------------------------------------
+            try {
+                bookEditor.close();
+            } catch (DatabaseException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    class ActionPageAddChild extends AppAction {
+
+        @Override
+        public void action() {
+            bookEditor.editAddChildPage();
+        }
+    }
+
+    class ActionPageAddSibling extends AppAction {
+
+        @Override
+        public void action() {
+            bookEditor.editAddSiblingPage();
+        }
+    }
+----------------------------------------
+            bookEditor.editRemovePage();
+        }
+    }
+
+    class ActionPageMoveUp extends AppAction {
+
+        @Override
+        public void action() {
+            bookEditor.editMovePageUp();
+        }
+    }
+
+    class ActionPageMoveDown extends AppAction {
+
+        @Override
+        public void action() {
+            bookEditor.editMovePageDown();
+        }
+    }
+
+    class ActionPageMoveInside extends AppAction {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2297787.java,783,796
+selected,2297787.java,781,796
+----------------------------------------
+        public final String logintoken;
+
+        public final String logincaptcha;
+
+        public CaptchaRespond(String logintoken, String logincaptcha) {
+            this.logintoken = logintoken;
+            this.logincaptcha = logincaptcha;
+        }
+    }
+
+    private static CaptchaRespond getCapchaRespond(String respond) {
+        assert (respond != null);
+        final String[] res = respond.split("\\r?\\n");
+        final Map<String, String> map = new HashMap<String, String>();
+----------------------------------------
+    private static class CaptchaRespond {
+
+        public final String logintoken;
+
+        public final String logincaptcha;
+
+        public CaptchaRespond(String logintoken, String logincaptcha) {
+            this.logintoken = logintoken;
+            this.logincaptcha = logincaptcha;
+        }
+    }
+
+    private static CaptchaRespond getCapchaRespond(String respond) {
+        assert (respond != null);
+        final String[] res = respond.split("\\r?\\n");
+        final Map<String, String> map = new HashMap<String, String>();
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1631986.java,196,206
+selected,1631986.java,191,203
+----------------------------------------
+            zp.process();
+        }
+        if (zp._fpd == null) {
+            return;
+        }
+        int imageWidth = imgWidth;
+        int imageHeight = imgHeight;
+        if ((imageWidth <= 0) || (imageHeight <= 0)) {
+            imageHeight = _imageHeight;
+            imageWidth = _imageWidth;
+        }
+----------------------------------------
+        return tab;
+    }
+
+    public static void plot(ZoieIndexLogProcessor zp, String outputFile, String seriesDescription, int imgWidth, int imgHeight, boolean createPngs, String pngDir, boolean createHtml, String htmlOutFile) throws Exception {
+        if (zp._fpd == null) {
+            zp.process();
+        }
+        if (zp._fpd == null) {
+            return;
+        }
+        int imageWidth = imgWidth;
+        int imageHeight = imgHeight;
+        if ((imageWidth <= 0) || (imageHeight <= 0)) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,375718.java,164,178
+selected,375718.java,155,173
+----------------------------------------
+            ftp.logout();
+        } catch (Exception ex) {
+        }
+        try {
+            ftp.disconnect();
+        } catch (Exception ex) {
+        }
+        try {
+            db.close();
+        } catch (Exception ex) {
+        }
+    }
+
+    private void connectAndLogin() throws SocketException, IOException, ClassNotFoundException, SQLException, FileNotFoundException {
+        lastOperationTime = System.currentTimeMillis();
+----------------------------------------
+        return threadFinished;
+    }
+
+    public boolean finishedSuccessfully() {
+        return finishedSuccessfully;
+    }
+
+    public void exit() {
+        try {
+            ftp.logout();
+        } catch (Exception ex) {
+        }
+        try {
+            ftp.disconnect();
+        } catch (Exception ex) {
+        }
+        try {
+            db.close();
+        } catch (Exception ex) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2598210.java,321,333
+selected,114476.java,323,337
+----------------------------------------
+        logger.info("Keystore: " + keyStoreName + " checked");
+        return "OK";
+    }
+
+    public void createSSLKeystore(boolean writeToDisc, boolean forceWrite, char[] storePassword, char[] keyPassword) throws Exception {
+        logger.info("Start constructing cached SSL Keystores...");
+        if (storePassword == null) {
+            storePassword = unwrapStorePassword();
+        }
+        if (defaultAlias == null) {
+            return;
+        }
+        if (!keyStore.containsAlias(defaultAlias)) {
+----------------------------------------
+            return "Keystore does not contain key entries or trusted certificates";
+        }
+        logger.info("Keystore: " + keyStoreName + " checked");
+        return "OK";
+    }
+
+    public void createSSLKeystore(boolean writeToDisc, boolean forceWrite, char[] storePassword, char[] keyPassword) throws Exception {
+        logger.info("Start constructing cached SSL Keystores...");
+        if (storePassword == null) {
+            storePassword = unwrapStorePassword();
+        }
+        if (defaultAlias == null) {
+            return;
+        }
+        if (!keyStore.containsAlias(defaultAlias)) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1966447.java,52,68
+selected,1966447.java,52,69
+----------------------------------------
+        this(db, db.getResultSetMetaInfo(table), name, label, template);
+    }
+
+    /**
+     * Parses the designated URI template and constructs a new Action.
+     * @param db the parent database of the action.
+     * @param rsmi meta information about the resultset that will be used to compile this action.
+     * @param name the name of the action.
+     * @param label the label of the action.
+     * @param template the URI template containing variables within brackets, i.e. http://www.google.com/q={term}
+     * @throws SQLException
+     */
+    public Action(Database db, ResultSetMetaInfo rsmi, String name, String label, String template) throws SQLException {
+        this.name = name;
+        this.label = label;
+        this.template = template;
+        final Pattern pattern = Pattern.compile("\\{\\w+\\.?\\w+\\}");
+----------------------------------------
+        this(db, db.getResultSetMetaInfo(table), name, label, template);
+    }
+
+    /**
+     * Parses the designated URI template and constructs a new Action.
+     * @param db the parent database of the action.
+     * @param rsmi meta information about the resultset that will be used to compile this action.
+     * @param name the name of the action.
+     * @param label the label of the action.
+     * @param template the URI template containing variables within brackets, i.e. http://www.google.com/q={term}
+     * @throws SQLException
+     */
+    public Action(Database db, ResultSetMetaInfo rsmi, String name, String label, String template) throws SQLException {
+        this.name = name;
+        this.label = label;
+        this.template = template;
+        final Pattern pattern = Pattern.compile("\\{\\w+\\.?\\w+\\}");
+        final Matcher matcher = pattern.matcher(template);
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1868807.java,26,42
+selected,1868807.java,23,41
+----------------------------------------
+    private final Type type;
+
+    private final String location;
+
+    public BundleOperation(final Type type, final String target, final String location) {
+        super(target);
+        this.type = type;
+        this.location = location;
+    }
+
+    @Override
+    public void perform(IsolationAdmin admin) throws Exception {
+        switch(type) {
+            case INSTALL:
+                {
+                    IsolatedFramework fw = admin.getIsolatedFramework(URI.create(this.getTarget()));
+                    byte[] data = null;
+----------------------------------------
+        INSTALL, UNINSTALL
+    }
+
+    private final Type type;
+
+    private final String location;
+
+    public BundleOperation(final Type type, final String target, final String location) {
+        super(target);
+        this.type = type;
+        this.location = location;
+    }
+
+    @Override
+    public void perform(IsolationAdmin admin) throws Exception {
+        switch(type) {
+            case INSTALL:
+                {
+                    IsolatedFramework fw = admin.getIsolatedFramework(URI.create(this.getTarget()));
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1194696.java,3,16
+selected,1194696.java,3,14
+----------------------------------------
+import cornell.herbivore.util.Log;
+import cornell.herbivore.util.*;
+import java.io.*;
+import java.net.*;
+import java.util.Random;
+import java.security.*;
+import xjava.security.*;
+import cryptix.provider.rsa.*;
+
+public class HerbivoreEndpoint {
+
+    private HerbivoreRSAKeyPair keypair;
+
+    protected HerbivoreEndpoint(String epname, HerbivoreRSAKeyPair akeypair) {
+----------------------------------------
+import cornell.herbivore.util.Log;
+import cornell.herbivore.util.*;
+import java.io.*;
+import java.net.*;
+import java.util.Random;
+import java.security.*;
+import xjava.security.*;
+import cryptix.provider.rsa.*;
+
+public class HerbivoreEndpoint {
+
+    private HerbivoreRSAKeyPair keypair;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2232174.java,105,116
+selected,2232174.java,103,113
+----------------------------------------
+                        lz: while (dest == null) {
+                            dest = getDest();
+                            if (i == 15) {
+                                System.out.println("before continue");
+                                continue ly;
+                            }
+                            System.out.println("last statement of while-loop");
+                        }
+                    }
+                    lz: {
+                        if (i > 5) {
+                            System.out.println("before break");
+----------------------------------------
+                if (n == (int) 0L) dest = new URL("pp://localhost:7100/first"); else ly: for (int i = 0; i < 3; i++) {
+                    if (i < 1) {
+                        lz: while (dest == null) {
+                            dest = getDest();
+                            if (i == 15) {
+                                System.out.println("before continue");
+                                continue ly;
+                            }
+                            System.out.println("last statement of while-loop");
+                        }
+                    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,17407.java,13,26
+default,17407.java,10,21
+----------------------------------------
+        while (left < right) {
+            if (word.charAt(left) != word.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    public static boolean isMirrorString(String word, Hashtable table) {
+        int left = 0;
+        int right = word.length() - 1;
+        while (left <= right) {
+----------------------------------------
+    public static boolean isPalindrome(String word) {
+        int left = 0;
+        int right = word.length() - 1;
+        while (left < right) {
+            if (word.charAt(left) != word.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1125396.java,43,58
+selected,1125396.java,44,58
+----------------------------------------
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocket;
+
+/**
+ * Creates the server. Handles requests from clients.
+ * @author Rachel, Tom, Sergey
+ * @designer Sergey, Rachel
+ */
+public class MighTyDServer {
+
+    private static final Logger LOG = Logger.getLogger(MighTyDServer.class.getName());
+
+    private Vector<ClientHandler> clients;
+
+    private Semaphore clientConnection = new Semaphore(ServerConfig.getInstance().getIntPref(ServerConfig.MAX_CONNECTIONS), true);
+----------------------------------------
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocket;
+
+/**
+ * Creates the server. Handles requests from clients.
+ * @author Rachel, Tom, Sergey
+ * @designer Sergey, Rachel
+ */
+public class MighTyDServer {
+
+    private static final Logger LOG = Logger.getLogger(MighTyDServer.class.getName());
+
+    private Vector<ClientHandler> clients;
+
+    private Semaphore clientConnection = new Semaphore(ServerConfig.getInstance().getIntPref(ServerConfig.MAX_CONNECTIONS), true);
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1095209.java,1246,1256
+selected,1095209.java,1189,1199
+----------------------------------------
+        for (int i = 0; i < entryCount; i++) {
+            int off = offsets[i];
+            s.setPos(off);
+            long key = s.readVarLong();
+            Value data;
+            if (positionOnly) {
+                data = ValueLong.get(key);
+            } else {
+                try {
+                    data = s.readValue();
+                } catch (Throwable e) {
+----------------------------------------
+        for (int i = 0; i < entryCount; i++) {
+            int off = offsets[i];
+            s.setPos(off);
+            long key = s.readVarLong();
+            Value data;
+            if (positionOnly) {
+                data = ValueLong.get(key);
+            } else {
+                try {
+                    data = s.readValue();
+                } catch (Throwable e) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,93073.java,78,91
+default,93073.java,75,89
+----------------------------------------
+            jaxbRootObject = binder.unmarshal(document);
+        }
+
+        /**
+         * @param xpathExpr can match zero, one or more nodes in document.
+         * @return List of JAXB objects matching xpathExpr.
+         */
+        private List<Object> evaluateToMany(String xpathExpr) {
+            List<Object> resultList = new ArrayList<Object>();
+            for (Node node : xpath(document, xpathExpr)) {
+                resultList.add(binder.getJAXBNode(node));
+            }
+            return resultList;
+        }
+----------------------------------------
+        public JAXBXpath(org.w3c.dom.Document doc, Binder<Node> b) throws JAXBException {
+            binder = b;
+            document = doc;
+            jaxbRootObject = binder.unmarshal(document);
+        }
+
+        /**
+         * @param xpathExpr can match zero, one or more nodes in document.
+         * @return List of JAXB objects matching xpathExpr.
+         */
+        private List<Object> evaluateToMany(String xpathExpr) {
+            List<Object> resultList = new ArrayList<Object>();
+            for (Node node : xpath(document, xpathExpr)) {
+                resultList.add(binder.getJAXBNode(node));
+            }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2681624.java,11,40
+selected,2681624.java,12,40
+----------------------------------------
+import java.net.URL;
+import java.util.List;
+import java.util.Vector;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+
+/**
+ * Customizable Notifier API
+ * 
+ * @author accent
+ */
+public abstract class AbstractNotifier {
+
+    /** Window�� close�ϴ� �� Animation�� ���̴�. Animation�� ������ ��� dispose�� �� �� ���� �ִ� */
+    public interface Animation {
+
+        /** animation ��ü�� �����ϸ鼭 ������ Thread�� ���ϴ°�? */
+        boolean hasOwnThread();
+
+        boolean isRunning();
+
+        /**
+		 * @param src
+		 *            ����� �׸��� �ִ� component
+		 * @param dest
+		 *            ���������� �������� component
+		 */
+        void doAnimation(VoidPanel src, JComponent dest);
+    }
+----------------------------------------
+import java.util.List;
+import java.util.Vector;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+
+/**
+ * Customizable Notifier API
+ * 
+ * @author accent
+ */
+public abstract class AbstractNotifier {
+
+    /** Window�� close�ϴ� �� Animation�� ���̴�. Animation�� ������ ��� dispose�� �� �� ���� �ִ� */
+    public interface Animation {
+
+        /** animation ��ü�� �����ϸ鼭 ������ Thread�� ���ϴ°�? */
+        boolean hasOwnThread();
+
+        boolean isRunning();
+
+        /**
+		 * @param src
+		 *            ����� �׸��� �ִ� component
+		 * @param dest
+		 *            ���������� �������� component
+		 */
+        void doAnimation(VoidPanel src, JComponent dest);
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,518305.java,20,34
+selected,518305.java,14,27
+----------------------------------------
+        type = _type;
+        dclass = _dclass;
+        ttl = _ttl;
+    }
+
+    private static Class toClass(short type) throws ClassNotFoundException {
+        return Class.forName("DNS." + Type.string(type) + "Record");
+    }
+
+    static Record newRecord(Name name, short type, short dclass, int ttl, int length, CountedDataInputStream in, Compression c) throws IOException {
+        Record rec;
+        try {
+            Class rrclass;
+            Constructor m;
+            rrclass = toClass(type);
+----------------------------------------
+    int ttl;
+
+    int oLength;
+
+    Record(Name _name, short _type, short _dclass, int _ttl) {
+        name = _name;
+        type = _type;
+        dclass = _dclass;
+        ttl = _ttl;
+    }
+
+    private static Class toClass(short type) throws ClassNotFoundException {
+        return Class.forName("DNS." + Type.string(type) + "Record");
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1796005.java,1182,1196
+selected,1796005.java,1179,1194
+----------------------------------------
+            if (this.destroyed) {
+                throw new IllegalStateException("Already destroyed");
+            }
+            this.destroyed = true;
+        }
+
+        public void customDestroy() {
+            if (!this.destroyed) {
+                fail();
+            }
+            if (this.customDestroyed) {
+                throw new IllegalStateException("Already customDestroyed");
+            }
+            this.customDestroyed = true;
+        }
+----------------------------------------
+            if (this.customDestroyed) {
+                fail();
+            }
+            if (this.destroyed) {
+                throw new IllegalStateException("Already destroyed");
+            }
+            this.destroyed = true;
+        }
+
+        public void customDestroy() {
+            if (!this.destroyed) {
+                fail();
+            }
+            if (this.customDestroyed) {
+                throw new IllegalStateException("Already customDestroyed");
+            }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+sample,FTP_FTP4J_Samples.java,17,27
+sample,FTP_ApacheCommonsNet_Samples.java,28,38
+----------------------------------------
+		ftpClient.connect(server, port);
+		ftpClient.login(username, password);
+		return ftpClient;
+	}
+	
+	public FTPClient sample2(String server, String username, String password) throws IllegalStateException, IOException, FTPIllegalReplyException, FTPException {
+		FTPClient ftpClient = new FTPClient();
+		ftpClient.connect(server);
+		ftpClient.login(username, password);
+		return ftpClient;
+	}
+----------------------------------------
+		ftpClient.connect(server);
+		ftpClient.login(username, password);
+		return ftpClient;
+	}
+	
+	public FTPClient sample2a(String server, int port, String username, String password) throws SocketException, IOException {
+		FTPSClient ftpClient = new FTPSClient();
+		ftpClient.connect(server, port);
+		ftpClient.login(username, password);
+		return ftpClient;
+	}
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2297787.java,1164,1177
+selected,2297787.java,1163,1177
+----------------------------------------
+        } finally {
+            close(writer);
+            close(outputStream);
+        }
+        return true;
+    }
+
+    public static boolean toXML(Object object, String filePath) {
+        return toXML(object, new File(filePath));
+    }
+
+    public static String getExtraDataDirectory() {
+        return org.yccheok.jstock.gui.Utils.getUserDataDirectory() + "extra" + File.separator;
+    }
+----------------------------------------
+            return false;
+        } finally {
+            close(writer);
+            close(outputStream);
+        }
+        return true;
+    }
+
+    public static boolean toXML(Object object, String filePath) {
+        return toXML(object, new File(filePath));
+    }
+
+    public static String getExtraDataDirectory() {
+        return org.yccheok.jstock.gui.Utils.getUserDataDirectory() + "extra" + File.separator;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,16199.java,1306,1333
+default,131686.java,1306,1333
+----------------------------------------
+            while ((eline = br.readLine()) != null) {
+                error.addLast(eline);
+            }
+        } else if (numLines == NOOUTPUT) {
+        }
+        return error;
+    }
+
+    /**
+     * Use the SAX parser to validate the XML against a specified schema either internal or external. The following SAX
+     * features will be set to "true" for the validation: o Validation - XML document should specify an XML schema or a
+     * DTD. o Validation/schema - report validation errors against a schema. o Validation/schema-full-checking - full
+     * schema, grammar-constraint checking.
+     * 
+     * The xmlDocument will be converted to a StringReader and then fed to a SAX parser. The text will be validated by
+     * the external schema if the schemaUrl parameter is not null or by the internal schema if the schemaUrl parameter
+     * is null. The string "VALID" will be returned if the schema is validated, "INVALID" if the validation returns an
+     * error or "ERROR" if an exception is caught or some other error occurs that prevents validation. The number of
+     * errors returned can be limited by setting error limit. A negative error limit means return all errors. Calling
+     * the functoid that does not have an error limit value will also return all errors.
+     * 
+     * @param SchemaUrl
+     * @param XmlDocument
+     * @return
+     */
+    public static String stringValidateSchema(String xmlDocument, String schemaUrl) {
+        return stringValidateSchema(xmlDocument, schemaUrl, "-1");
+    }
+----------------------------------------
+            while ((eline = br.readLine()) != null) {
+                error.addLast(eline);
+            }
+        } else if (numLines == NOOUTPUT) {
+        }
+        return error;
+    }
+
+    /**
+     * Use the SAX parser to validate the XML against a specified schema either internal or external. The following SAX
+     * features will be set to "true" for the validation: o Validation - XML document should specify an XML schema or a
+     * DTD. o Validation/schema - report validation errors against a schema. o Validation/schema-full-checking - full
+     * schema, grammar-constraint checking.
+     * 
+     * The xmlDocument will be converted to a StringReader and then fed to a SAX parser. The text will be validated by
+     * the external schema if the schemaUrl parameter is not null or by the internal schema if the schemaUrl parameter
+     * is null. The string "VALID" will be returned if the schema is validated, "INVALID" if the validation returns an
+     * error or "ERROR" if an exception is caught or some other error occurs that prevents validation. The number of
+     * errors returned can be limited by setting error limit. A negative error limit means return all errors. Calling
+     * the functoid that does not have an error limit value will also return all errors.
+     * 
+     * @param SchemaUrl
+     * @param XmlDocument
+     * @return
+     */
+    public static String stringValidateSchema(String xmlDocument, String schemaUrl) {
+        return stringValidateSchema(xmlDocument, schemaUrl, "-1");
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,67193.java,6,23
+default,67193.java,7,25
+----------------------------------------
+import java.io.*;
+import org.apache.xerces.parsers.DOMParser;
+
+public class XMLVisumTree implements TreeListener {
+
+    boolean dirty = false;
+
+    TreePanel treePanel;
+
+    Tree tree;
+
+    String term = "@@node.:terminal=true";
+
+    String agr = "agr.num=sg|agr.gen=com";
+
+    File document = null;
+
+    final JFileChooser fc = new JFileChooser();
+----------------------------------------
+import org.apache.xerces.parsers.DOMParser;
+
+public class XMLVisumTree implements TreeListener {
+
+    boolean dirty = false;
+
+    TreePanel treePanel;
+
+    Tree tree;
+
+    String term = "@@node.:terminal=true";
+
+    String agr = "agr.num=sg|agr.gen=com";
+
+    File document = null;
+
+    final JFileChooser fc = new JFileChooser();
+
+    JFrame parent;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,430580.java,78,90
+selected,232750.java,78,90
+----------------------------------------
+        return result;
+    }
+
+    /**
+     * Computes the SHA-1 checksum of given message.
+     */
+    public synchronized String digest(String message) {
+        try {
+            SHA1Digest stomach = new SHA1Digest();
+            stomach.reset();
+            byte[] food = message.getBytes("UTF-8");
+            stomach.update(food, 0, food.length);
+            byte[] poop = new byte[64];
+----------------------------------------
+        return result;
+    }
+
+    /**
+     * Computes the SHA-1 checksum of given message.
+     */
+    public synchronized String digest(String message) {
+        try {
+            SHA1Digest stomach = new SHA1Digest();
+            stomach.reset();
+            byte[] food = message.getBytes("UTF-8");
+            stomach.update(food, 0, food.length);
+            byte[] poop = new byte[64];
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,59397.java,237,251
+default,59397.java,239,253
+----------------------------------------
+            private String errmessage;
+
+            SplitFile(File inFile, String outFilename, long maxsizepart, boolean doMD5, boolean doSHA1) {
+                f = inFile;
+                fileoutputname = outFilename;
+                limitSize = maxsizepart;
+                computeMD5 = doMD5;
+                computeSHA1 = doSHA1;
+                errcode = 0;
+                errmessage = null;
+            }
+
+            public Integer doInBackground() {
+                int i, k;
+                long j, numPieces;
+----------------------------------------
+            SplitFile(File inFile, String outFilename, long maxsizepart, boolean doMD5, boolean doSHA1) {
+                f = inFile;
+                fileoutputname = outFilename;
+                limitSize = maxsizepart;
+                computeMD5 = doMD5;
+                computeSHA1 = doSHA1;
+                errcode = 0;
+                errmessage = null;
+            }
+
+            public Integer doInBackground() {
+                int i, k;
+                long j, numPieces;
+                MessageDigest md5, mdSHA;
+                FileInputStream fins;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,5657.java,329,339
+default,67669.java,449,459
+----------------------------------------
+        Assert.assertFalse(reader.readRecord());
+        reader.close();
+    }
+
+    @Test
+    public void test16() throws Exception {
+        String data = "\r\r\n1\r";
+        CsvReader reader = CsvReader.parse(data);
+        reader.setDelimiter('\r');
+        Assert.assertTrue(reader.readRecord());
+        Assert.assertEquals("", reader.get(0));
+----------------------------------------
+        Assert.assertFalse(reader.readRecord());
+        reader.close();
+    }
+
+    @Test
+    public void test24() throws Exception {
+        String data = "1\r\n\r\n1";
+        CsvReader reader = CsvReader.parse(data);
+        reader.setUseTextQualifier(false);
+        Assert.assertTrue(reader.readRecord());
+        Assert.assertEquals("1", reader.get(0));
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2030123.java,287,298
+selected,2030123.java,286,298
+----------------------------------------
+        return true;
+    }
+
+    /*************************************************************************
+     * Loads a shapefile directly without a dialog box (simple version)
+     * @param model Model to load into
+     * @param name Name of the shapefile (plain)
+     * @return <code>true</code> on success.
+     ************************************************************************/
+    public boolean load(ModelGraph model, String name) {
+        return load(model, name, Color.white, de.fhg.igd.earth.model.graph.Polygon.STYLE_WIRE_FRAME, 0.2f, 0.0, 0.0, 0.0, 0, 0.0f, true);
+    }
+----------------------------------------
+        lod_ = sd.getLOD();
+        return true;
+    }
+
+    /*************************************************************************
+     * Loads a shapefile directly without a dialog box (simple version)
+     * @param model Model to load into
+     * @param name Name of the shapefile (plain)
+     * @return <code>true</code> on success.
+     ************************************************************************/
+    public boolean load(ModelGraph model, String name) {
+        return load(model, name, Color.white, de.fhg.igd.earth.model.graph.Polygon.STYLE_WIRE_FRAME, 0.2f, 0.0, 0.0, 0.0, 0, 0.0f, true);
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+sample,ShuffleArrayInPlace.java,25,37
+sample,ShuffleArrayInPlace.java,23,36
+----------------------------------------
+			int j = i + random.nextInt(length-i);
+			
+			//Swap
+			int tmp = a[i];
+			a[i] = a[j];
+			a[j] = tmp;
+		}
+	}
+	
+	public static void shuffle2(int[] a) {
+		//Alternate Fisher-Yates/Knuth Shuffle
+		Random random = new Random();
+		random.nextInt();
+----------------------------------------
+		for(int i = 0; i < length; i++) {
+			//Chose index to swap with from i <= j < length
+			int j = i + random.nextInt(length-i);
+			
+			//Swap
+			int tmp = a[i];
+			a[i] = a[j];
+			a[j] = tmp;
+		}
+	}
+	
+	public static void shuffle2(int[] a) {
+		//Alternate Fisher-Yates/Knuth Shuffle
+		Random random = new Random();
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1256570.java,24,39
+selected,1256570.java,26,39
+----------------------------------------
+import org.slasoi.studio.plugin.support.XmlSupport.XmlException;
+
+public class SlasoiDeploymentEx {
+
+    private final SlasoiDeployment deplType;
+
+    private final IProject project;
+
+    private static final Logger LOGGER = Logger.getLogger(SlasoiDeploymentEx.class.getName());
+
+    public SlasoiDeploymentEx(IProject project) throws XmlException {
+        this.project = project;
+        InputStream deplXmlStream;
+        try {
+            deplXmlStream = project.getFile(DeploymentProjectSupport.DEPLOYMENT_XML_FILE).getContents();
+        } catch (CoreException e) {
+----------------------------------------
+public class SlasoiDeploymentEx {
+
+    private final SlasoiDeployment deplType;
+
+    private final IProject project;
+
+    private static final Logger LOGGER = Logger.getLogger(SlasoiDeploymentEx.class.getName());
+
+    public SlasoiDeploymentEx(IProject project) throws XmlException {
+        this.project = project;
+        InputStream deplXmlStream;
+        try {
+            deplXmlStream = project.getFile(DeploymentProjectSupport.DEPLOYMENT_XML_FILE).getContents();
+        } catch (CoreException e) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,34715.java,3,16
+default,14071.java,3,16
+----------------------------------------
+import java.util.*;
+
+public class WritePDB {
+
+    static void encode(String source, String destination, boolean noSeconds) {
+        FileReader fr = null;
+        BufferedReader br = null;
+        RandomAccessFile raf = null;
+        DatabaseHeader databaseHeader = new DatabaseHeader();
+        AstroAppInfo astroAppInfo = new AstroAppInfo();
+        RecordIndex recordIndex = new RecordIndex();
+        Vector records = new Vector();
+        try {
+            fr = new FileReader(source);
+----------------------------------------
+import java.util.*;
+
+public class WritePDB {
+
+    static void encode(String source, String destination, boolean noSeconds) {
+        FileReader fr = null;
+        BufferedReader br = null;
+        RandomAccessFile raf = null;
+        DatabaseHeader databaseHeader = new DatabaseHeader();
+        AstroAppInfo astroAppInfo = new AstroAppInfo();
+        RecordIndex recordIndex = new RecordIndex();
+        Vector records = new Vector();
+        try {
+            fr = new FileReader(source);
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,118479.java,384,394
+default,42700.java,402,412
+----------------------------------------
+                case 2:
+                    syllable = syllable.replaceFirst("e", "é");
+                    break;
+                case 3:
+                    syllable = syllable.replaceFirst("e", "ě");
+                    break;
+                case 4:
+                    syllable = syllable.replaceFirst("e", "è");
+                    break;
+                default:
+                    break;
+----------------------------------------
+                case 2:
+                    syllable = syllable.replaceFirst("o", "ó");
+                    break;
+                case 3:
+                    syllable = syllable.replaceFirst("o", "ǒ");
+                    break;
+                case 4:
+                    syllable = syllable.replaceFirst("o", "ò");
+                    break;
+                default:
+                    break;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,739054.java,252,264
+selected,1486931.java,269,282
+----------------------------------------
+        return overflowList;
+    }
+
+    synchronized boolean isClosed() {
+        return (programs.isEmpty() || lk == null || ov == null);
+    }
+
+    public synchronized ConstantString MATREAD(Array arr, ConstantString record, boolean overflowLast, MaverickString status) throws MaverickException {
+        Group group = null;
+        try {
+            group = getGroup(record);
+            return group.getRecord(arr, record, overflowLast);
+        } catch (IOException ioe) {
+----------------------------------------
+            return new lhFrame(framesize);
+        }
+    }
+
+    synchronized boolean isClosed() {
+        return (programs.isEmpty() || lk == null || ov == null);
+    }
+
+    public synchronized mvConstantString MATREAD(mvArray arr, mvConstantString record, mvString status) throws mvException {
+        lhGroup group = null;
+        try {
+            group = getGroup(record);
+            return group.getRecord(arr, record);
+        } catch (IOException ioe) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,164983.java,61,71
+selected,164983.java,62,74
+----------------------------------------
+        String s = name;
+        L0: {
+            id = 0;
+            String X = null;
+            int c;
+            L: switch(s.length()) {
+                case 2:
+                    c = s.charAt(1);
+                    if (c == 'f') {
+                        if (s.charAt(0) == 'i') {
+                            id = Id_if;
+----------------------------------------
+        L0: {
+            id = 0;
+            String X = null;
+            int c;
+            L: switch(s.length()) {
+                case 2:
+                    c = s.charAt(1);
+                    if (c == 'f') {
+                        if (s.charAt(0) == 'i') {
+                            id = Id_if;
+                            break L0;
+                        }
+                    } else if (c == 'n') {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,82356.java,54,70
+selected,1437004.java,48,64
+----------------------------------------
+        repaint();
+    }
+
+    public void componentMoved(ComponentEvent evt) {
+        repaint();
+    }
+
+    public void componentHidden(ComponentEvent evt) {
+    }
+
+    public void windowGainedFocus(WindowEvent evt) {
+        refresh();
+    }
+
+    public void windowLostFocus(WindowEvent evt) {
+        refresh();
+    }
+----------------------------------------
+        repaint();
+    }
+
+    public void componentResized(ComponentEvent evt) {
+        repaint();
+    }
+
+    public void componentMoved(ComponentEvent evt) {
+        repaint();
+    }
+
+    public void componentHidden(ComponentEvent evt) {
+    }
+
+    public void windowGainedFocus(WindowEvent evt) {
+        refresh();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1607259.java,442,456
+selected,836389.java,848,861
+----------------------------------------
+        LUpivot = new int[pivot.length];
+        System.arraycopy(pivot, 0, LUpivot, 0, pivot.length);
+        return LU;
+    }
+
+    /**
+        * Returns the Cholesky decomposition of this matrix.
+        * Matrix must be symmetric and positive definite.
+        * @return an array with [0] containing the L-matrix and [1] containing the U-matrix.
+        * @planetmath CholeskyDecomposition
+        */
+    public DoubleSquareMatrix[] choleskyDecompose() {
+        int i, j, k;
+        final int N = numRows;
+        final double arrayL[][] = new double[N][N];
+----------------------------------------
+        LUpivot = new int[pivot.length];
+        System.arraycopy(pivot, 0, LUpivot, 0, pivot.length);
+        return LU;
+    }
+
+    /**
+        * Returns the Cholesky decomposition of this matrix.
+        * Matrix must be symmetric and positive definite.
+        * @return an array with [0] containing the L-matrix and [1] containing the U-matrix.
+        */
+    public DoubleSquareMatrix[] choleskyDecompose() {
+        int i, j, k;
+        final int N = numRows;
+        final double arrayL[][] = new double[N][N];
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,120897.java,1914,1924
+selected,120897.java,1913,1923
+----------------------------------------
+                    case TYPE_INT_ARGB:
+                        bufferType = BufferedImage.TYPE_INT_ARGB;
+                        break;
+                    case TYPE_USHORT_GRAY:
+                        bufferType = BufferedImage.TYPE_USHORT_GRAY;
+                    default:
+                        assert false;
+                }
+                BufferedImage bi = new BufferedImage(width, height, bufferType);
+                if ((!swapNeeded) && (imageFormatType != ImageFormatType.TYPE_BYTE_LA)) {
+                    if (yUp) {
+----------------------------------------
+                        break;
+                    case TYPE_INT_ARGB:
+                        bufferType = BufferedImage.TYPE_INT_ARGB;
+                        break;
+                    case TYPE_USHORT_GRAY:
+                        bufferType = BufferedImage.TYPE_USHORT_GRAY;
+                    default:
+                        assert false;
+                }
+                BufferedImage bi = new BufferedImage(width, height, bufferType);
+                if ((!swapNeeded) && (imageFormatType != ImageFormatType.TYPE_BYTE_LA)) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,315325.java,430,440
+selected,315325.java,431,441
+----------------------------------------
+        while (currentIndex >= 0) {
+            if (worthOfInterval.get(currentIndex) <= maxWorth) {
+                set.add(startVals[currentIndex], endVals[currentIndex]);
+            }
+            currentIndex = getNextIntervalIndex(currentIndex);
+        }
+        return set;
+    }
+
+    public IntIntervalSet getAllRangesWithMinWorth(int minWorth, int start, int end) {
+        int currentIndex = indexOfValue(start);
+----------------------------------------
+            if (worthOfInterval.get(currentIndex) <= maxWorth) {
+                set.add(startVals[currentIndex], endVals[currentIndex]);
+            }
+            currentIndex = getNextIntervalIndex(currentIndex);
+        }
+        return set;
+    }
+
+    public IntIntervalSet getAllRangesWithMinWorth(int minWorth, int start, int end) {
+        int currentIndex = indexOfValue(start);
+        if (currentIndex == Integer.MIN_VALUE) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1775906.java,61,75
+selected,1775906.java,60,73
+----------------------------------------
+import com.vividsolutions.jump.workbench.ui.GUIUtil;
+
+public class SaveDatasetsPlugIn extends AbstractPlugIn {
+
+    private boolean saveAll = false;
+
+    private int saveReadOnlySources = -1;
+
+    private String pathToSaveReadOnlySources = "";
+
+    private String extToSaveReadOnlySources = "";
+
+    private int saveNewLayerSources = -1;
+
+    private String pathToSaveNewLayerSources = "";
+----------------------------------------
+import com.vividsolutions.jump.workbench.ui.plugin.SaveProjectAsPlugIn;
+import com.vividsolutions.jump.workbench.ui.GUIUtil;
+
+public class SaveDatasetsPlugIn extends AbstractPlugIn {
+
+    private boolean saveAll = false;
+
+    private int saveReadOnlySources = -1;
+
+    private String pathToSaveReadOnlySources = "";
+
+    private String extToSaveReadOnlySources = "";
+
+    private int saveNewLayerSources = -1;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,26117.java,419,430
+default,26117.java,411,423
+----------------------------------------
+            if (opcion2 == 3) {
+                adelante = e.getKeyCode();
+                opcion2 = 5;
+                repaint();
+            }
+            if (opcion2 == 4) {
+                disparo = e.getKeyCode();
+                opcion2 = 5;
+                repaint();
+            }
+            if (opcion2 == 0) {
+                if (e.getKeyCode() == e.VK_LEFT) {
+----------------------------------------
+                opcion2 = 5;
+                repaint();
+            }
+            if (opcion2 == 2) {
+                salto = e.getKeyCode();
+                opcion2 = 5;
+                repaint();
+            }
+            if (opcion2 == 3) {
+                adelante = e.getKeyCode();
+                opcion2 = 5;
+                repaint();
+            }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+sample,FTP_FTP4J_Samples.java,5,20
+sample,FTP_FTP4J_Samples.java,6,20
+----------------------------------------
+import it.sauronsoftware.ftp4j.FTPFile;
+import it.sauronsoftware.ftp4j.FTPIllegalReplyException;
+import it.sauronsoftware.ftp4j.FTPListParseException;
+
+import java.io.IOException;
+
+
+
+public class FTP_FTP4J_Samples {
+
+	public FTPClient sample1(String server, int port, String username, String password) throws IllegalStateException, IOException, FTPIllegalReplyException, FTPException {
+		FTPClient ftpClient = new FTPClient();
+		ftpClient.connect(server, port);
+		ftpClient.login(username, password);
+		return ftpClient;
+	}
+----------------------------------------
+import it.sauronsoftware.ftp4j.FTPIllegalReplyException;
+import it.sauronsoftware.ftp4j.FTPListParseException;
+
+import java.io.IOException;
+
+
+
+public class FTP_FTP4J_Samples {
+
+	public FTPClient sample1(String server, int port, String username, String password) throws IllegalStateException, IOException, FTPIllegalReplyException, FTPException {
+		FTPClient ftpClient = new FTPClient();
+		ftpClient.connect(server, port);
+		ftpClient.login(username, password);
+		return ftpClient;
+	}
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+sample,ConnectToDatabaseJDBC.java,3,15
+sample,ConnectToDatabaseJDBC.java,2,15
+----------------------------------------
+import java.sql.SQLException;
+import java.util.Properties;
+
+
+public class ConnectToDatabaseJDBC {
+	public static Connection getConnection1(String serverName, int port, String database, String driver, String username, String password) throws SQLException {
+		Connection conn = null;
+		
+		Properties props = new Properties();
+		props.put("user", username);
+		props.put("password", password);
+		
+		String url = "jdbc:" + driver + "://" + serverName + ":" + port + "/" + database;
+----------------------------------------
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+
+
+public class ConnectToDatabaseJDBC {
+	public static Connection getConnection1(String serverName, int port, String database, String driver, String username, String password) throws SQLException {
+		Connection conn = null;
+		
+		Properties props = new Properties();
+		props.put("user", username);
+		props.put("password", password);
+		
+		String url = "jdbc:" + driver + "://" + serverName + ":" + port + "/" + database;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+sample,FileChooser.java,42,53
+sample,FileChooser.java,4,22
+----------------------------------------
+		JFileChooser fc = new JFileChooser();
+		fc.setDialogTitle("Select input file.");
+		fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		fc.setMultiSelectionEnabled(false);
+		
+		//Show dialog and wait for user input
+		int status = fc.showSaveDialog(frame);
+		
+		//React to input
+		if(status == JFileChooser.APPROVE_OPTION) {
+			retval = fc.getSelectedFile();
+		} else if (status == JFileChooser.CANCEL_OPTION) {
+----------------------------------------
+import javax.swing.JFrame;
+
+
+public class FileChooser {
+	
+	public static File chooseFileOpen(JFrame frame) {
+		File retval;
+		
+		//Create and configure file chooser
+		JFileChooser fc = new JFileChooser();
+		fc.setDialogTitle("Select input file.");
+		fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		fc.setMultiSelectionEnabled(false);
+		
+		//Show dialog and wait for user input
+		int status = fc.showOpenDialog(frame);
+		
+		//React to input
+		if(status == JFileChooser.APPROVE_OPTION) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,15532.java,3,14
+default,28709.java,3,14
+----------------------------------------
+import java.io.*;
+
+public class PropertiesTest2 {
+
+    public static void main(String[] args) {
+        Properties pt = System.getProperties();
+        Enumeration<?> e = pt.propertyNames();
+        String key = null;
+        while (e.hasMoreElements()) {
+            key = (String) e.nextElement();
+            System.out.println(key + " = " + pt.getProperty(key));
+        }
+----------------------------------------
+import java.io.*;
+
+public class PropertiesTest2 {
+
+    public static void main(String[] args) {
+        Properties pt = System.getProperties();
+        Enumeration<?> e = pt.propertyNames();
+        String key = null;
+        while (e.hasMoreElements()) {
+            key = (String) e.nextElement();
+            System.out.println(key + " = " + pt.getProperty(key));
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,896687.java,6,16
+selected,1478594.java,7,23
+----------------------------------------
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.Rectangle;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfPageEventHelper;
+import com.lowagie.text.pdf.PdfWriter;
+
+/**
+ * Demonstrates the use of PageEvents.
+ */
+public class EndPage extends PdfPageEventHelper {
+----------------------------------------
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.events.IndexEvents;
+import com.lowagie.text.pdf.PdfPageEventHelper;
+import com.lowagie.text.pdf.PdfWriter;
+
+/**
+ * This example was written by Bruno Lowagie based on a
+ * code contribution by Michael Niedermair.
+ * This example is part of the book 'iText in
+ * Action' by Manning Publications. 
+ * ISBN: 1932394796
+ * http://www.1t3xt.com/docs/book.php 
+ * http://www.manning.com/lowagie/
+ */
+public class FoxDogGeneric3 extends PdfPageEventHelper {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1638491.java,94,200
+selected,1638491.java,120,230
+----------------------------------------
+    public static int SOURCE_NOT_FOUND = 0x00000000;
+
+    /**
+     * <code>SOURCE_ALL</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * This flag describes a class located in any of the system 
+     * or user sources.
+     */
+    public static int SOURCE_ALL = 0x00ffffff;
+
+    /**
+     * <code>SOURCE_SYSTEM</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * A class source with 
+     *
+     * <pre>
+     * classSource & SOURCE_SYSTEM == SOURCE_SYSTEM
+     * </pre>
+     *
+     * describes a class located in one of the system sources marked by
+     * <code>SOURCE_BOOT_CLASSPATH</code>, 
+     * <code>SOURCE_SYSTEM_JARFILES</code>, 
+     * or <code>SOURCE_SYSTEM_CLASSPATH</code>. 
+     */
+    public static int SOURCE_SYSTEM = 0x00010000;
+
+    /**
+     * <code>SOURCE_USER</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * A class source with
+     *
+     * <pre>
+     * classSource & SOURCE_USER == SOURCE_USER
+     * </pre>
+     *
+     * describes a class located in one of the system sources marked by
+     * <code>SOURCE_USER_LOCALCLASS</code>,
+     * <code>SOURCE_USER_CLASSRESORUCE</code>, 
+     * or <code>SOURCE_USER_REMOTE</code>.
+     */
+    public static int SOURCE_USER = 0x00020000;
+
+    /**
+     * <code>SOURCE_BOOT_CLASSPATH</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * A class source with 
+     *
+     * <pre>
+     * classSource & SOURCE_BOOT_CLASSPATH == SOURCE_BOOT_CLASSPATH
+     * </pre>
+     *
+     * describes a class located in one of the boot class paths of the
+     * JavaVM (compare Java System Property: <code>sun.boot.class.path</code>).
+     */
+    public static int SOURCE_BOOT_CLASSPATH = 0x00010001;
+
+    /**
+     * <code>SOURCE_SYSTEM_JARFILE</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * A class source with 
+     *
+     * <pre>
+     * classSource & SOURCE_SYSTEM_JARFILE == SOURCE_SYSTEM_JARFILE
+     * </pre>
+     *
+     * describes a class located as JAR/ZIP-file entry in one of 
+     * java extension directories of the JavaVM (compare Java System 
+     * Property: <code>java.ext.dirs</code>).
+     */
+    public static int SOURCE_SYSTEM_JARFILE = 0x00010002;
+
+    /**
+     * <code>SOURCE_SYSTEM_CLASSPATH</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * A class source with 
+     *
+     * <pre>
+     * classSource & SOURCE_SYSTEM_CLASSPATH == SOURCE_SYSTEM_CLASSPATH
+     * </pre>
+     *
+     * describes a class located in one of the system class paths of the
+     * JavaVM (compare Java System Property: <code>java.class.path</code>).
+     */
+    public static int SOURCE_SYSTEM_CLASSPATH = 0x00010004;
+
+    /**
+     * <code>SOURCE_USER_LOCALCLASS</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * A class source with 
+     *
+     * <pre>
+     * classSource & SOURCE_USER_LOCALCLASS == SOURCE_USER_LOCALCLASS
+     * </pre>
+     *
+     * describes a class located within the local file system in one
+     * of the given user class paths or class URLs (compare 
+     * <code>setUserClassPath()</code>, <code>setUserClassPaths()</code>,
+     * and <code>setUserClassUrls()</code>).
+     */
+    public static int SOURCE_USER_LOCALCLASS = 0x00020008;
+----------------------------------------
+    public static int SOURCE_SYSTEM = 0x00010000;
+
+    /**
+     * <code>SOURCE_USER</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * A class source with
+     *
+     * <pre>
+     * classSource & SOURCE_USER == SOURCE_USER
+     * </pre>
+     *
+     * describes a class located in one of the system sources marked by
+     * <code>SOURCE_USER_LOCALCLASS</code>,
+     * <code>SOURCE_USER_CLASSRESORUCE</code>, 
+     * or <code>SOURCE_USER_REMOTE</code>.
+     */
+    public static int SOURCE_USER = 0x00020000;
+
+    /**
+     * <code>SOURCE_BOOT_CLASSPATH</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * A class source with 
+     *
+     * <pre>
+     * classSource & SOURCE_BOOT_CLASSPATH == SOURCE_BOOT_CLASSPATH
+     * </pre>
+     *
+     * describes a class located in one of the boot class paths of the
+     * JavaVM (compare Java System Property: <code>sun.boot.class.path</code>).
+     */
+    public static int SOURCE_BOOT_CLASSPATH = 0x00010001;
+
+    /**
+     * <code>SOURCE_SYSTEM_JARFILE</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * A class source with 
+     *
+     * <pre>
+     * classSource & SOURCE_SYSTEM_JARFILE == SOURCE_SYSTEM_JARFILE
+     * </pre>
+     *
+     * describes a class located as JAR/ZIP-file entry in one of 
+     * java extension directories of the JavaVM (compare Java System 
+     * Property: <code>java.ext.dirs</code>).
+     */
+    public static int SOURCE_SYSTEM_JARFILE = 0x00010002;
+
+    /**
+     * <code>SOURCE_SYSTEM_CLASSPATH</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * A class source with 
+     *
+     * <pre>
+     * classSource & SOURCE_SYSTEM_CLASSPATH == SOURCE_SYSTEM_CLASSPATH
+     * </pre>
+     *
+     * describes a class located in one of the system class paths of the
+     * JavaVM (compare Java System Property: <code>java.class.path</code>).
+     */
+    public static int SOURCE_SYSTEM_CLASSPATH = 0x00010004;
+
+    /**
+     * <code>SOURCE_USER_LOCALCLASS</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * A class source with 
+     *
+     * <pre>
+     * classSource & SOURCE_USER_LOCALCLASS == SOURCE_USER_LOCALCLASS
+     * </pre>
+     *
+     * describes a class located within the local file system in one
+     * of the given user class paths or class URLs (compare 
+     * <code>setUserClassPath()</code>, <code>setUserClassPaths()</code>,
+     * and <code>setUserClassUrls()</code>).
+     */
+    public static int SOURCE_USER_LOCALCLASS = 0x00020008;
+
+    /**
+     * <code>SOURCE_USER_CLASSRESOURCE</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * A class source with 
+     *
+     * <pre>
+     * classSource & SOURCE_USER_CLASSRESOURCE == SOURCE_USER_CLASSRESOURCE
+     * </pre>
+     *
+     * describes a class located within the given user class resource
+     * (compare <code>setUserClassResource()</code>).
+     */
+    public static int SOURCE_USER_CLASSRESOURCE = 0x00020010;
+
+    /**
+     * <code>SOURCE_USER_REMOTECLASS</code> is element of a set of flags 
+     * given as bit string, which describe the source of a class:
+     *
+     * A class source with 
+     *
+     * <pre>
+     * classSource & SOURCE_USER_REMOTECLASS == SOURCE_USER_REMOTECLASS
+     * </pre>
+     *
+     * describes a class located on a remote host below one of the given
+     * user class URLs (compare <code>setUserClassUrls()</code>).
+     */
+    public static int SOURCE_USER_REMOTECLASS = 0x00020020;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2213524.java,27,44
+selected,2213524.java,27,42
+----------------------------------------
+import org.suse.swamp.designer.editors.xml.*;
+import org.suse.swamp.designer.factory.*;
+import org.suse.swamp.designer.model.*;
+import org.suse.swamp.designer.part.*;
+
+/**
+ * A graphical editor with flyout palette that can edit .process files. The
+ * binding between the .process file extension and this editor is done in
+ * plugin.xml
+ * 
+ * @author Mahmoud Mahran
+ */
+public class ProcessEditor extends GraphicalEditorWithFlyoutPalette {
+
+    /** This is the root of the editor's model. */
+    private ShapesDiagram diagram;
+
+    private static PaletteRoot PALETTE_MODEL;
+----------------------------------------
+import org.suse.swamp.designer.editors.xml.*;
+import org.suse.swamp.designer.factory.*;
+import org.suse.swamp.designer.model.*;
+import org.suse.swamp.designer.part.*;
+
+/**
+ * A graphical editor with flyout palette that can edit .process files. The
+ * binding between the .process file extension and this editor is done in
+ * plugin.xml
+ * 
+ * @author Mahmoud Mahran
+ */
+public class ProcessEditor extends GraphicalEditorWithFlyoutPalette {
+
+    /** This is the root of the editor's model. */
+    private ShapesDiagram diagram;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1290775.java,644,663
+selected,1290775.java,637,660
+----------------------------------------
+    private float updateRight = 1;
+
+    /**
+   * Repaints the modified areas of the JPanel
+   *
+   * @param g The <TT>Graphics</TT> to update.
+   */
+    public void update(Graphics g) {
+        final int maxRight = resolution - 1;
+        int left = 0;
+        int right = maxRight;
+        synchronized (mutex) {
+            if (valLeft > valRight) {
+                return;
+            }
+            left = valLeft;
+            right = valRight;
+            valLeft = maxRight;
+            valRight = 0;
+        }
+----------------------------------------
+        update(g);
+    }
+
+    /** The left bound for updating the JPanel */
+    private float updateLeft = 0;
+
+    /** The right bound for updating the JPanel */
+    private float updateRight = 1;
+
+    /**
+   * Repaints the modified areas of the JPanel
+   *
+   * @param g The <TT>Graphics</TT> to update.
+   */
+    public void update(Graphics g) {
+        final int maxRight = resolution - 1;
+        int left = 0;
+        int right = maxRight;
+        synchronized (mutex) {
+            if (valLeft > valRight) {
+                return;
+            }
+            left = valLeft;
+            right = valRight;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,53248.java,141,152
+selected,53248.java,121,131
+----------------------------------------
+        QueryUtils.check(query, searcher);
+    }
+
+    /**
+   * slop is the total number of positional moves allowed
+   * to line up a phrase
+   */
+    public void testMulipleTerms() throws Exception {
+        query.setSlop(2);
+        query.add(new Term("field", "one"));
+        query.add(new Term("field", "three"));
+        query.add(new Term("field", "five"));
+----------------------------------------
+        assertEquals("reversed, slop not 2 or more", 0, hits.length);
+        QueryUtils.check(query, searcher);
+    }
+
+    /**
+   * As long as slop is at least 2, terms can be reversed
+   */
+    public void testOrderDoesntMatter() throws Exception {
+        query.setSlop(2);
+        query.add(new Term("field", "two"));
+        query.add(new Term("field", "one"));
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,114110.java,86,102
+selected,69355.java,66,80
+----------------------------------------
+        long tmpE = m_E;
+        long tmpVal = m_Val;
+        while (tmpE != 0) {
+            if (tmpE < 0) {
+                tmpVal /= 10;
+                tmpE++;
+            } else {
+                tmpVal *= 10;
+                tmpE--;
+            }
+        }
+        return tmpVal;
+    }
+
+    public int toInt() {
+        return (int) (toLong());
+    }
+----------------------------------------
+            if (tmpE < 0) {
+                tmpVal /= 10;
+                tmpE++;
+            } else {
+                tmpVal *= 10;
+                tmpE--;
+            }
+        }
+        return (int) tmpVal;
+    }
+
+    public long getDecimal() {
+        long entera = this.toLong();
+        if (m_E >= 0) return 0; else {
+            for (int i = 0; i > m_E; i--) entera *= 10;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,474085.java,376,389
+selected,474085.java,377,398
+----------------------------------------
+        if (SwingUtilities.isEventDispatchThread()) {
+            show();
+        } else {
+            try {
+                SwingUtilities.invokeAndWait(new Runnable() {
+
+                    public void run() {
+                        show();
+                    }
+                });
+            } catch (InvocationTargetException ie) {
+            } catch (InterruptedException ie) {
+            }
+        }
+----------------------------------------
+            show();
+        } else {
+            try {
+                SwingUtilities.invokeAndWait(new Runnable() {
+
+                    public void run() {
+                        show();
+                    }
+                });
+            } catch (InvocationTargetException ie) {
+            } catch (InterruptedException ie) {
+            }
+        }
+    }
+
+    /**
+     * Changes the displayed page, desyncing if we're not on the
+     * same page as a presenter.
+     * @param pagenum the page to display
+     */
+    public void gotoPage(int pagenum) {
+        if (pagenum < 0) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2427299.java,10,35
+selected,2427299.java,11,35
+----------------------------------------
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.dspace.storage.rdbms.DatabaseManager;
+
+/**
+ * <p>
+ * Database Access Object for bitstream information (metadata). Also performs
+ * the needed insert/update/delete commands on the database for the checksum
+ * checker.
+ * </p>
+ * 
+ * @author Jim Downing
+ * @author Grace Carpenter
+ * @author Nathan Sarr
+ * 
+ */
+public final class BitstreamInfoDAO extends DAOSupport {
+
+    /**
+     * This value should be returned by <code>next()</code> to indicate that
+     * there are no more values.
+     */
+    public static int SENTINEL = -1;
+
+    /** Query that gets bitstream information for a specified ID. */
+    private static final String FIND_BY_BITSTREAM_ID = "select bitstream.deleted, bitstream.store_number, bitstream.size_bytes, " + "bitstreamformatregistry.short_description, bitstream.bitstream_id,  " + "bitstream.user_format_description, bitstream.internal_id, " + "bitstream.source, bitstream.checksum_algorithm, bitstream.checksum, " + "bitstream.name, most_recent_checksum.last_process_end_date," + "most_recent_checksum.to_be_processed " + "from bitstream left outer join bitstreamformatregistry on " + "bitstream.bitstream_format_id = bitstreamformatregistry.bitstream_format_id, " + "most_recent_checksum " + "where bitstream.bitstream_id = ? " + "and bitstream.bitstream_id = most_recent_checksum.bitstream_id;";
+----------------------------------------
+import org.apache.log4j.Logger;
+import org.dspace.storage.rdbms.DatabaseManager;
+
+/**
+ * <p>
+ * Database Access Object for bitstream information (metadata). Also performs
+ * the needed insert/update/delete commands on the database for the checksum
+ * checker.
+ * </p>
+ * 
+ * @author Jim Downing
+ * @author Grace Carpenter
+ * @author Nathan Sarr
+ * 
+ */
+public final class BitstreamInfoDAO extends DAOSupport {
+
+    /**
+     * This value should be returned by <code>next()</code> to indicate that
+     * there are no more values.
+     */
+    public static int SENTINEL = -1;
+
+    /** Query that gets bitstream information for a specified ID. */
+    private static final String FIND_BY_BITSTREAM_ID = "select bitstream.deleted, bitstream.store_number, bitstream.size_bytes, " + "bitstreamformatregistry.short_description, bitstream.bitstream_id,  " + "bitstream.user_format_description, bitstream.internal_id, " + "bitstream.source, bitstream.checksum_algorithm, bitstream.checksum, " + "bitstream.name, most_recent_checksum.last_process_end_date," + "most_recent_checksum.to_be_processed " + "from bitstream left outer join bitstreamformatregistry on " + "bitstream.bitstream_format_id = bitstreamformatregistry.bitstream_format_id, " + "most_recent_checksum " + "where bitstream.bitstream_id = ? " + "and bitstream.bitstream_id = most_recent_checksum.bitstream_id;";
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1893609.java,97,109
+selected,1893609.java,74,86
+----------------------------------------
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (oin != null) {
+                try {
+                    oin.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+----------------------------------------
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (oout != null) {
+                try {
+                    oout.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1718226.java,15,26
+selected,421582.java,5,32
+----------------------------------------
+    static Logger log = JPF.getLogger("gov.nasa.jpf.jvm.choice");
+
+    String[] values;
+
+    int count;
+
+    public DoubleChoiceFromSet(Config conf, String id) {
+        super(id);
+        values = conf.getStringArray(id + ".values");
+        if (values == null) {
+            throw new JPFException("value set for <" + id + "> choice did not load");
+        }
+----------------------------------------
+import gov.nasa.jpf.jvm.IntChoiceGenerator;
+
+/**
+ * @author jpenix
+ *
+ * choose from a set of values provided in configuration as
+ * xxx.class = IntChoiceFromSet
+ * xxx.values = {1, 2, 3, 400}
+ * where "xxx" is the choice id.
+ * 
+ * choices can then made using: getInt("xxx");
+ */
+public class IntChoiceFromSet extends IntChoiceGenerator {
+
+    String[] values;
+
+    int count = -1;
+
+    /**
+	 * @param conf JPF configuration object
+	 * @param id name used in choice config
+	 */
+    public IntChoiceFromSet(Config conf, String id) {
+        super(id);
+        values = conf.getStringArray(id + ".values");
+        if (values == null) {
+            throw new JPFException("value set for <" + id + "> choice did not load");
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2294051.java,30,46
+selected,1819695.java,34,50
+----------------------------------------
+    private File srcFile;
+
+    private RandomAccessFile raf;
+
+    private boolean isOpened;
+
+    /** Creates a new instance of StreamReader */
+    public StreamReader() {
+        fsize = 0;
+        byt2write = 0;
+        written = 0;
+        pos = 0;
+        fpos = 0;
+        data = null;
+        chan = null;
+        srcFile = null;
+        raf = null;
+----------------------------------------
+    private File srcFile;
+
+    private RandomAccessFile raf;
+
+    private boolean isOpened;
+
+    /** Creates a new instance of StreamReader */
+    public StreamReader() {
+        fsize = 0;
+        byt2write = 0;
+        written = 0;
+        pos = 0;
+        fpos = 0;
+        data = null;
+        chan = null;
+        srcFile = null;
+        raf = null;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2026694.java,13,28
+selected,2026694.java,12,28
+----------------------------------------
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.PdfWriter;
+
+/**
+ * @author kevin
+ */
+public class TextMarginFinderTest {
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
+    }
+----------------------------------------
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.PdfWriter;
+
+/**
+ * @author kevin
+ */
+public class TextMarginFinderTest {
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,3386.java,36,53
+default,3386.java,34,51
+----------------------------------------
+                    conn.close();
+                } catch (Exception e2) {
+                }
+            }
+        }
+    }
+
+    static final int SET_ASCII_STREAM_TEST = 1;
+
+    static final int SET_BINARY_STREAM_TEST = 2;
+
+    static final int SET_BLOB_TEST = 3;
+
+    static final int SET_BLOB_STREAM_TEST = 4;
+
+    static final int SET_CHAR_STREAM_TEST = 5;
+
+    static final int SET_CLOB_TEST = 6;
+----------------------------------------
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception e2) {
+                }
+            }
+        }
+    }
+
+    static final int SET_ASCII_STREAM_TEST = 1;
+
+    static final int SET_BINARY_STREAM_TEST = 2;
+
+    static final int SET_BLOB_TEST = 3;
+
+    static final int SET_BLOB_STREAM_TEST = 4;
+
+    static final int SET_CHAR_STREAM_TEST = 5;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,857619.java,954,971
+selected,857619.java,952,970
+----------------------------------------
+        m_totalEvals = 0;
+        m_bestMerit = 0;
+        m_processinTime = 0;
+    }
+
+    /**
+   * converts a BitSet into a list of attribute indexes
+   * @param group the BitSet to convert
+   * @return an array of attribute indexes
+   **/
+    public int[] attributeList(BitSet group) {
+        int count = 0;
+        for (int i = 0; i < m_numAttribs; i++) {
+            if (group.get(i)) {
+                count++;
+            }
+        }
+        int[] list = new int[count];
+----------------------------------------
+        m_seed = 1;
+        m_debug = true;
+        m_totalEvals = 0;
+        m_bestMerit = 0;
+        m_processinTime = 0;
+    }
+
+    /**
+   * converts a BitSet into a list of attribute indexes
+   * @param group the BitSet to convert
+   * @return an array of attribute indexes
+   **/
+    public int[] attributeList(BitSet group) {
+        int count = 0;
+        for (int i = 0; i < m_numAttribs; i++) {
+            if (group.get(i)) {
+                count++;
+            }
+        }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+sample,FTP_ApacheCommonsNet_Samples.java,42,52
+sample,FTP_ApacheCommonsNet_Samples.java,20,30
+----------------------------------------
+		ftpClient.connect(server);
+		ftpClient.login(username, password);
+		return ftpClient;
+	}
+	
+	public FTPClient sample2c(String server, int port, String username, String password) throws SocketException, IOException {
+		FTPSClient ftpClient = new FTPSClient();
+		ftpClient.setDefaultPort(port);
+		ftpClient.connect(server);
+		ftpClient.login(username, password);
+		return ftpClient;
+----------------------------------------
+		ftpClient.connect(server);
+		ftpClient.login(username, password);
+		return ftpClient;
+	}
+	
+	public FTPClient sample1c(String server, int port, String username, String password) throws SocketException, IOException {
+		FTPClient ftpClient = new FTPClient();
+		ftpClient.setDefaultPort(port);
+		ftpClient.connect(server);
+		ftpClient.login(username, password);
+		return ftpClient;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,7746.java,12,31
+default,7746.java,16,31
+----------------------------------------
+public class Api {
+
+    private int id;
+
+    private InterfaceServeur serveur = null;
+
+    private static String url;
+
+    private String user;
+
+    private GUI_Client parent;
+
+    public Api(String ur, GUI_Client par) {
+        url = ur;
+        parent = par;
+    }
+
+    public boolean connect(String us, String mdp) {
+        try {
+            if (serveur == null) serveur = (InterfaceServeur) Naming.lookup(url);
+----------------------------------------
+    private InterfaceServeur serveur = null;
+
+    private static String url;
+
+    private String user;
+
+    private GUI_Client parent;
+
+    public Api(String ur, GUI_Client par) {
+        url = ur;
+        parent = par;
+    }
+
+    public boolean connect(String us, String mdp) {
+        try {
+            if (serveur == null) serveur = (InterfaceServeur) Naming.lookup(url);
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,147299.java,390,414
+selected,147299.java,389,412
+----------------------------------------
+        return (long) (milliFor16 * Math.pow(2, value - 16));
+    }
+
+    /**
+	 * Estimates what value (e.g. how many bits of collision) are required for
+	 * the specified length of time.
+	 * <ul>
+	 * <li>NOTE1: Minting time can vary greatly in fact, half of the time it
+	 * will take half as long)
+	 * <li>NOTE2: The first time that an estimation function is called it is
+	 * expensive (on the order of seconds). After that, it is very quick.
+	 * </ul>
+	 * 
+	 * @throws NoSuchAlgorithmException
+	 *             If SHA1 is not a supported Message Digest
+	 */
+    public static int estimateValue(int secs) throws NoSuchAlgorithmException {
+        initEstimates();
+        int result = 0;
+        long millis = secs * 1000 * 65536;
+        millis /= milliFor16;
+        while (millis > 1) {
+            result++;
+            millis /= 2;
+        }
+----------------------------------------
+        initEstimates();
+        return (long) (milliFor16 * Math.pow(2, value - 16));
+    }
+
+    /**
+	 * Estimates what value (e.g. how many bits of collision) are required for
+	 * the specified length of time.
+	 * <ul>
+	 * <li>NOTE1: Minting time can vary greatly in fact, half of the time it
+	 * will take half as long)
+	 * <li>NOTE2: The first time that an estimation function is called it is
+	 * expensive (on the order of seconds). After that, it is very quick.
+	 * </ul>
+	 * 
+	 * @throws NoSuchAlgorithmException
+	 *             If SHA1 is not a supported Message Digest
+	 */
+    public static int estimateValue(int secs) throws NoSuchAlgorithmException {
+        initEstimates();
+        int result = 0;
+        long millis = secs * 1000 * 65536;
+        millis /= milliFor16;
+        while (millis > 1) {
+            result++;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1821592.java,232,289
+selected,273852.java,232,289
+----------------------------------------
+        return newVector.elements();
+    }
+
+    /**
+     * Sets the OptionHandler's options using the given list. All options
+     * will be set (or reset) during this call (i.e. incremental setting
+     * of options is not possible). <p/>
+     *
+     <!-- options-start -->
+     * Valid options are: <p/>
+     *
+     * <pre> -c &lt;class index&gt;
+     *  The index of the class attribute.
+     *  (default last)</pre>
+     *
+     * <pre> -D
+     *  Turn on debugging output.</pre>
+     *
+     * <pre> -l &lt;num&gt;
+     *  The number of times each instance is classified.
+     *  (default 10)</pre>
+     *
+     * <pre> -p &lt;proportion of objects in common&gt;
+     *  The average proportion of instances common between any two training sets</pre>
+     *
+     * <pre> -s &lt;seed&gt;
+     *  The random number seed used.</pre>
+     *
+     * <pre> -t &lt;name of arff file&gt;
+     *  The name of the arff file used for the decomposition.</pre>
+     *
+     * <pre> -T &lt;number of instances in training set&gt;
+     *  The number of instances in the training set.</pre>
+     *
+     * <pre> -W &lt;classifier class name&gt;
+     *  Full class name of the learner used in the decomposition.
+     *  eg: weka.classifiers.bayes.NaiveBayes</pre>
+     *
+     * <pre>
+     * Options specific to learner weka.classifiers.rules.ZeroR:
+     * </pre>
+     *
+     * <pre> -D
+     *  If set, classifier is run in debug mode and
+     *  may output additional info to the console</pre>
+     *
+     <!-- options-end -->
+     *
+     * @param options the list of options as an array of strings
+     * @throws Exception if an option is not supported
+     */
+    public void setOptions(String[] options) throws Exception {
+        setDebug(Utils.getFlag('D', options));
+        String classIndex = Utils.getOption('c', options);
+        if (classIndex.length() != 0) {
+            if (classIndex.toLowerCase().equals("last")) {
+                setClassIndex(0);
+            } else if (classIndex.toLowerCase().equals("first")) {
+----------------------------------------
+        return newVector.elements();
+    }
+
+    /** 
+     * Sets the OptionHandler's options using the given list. All options
+     * will be set (or reset) during this call (i.e. incremental setting
+     * of options is not possible). <p/>
+     *
+     <!-- options-start -->
+     * Valid options are: <p/>
+     * 
+     * <pre> -c &lt;class index&gt;
+     *  The index of the class attribute.
+     *  (default last)</pre>
+     * 
+     * <pre> -D
+     *  Turn on debugging output.</pre>
+     * 
+     * <pre> -l &lt;num&gt;
+     *  The number of times each instance is classified.
+     *  (default 10)</pre>
+     * 
+     * <pre> -p &lt;proportion of objects in common&gt;
+     *  The average proportion of instances common between any two training sets</pre>
+     * 
+     * <pre> -s &lt;seed&gt;
+     *  The random number seed used.</pre>
+     * 
+     * <pre> -t &lt;name of arff file&gt;
+     *  The name of the arff file used for the decomposition.</pre>
+     * 
+     * <pre> -T &lt;number of instances in training set&gt;
+     *  The number of instances in the training set.</pre>
+     * 
+     * <pre> -W &lt;classifier class name&gt;
+     *  Full class name of the learner used in the decomposition.
+     *  eg: weka.classifiers.bayes.NaiveBayes</pre>
+     * 
+     * <pre> 
+     * Options specific to learner weka.classifiers.rules.ZeroR:
+     * </pre>
+     * 
+     * <pre> -D
+     *  If set, classifier is run in debug mode and
+     *  may output additional info to the console</pre>
+     * 
+     <!-- options-end -->
+     *
+     * @param options the list of options as an array of strings
+     * @throws Exception if an option is not supported
+     */
+    public void setOptions(String[] options) throws Exception {
+        setDebug(Utils.getFlag('D', options));
+        String classIndex = Utils.getOption('c', options);
+        if (classIndex.length() != 0) {
+            if (classIndex.toLowerCase().equals("last")) {
+                setClassIndex(0);
+            } else if (classIndex.toLowerCase().equals("first")) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1887197.java,69,85
+selected,1887197.java,65,82
+----------------------------------------
+        } finally {
+            if (bufIn != null) {
+                bufIn.close();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void process(List<Integer> chunks) {
+        if (progressBar != null) {
+            int largest = 0;
+            for (Integer curInt : chunks) {
+                if (curInt.intValue() > largest) {
+                    largest = curInt.intValue();
+                }
+            }
+----------------------------------------
+                    publish(new Integer(progress));
+                    progress++;
+                }
+            }
+        } finally {
+            if (bufIn != null) {
+                bufIn.close();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void process(List<Integer> chunks) {
+        if (progressBar != null) {
+            int largest = 0;
+            for (Integer curInt : chunks) {
+                if (curInt.intValue() > largest) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1714132.java,5,23
+selected,1714132.java,6,23
+----------------------------------------
+import java.util.*;
+import org.w3c.tools.crypt.*;
+import org.jabber.jabberbeans.*;
+import org.jabber.jabberbeans.util.*;
+import org.jabber.jabberbeans.Extension.*;
+import de.knup.jedi.jayshare.Fileshare.*;
+
+/**
+ * Handles a connection to a conference room
+ *
+ * @author <a href="mailto:berni@knup.de">B. Pietsch</a>
+ * @version 1.0 $Revision: 1.26 $
+ */
+public class Connection {
+
+    /**
+     * Reference to the Status instance.
+     */
+    protected Status status;
+----------------------------------------
+import org.w3c.tools.crypt.*;
+import org.jabber.jabberbeans.*;
+import org.jabber.jabberbeans.util.*;
+import org.jabber.jabberbeans.Extension.*;
+import de.knup.jedi.jayshare.Fileshare.*;
+
+/**
+ * Handles a connection to a conference room
+ *
+ * @author <a href="mailto:berni@knup.de">B. Pietsch</a>
+ * @version 1.0 $Revision: 1.26 $
+ */
+public class Connection {
+
+    /**
+     * Reference to the Status instance.
+     */
+    protected Status status;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,152463.java,1072,1091
+selected,152463.java,1082,1093
+----------------------------------------
+                    } catch (NumberFormatException e99) {
+                    }
+                }
+            }
+            return obj;
+        }
+    }
+
+    protected static class BatchObjectArray implements Transferable {
+
+        protected static DataFlavor flavor;
+
+        private static DataFlavor[] flavors;
+
+        private BatchObject[] obj;
+
+        protected BatchObjectArray() {
+            if (flavor == null) {
+                flavor = new DataFlavor(getClass(), "Batch Object Array");
+                flavors = new DataFlavor[1];
+----------------------------------------
+        protected static DataFlavor flavor;
+
+        private static DataFlavor[] flavors;
+
+        private BatchObject[] obj;
+
+        protected BatchObjectArray() {
+            if (flavor == null) {
+                flavor = new DataFlavor(getClass(), "Batch Object Array");
+                flavors = new DataFlavor[1];
+                flavors[0] = flavor;
+            }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1706191.java,7,48
+selected,1706191.java,8,48
+----------------------------------------
+import java.io.InputStreamReader;
+import java.net.URL;
+import org.allcolor.alc.filesystem.File;
+
+/**
+ * 
+ DOCUMENT ME!
+ * 
+ * @author Quentin Anciaux
+ * @version 0.1.0
+ */
+public class ReaderUtils {
+
+    /**
+	 * @author Quentin Anciaux
+	 * @version 0.1.0
+	 */
+    public static interface LineListener {
+
+        /**
+		 * DOCUMENT ME!
+		 * 
+		 * @param ioe
+		 *            DOCUMENT ME!
+		 */
+        public abstract void exception(final IOException ioe);
+
+        /**
+		 * DOCUMENT ME!
+		 * 
+		 * @param line
+		 *            DOCUMENT ME!
+		 * 
+		 * @return DOCUMENT ME!
+		 * 
+		 * @throws IOException
+		 *             DOCUMENT ME!
+		 */
+        public abstract boolean line(final String line) throws IOException;
+    }
+
+    public abstract static class LineListenerImpl implements LineListener {
+----------------------------------------
+import java.net.URL;
+import org.allcolor.alc.filesystem.File;
+
+/**
+ * 
+ DOCUMENT ME!
+ * 
+ * @author Quentin Anciaux
+ * @version 0.1.0
+ */
+public class ReaderUtils {
+
+    /**
+	 * @author Quentin Anciaux
+	 * @version 0.1.0
+	 */
+    public static interface LineListener {
+
+        /**
+		 * DOCUMENT ME!
+		 * 
+		 * @param ioe
+		 *            DOCUMENT ME!
+		 */
+        public abstract void exception(final IOException ioe);
+
+        /**
+		 * DOCUMENT ME!
+		 * 
+		 * @param line
+		 *            DOCUMENT ME!
+		 * 
+		 * @return DOCUMENT ME!
+		 * 
+		 * @throws IOException
+		 *             DOCUMENT ME!
+		 */
+        public abstract boolean line(final String line) throws IOException;
+    }
+
+    public abstract static class LineListenerImpl implements LineListener {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,95926.java,22,41
+selected,1264057.java,22,41
+----------------------------------------
+    protected int i;
+
+    protected HTTPRequestMessage httpRequestMessage;
+
+    protected URL url;
+
+    protected URLConnection urlConnection;
+
+    static {
+        logger = Logger.getLogger(APJP.APJP_LOGGER_ID);
+    }
+
+    protected HTTPRequest(int i, HTTPRequestMessage httpRequestMessage) {
+        this.i = i;
+        this.httpRequestMessage = httpRequestMessage;
+    }
+
+    public void open() throws HTTPRequestException {
+        try {
+            url = new URL(APJP.APJP_REMOTE_HTTP_SERVER_REQUEST_URL[i]);
+----------------------------------------
+    protected int i;
+
+    protected HTTPRequestMessage httpRequestMessage;
+
+    protected URL url;
+
+    protected URLConnection urlConnection;
+
+    static {
+        logger = Logger.getLogger(APJP.APJP_LOGGER_ID);
+    }
+
+    protected HTTPSRequest(int i, HTTPRequestMessage httpRequestMessage) {
+        this.i = i;
+        this.httpRequestMessage = httpRequestMessage;
+    }
+
+    public void open() throws HTTPSRequestException {
+        try {
+            url = new URL(APJP.APJP_REMOTE_HTTPS_SERVER_REQUEST_URL[i]);
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,8322.java,86,97
+default,8322.java,88,98
+----------------------------------------
+                    return OPT_InlineDecision.guardedYES(viableTargets, guards, "AI: viable hot edge(s) found");
+                } else {
+                    return OPT_InlineDecision.NO("AI: all candidates judged to be nonviable");
+                }
+            }
+        }
+    }
+
+    protected boolean viableCandidate(VM_Method caller, VM_Method callee, OPT_CompilationState state) {
+        if (!legalToInline(caller, callee)) return false;
+        OPT_InlineSequence seq = state.getSequence();
+        if (seq.containsMethod(callee)) return false;
+----------------------------------------
+                    return OPT_InlineDecision.NO("AI: all candidates judged to be nonviable");
+                }
+            }
+        }
+    }
+
+    protected boolean viableCandidate(VM_Method caller, VM_Method callee, OPT_CompilationState state) {
+        if (!legalToInline(caller, callee)) return false;
+        OPT_InlineSequence seq = state.getSequence();
+        if (seq.containsMethod(callee)) return false;
+        if (OPT_InlineTools.hasInlinePragma(callee, state)) return true;
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,948406.java,15,28
+selected,948406.java,15,26
+----------------------------------------
+import com.bluebrim.font.shared.metrics.*;
+import com.bluebrim.xml.shared.*;
+
+public class CoFontRepository implements CoFontRepositoryIF {
+
+    public static final String XML_TAG = "font-repository";
+
+    public static final String XML_FALLBACK_FAMILY = "fallback-family";
+
+    public static final String XML_FONT_FACES = "font-faces";
+
+    public static final String XML_SPEC_MAPPING = "spec-mapping";
+
+    public static final String XML_METRICS_DATA = "metrics-data";
+----------------------------------------
+import com.bluebrim.font.shared.metrics.*;
+import com.bluebrim.xml.shared.*;
+
+public class CoFontRepository implements CoFontRepositoryIF {
+
+    public static final String XML_TAG = "font-repository";
+
+    public static final String XML_FALLBACK_FAMILY = "fallback-family";
+
+    public static final String XML_FONT_FACES = "font-faces";
+
+    public static final String XML_SPEC_MAPPING = "spec-mapping";
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,479500.java,301,313
+selected,479500.java,304,315
+----------------------------------------
+                m.remove(key);
+            }
+        }
+        return m;
+    }
+
+    public void writeKeys(HashMap<Integer, keyCode> keys) {
+        for (Map.Entry<Integer, keyCode> entry : keys.entrySet()) {
+            keyCode key = entry.getValue();
+            int value = entry.getKey();
+            switch(key) {
+                case DOWN:
+                    writeKey("down", value);
+----------------------------------------
+        return m;
+    }
+
+    public void writeKeys(HashMap<Integer, keyCode> keys) {
+        for (Map.Entry<Integer, keyCode> entry : keys.entrySet()) {
+            keyCode key = entry.getValue();
+            int value = entry.getKey();
+            switch(key) {
+                case DOWN:
+                    writeKey("down", value);
+                    break;
+                case UP:
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1333917.java,47,66
+selected,1931931.java,38,57
+----------------------------------------
+        user = userName;
+    }
+
+    public void setKeyStore(String fileName) {
+        keyFile = fileName;
+    }
+
+    public void setFilePassPhrase(String Password) {
+        filePasswd = Password;
+    }
+
+    public void setKeyPassPhrase(String Password) {
+        keyPasswd = Password;
+    }
+
+    public boolean ChangeKeyPassPhrase(String oldPassword, String newPassword, String fileName) {
+        FileInputStream fsKeysIn;
+        FileOutputStream fsKeysOut;
+        try {
+            if ((keyFile == null) || (keyFile.length() == 0)) {
+----------------------------------------
+        filePasswd = Password;
+    }
+
+    public void setKeyPassPhrase(String Password) {
+        keyPasswd = Password;
+    }
+
+    public void setUser(String userName) {
+        user = userName;
+    }
+
+    public void setKeyStore(String fileName) {
+        keyFile = fileName;
+    }
+
+    public boolean ChangeKeyPassPhrase(String oldPassword, String newPassword, String fileName) {
+        FileInputStream fsKeysIn;
+        FileOutputStream fsKeysOut;
+        try {
+            if ((keyFile == null) || (keyFile.length() == 0)) {
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1690820.java,258,268
+selected,1690820.java,260,270
+----------------------------------------
+        for (j = 0; j < this.nCols; j++) {
+            minorIJ = this.minor(0, j);
+            detIJ = minorIJ.det();
+            determinant += sign * detIJ * this.cell[0][j];
+            sign = -sign;
+        }
+        return determinant;
+    }
+
+    public Matrix cofactors() {
+        if (this.nLines == 1) return this;
+----------------------------------------
+            detIJ = minorIJ.det();
+            determinant += sign * detIJ * this.cell[0][j];
+            sign = -sign;
+        }
+        return determinant;
+    }
+
+    public Matrix cofactors() {
+        if (this.nLines == 1) return this;
+        int i, j;
+        double detIJ, sign = 1;
+----------------------------------------

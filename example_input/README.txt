@@ -1,0 +1,1 @@
+This folder includes an example input file to run Oreo: -blocks_small.file contains 10000 methods from BigCloneBench dataset, along with their metrics, for the purpose of running Oreo quickly.

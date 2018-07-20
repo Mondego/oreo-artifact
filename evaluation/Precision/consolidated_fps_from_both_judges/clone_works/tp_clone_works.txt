@@ -1,0 +1,237 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,53104.java,648,665
+default,70088.java,524,546
+----------------------------------------
+    private boolean doPurgeSeries(DirWriter w, DirRecord parent, int[] counter) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (doPurgeInstances(w, rec, counter)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[0] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+    private boolean doRemoveStudy(DirWriter w, DirRecord parent, int[] counter, boolean delFiles) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (studyUIDs.contains(rec.getDataset().getString(Tags.StudyInstanceUID))) {
+                if (delFiles) {
+                    deleteRefFiles(w, rec, counter);
+                }
+                toRemove.add(rec);
+            } else if (doRemoveSeries(w, rec, counter, delFiles)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[1] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,33872.java,522,544
+default,53104.java,667,685
+----------------------------------------
+    private boolean doRemoveStudy(DirWriter w, DirRecord parent, int[] counter, boolean delFiles) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (studyUIDs.contains(rec.getDataset().getString(Tags.StudyInstanceUID))) {
+                if (delFiles) {
+                    deleteRefFiles(w, rec, counter);
+                }
+                toRemove.add(rec);
+            } else if (doRemoveSeries(w, rec, counter, delFiles)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[1] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+    private boolean doPurgeInstances(DirWriter w, DirRecord parent, int[] counter) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            File file = w.getRefFile(rec.getRefFileIDs());
+            if (!file.exists()) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[0] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,45549.java,667,685
+default,15343.java,522,544
+----------------------------------------
+    private boolean doPurgeInstances(DirWriter w, DirRecord parent, int[] counter) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            File file = w.getRefFile(rec.getRefFileIDs());
+            if (!file.exists()) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[0] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+    private boolean doRemoveStudy(DirWriter w, DirRecord parent, int[] counter, boolean delFiles) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (studyUIDs.contains(rec.getDataset().getString(Tags.StudyInstanceUID))) {
+                if (delFiles) {
+                    deleteRefFiles(w, rec, counter);
+                }
+                toRemove.add(rec);
+            } else if (doRemoveSeries(w, rec, counter, delFiles)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[1] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,98981.java,522,544
+default,86322.java,648,665
+----------------------------------------
+    private boolean doRemoveStudy(DirWriter w, DirRecord parent, int[] counter, boolean delFiles) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (studyUIDs.contains(rec.getDataset().getString(Tags.StudyInstanceUID))) {
+                if (delFiles) {
+                    deleteRefFiles(w, rec, counter);
+                }
+                toRemove.add(rec);
+            } else if (doRemoveSeries(w, rec, counter, delFiles)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[1] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+    private boolean doPurgeSeries(DirWriter w, DirRecord parent, int[] counter) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (doPurgeInstances(w, rec, counter)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[0] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,116906.java,522,544
+default,118405.java,629,646
+----------------------------------------
+    private boolean doRemoveStudy(DirWriter w, DirRecord parent, int[] counter, boolean delFiles) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (studyUIDs.contains(rec.getDataset().getString(Tags.StudyInstanceUID))) {
+                if (delFiles) {
+                    deleteRefFiles(w, rec, counter);
+                }
+                toRemove.add(rec);
+            } else if (doRemoveSeries(w, rec, counter, delFiles)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[1] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------
+    private boolean doPurgeStudy(DirWriter w, DirRecord parent, int[] counter) throws IOException {
+        boolean matchAll = true;
+        LinkedList toRemove = new LinkedList();
+        for (DirRecord rec = parent.getFirstChild(true); rec != null; rec = rec.getNextSibling(true)) {
+            if (doPurgeSeries(w, rec, counter)) {
+                toRemove.add(rec);
+            } else {
+                matchAll = false;
+            }
+        }
+        if (matchAll) {
+            return true;
+        }
+        for (Iterator it = toRemove.iterator(); it.hasNext(); ) {
+            counter[0] += w.remove((DirRecord) it.next());
+        }
+        return false;
+    }
+----------------------------------------

@@ -1,0 +1,524 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,341601.java,369,376
+selected,341601.java,235,246
+----------------------------------------
+    @Override
+    public List<Kontrata> listKontrataPaFature(Date fromDate, Date toDate) {
+        try {
+            return em.createQuery("Select distinct o from Kontrata o where  NOT EXISTS (Select f.kontrata from Fatura f where f.kontrata = o and f.paguar = :paguar and f.anulluar != :anulluar  and f.dataLeximAktual >= :fromDate and f.dataLeximAktual < :toDate)").setParameter("paguar", false).setParameter("anulluar", false).setParameter("fromDate", fromDate).setParameter("toDate", toDate).getResultList();
+        } catch (Exception e) {
+            throw new NestedException(e.getMessage(), e);
+        }
+    }
+----------------------------------------
+    @Override
+    public List<Fatura> queryFatura(Kontrata kontrata, Boolean paguar) {
+        try {
+            if (paguar == null) {
+                return em.createQuery("Select o from Fatura o where o.kontrata = :kontrata and o.anulluar = :anulluar order by o.dataLeximAktual DESC").setParameter("kontrata", kontrata).setParameter("anulluar", false).getResultList();
+            } else {
+                return em.createQuery("Select o from Fatura o where o.kontrata = :kontrata and o.paguar = :paguar and o.anulluar = :anulluar order by o.dataLeximAktual DESC").setParameter("kontrata", kontrata).setParameter("paguar", paguar.booleanValue()).setParameter("anulluar", false).getResultList();
+            }
+        } catch (Exception e) {
+            throw new NestedException(e.getMessage(), e);
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,387982.java,226,244
+default,127778.java,23,38
+----------------------------------------
+    private static String convertStreamToString(InputStream is) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+        String line = null;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return sb.toString();
+    }
+----------------------------------------
+    private static String getDocumentAt(String urlString) {
+        StringBuffer html_text = new StringBuffer();
+        try {
+            URL url = new URL(urlString);
+            URLConnection conn = url.openConnection();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String line = null;
+            while ((line = reader.readLine()) != null) html_text.append(line + "\n");
+            reader.close();
+        } catch (MalformedURLException e) {
+            System.out.println("��Ч��URL: " + urlString);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return html_text.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2130165.java,370,379
+default,107906.java,290,295
+----------------------------------------
+    protected void writeDocumentNoClosing(Document document, OutputStream documentOutputStream, boolean omitXmlDeclaration) throws TransformerConfigurationException, TransformerFactoryConfigurationError, TransformerException, IOException {
+        NoCloseOutputStream outputStream = new NoCloseOutputStream(documentOutputStream);
+        Result result = new StreamResult(outputStream);
+        Transformer xformer = TransformerFactory.newInstance().newTransformer();
+        if (omitXmlDeclaration) {
+            xformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+        }
+        Source source = new DOMSource(document);
+        xformer.transform(source, result);
+    }
+----------------------------------------
+    public static void exampleSimple2(String sourceID, String xslID) throws TransformerException, TransformerConfigurationException {
+        TransformerFactory tfactory = TransformerFactory.newInstance();
+        Transformer transformer = tfactory.newTransformer(new StreamSource(xslID));
+        transformer.transform(new StreamSource(sourceID), new StreamResult(new File("exampleSimple2.out")));
+        System.out.println("\nOutput written to exampleSimple2.out\n");
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,743040.java,546,561
+selected,2165036.java,486,502
+----------------------------------------
+    public boolean modifyMemberfields(Memberfields memberfields) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tr = null;
+        try {
+            tr = session.beginTransaction();
+            session.saveOrUpdate(memberfields);
+            tr.commit();
+            return true;
+        } catch (HibernateException e) {
+            if (tr != null) {
+                tr.rollback();
+            }
+            e.printStackTrace();
+        }
+        return false;
+    }
+----------------------------------------
+    @SuppressWarnings("unchecked")
+    public List<Usergroups> findUsergropsByHql(String hql) {
+        Session session = null;
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tr = null;
+        try {
+            tr = session.beginTransaction();
+            Query query = session.createQuery(hql);
+            List<Usergroups> grouplist = query.list();
+            tr.commit();
+            return grouplist;
+        } catch (HibernateException e) {
+            tr.rollback();
+            e.printStackTrace();
+        }
+        return null;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2095054.java,139,149
+selected,1774296.java,1150,1157
+----------------------------------------
+    public static boolean isEquals(byte[] b1, byte[] b2) {
+        if (b1.length != b2.length) {
+            return false;
+        }
+        for (int i = 0; i < b1.length; i++) {
+            if (b1[i] != b2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+----------------------------------------
+    public static boolean isStrictlyIncreasing(final int[] values, final int startIndex, final int endIndex) {
+        final int d;
+        if ((d = checkIterationRange(values, startIndex, endIndex)) == 0) return true;
+        for (int i = startIndex; i != endIndex; ) {
+            if (values[i] >= values[i += d]) return false;
+        }
+        return true;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2426442.java,284,299
+selected,1995145.java,444,458
+----------------------------------------
+    private static String getStreamAsString(InputStream stream, String charset) throws IOException {
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream, charset));
+            StringWriter writer = new StringWriter();
+            char[] chars = new char[256];
+            int count = 0;
+            while ((count = reader.read(chars)) > 0) {
+                writer.write(chars, 0, count);
+            }
+            return writer.toString();
+        } finally {
+            if (stream != null) {
+                stream.close();
+            }
+        }
+    }
+----------------------------------------
+    public static final String read(final Reader reader, final int bufferSize) throws IOException {
+        final StringBuilder sb = new StringBuilder();
+        final char[] buffer = new char[bufferSize];
+        final BufferedReader in = new BufferedReader(reader);
+        try {
+            while (true) {
+                final int count = in.read(buffer);
+                if (count == -1) break;
+                sb.append(buffer, 0, count);
+            }
+        } finally {
+            in.close();
+        }
+        return sb.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,985401.java,837,847
+selected,2069719.java,556,575
+----------------------------------------
+    private String fileNameString(File[] files) {
+        if (files == null) return "";
+        StringBuffer buf = new StringBuffer();
+        for (int i = 0, n = files.length; i < n; i++) {
+            if (i > 0) buf.append(" ");
+            if (n > 1) buf.append("\"");
+            buf.append(fileNameString(files[i]));
+            if (n > 1) buf.append("\"");
+        }
+        return buf.toString();
+    }
+----------------------------------------
+    public static String nullSafeToString(byte[] array) {
+        if (array == null) {
+            return NULL_STRING;
+        }
+        int length = array.length;
+        if (length == 0) {
+            return EMPTY_ARRAY;
+        }
+        StringBuffer buffer = new StringBuffer();
+        for (int i = 0; i < length; i++) {
+            if (i == 0) {
+                buffer.append(ARRAY_START);
+            } else {
+                buffer.append(ARRAY_ELEMENT_SEPARATOR);
+            }
+            buffer.append(array[i]);
+        }
+        buffer.append(ARRAY_END);
+        return buffer.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,929375.java,216,223
+selected,1327574.java,73,85
+----------------------------------------
+    private static InputStream getAsInputStreamFromClassLoader(String filename) {
+        ClassLoader cl = Thread.currentThread().getContextClassLoader();
+        InputStream is = cl == null ? null : cl.getResourceAsStream(filename);
+        if (is == null) {
+            is = XmlConfigurator.class.getClassLoader().getResourceAsStream(filename);
+        }
+        return is;
+    }
+----------------------------------------
+    public static InputStream getResourceAsStream(String path) {
+        InputStream stream = ResourceLoader.class.getResourceAsStream(path);
+        if (stream == null) {
+            stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
+        }
+        if (stream == null) {
+            stream = ClassLoader.getSystemResourceAsStream(path);
+        }
+        if (stream == null) {
+            throw new RuntimeException("Oh no - couldn't load resource: " + path);
+        }
+        return stream;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1314452.java,470,479
+default,859.java,64,71
+----------------------------------------
+        public String toString() {
+            StringBuffer sb = new StringBuffer();
+            for (int idx = 0; idx < volumes.length; idx++) {
+                sb.append(volumes[idx].toString());
+                if (idx != volumes.length - 1) {
+                    sb.append(",");
+                }
+            }
+            return sb.toString();
+        }
+----------------------------------------
+    String sequenceUsingFor(int start, int stop) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = start; i <= stop; i++) {
+            if (i > start) builder.append(',');
+            builder.append(i);
+        }
+        return builder.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1314452.java,470,479
+default,96830.java,64,71
+----------------------------------------
+        public String toString() {
+            StringBuffer sb = new StringBuffer();
+            for (int idx = 0; idx < volumes.length; idx++) {
+                sb.append(volumes[idx].toString());
+                if (idx != volumes.length - 1) {
+                    sb.append(",");
+                }
+            }
+            return sb.toString();
+        }
+----------------------------------------
+    String sequenceUsingFor(int start, int stop) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = start; i <= stop; i++) {
+            if (i > start) builder.append(',');
+            builder.append(i);
+        }
+        return builder.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,780597.java,1483,1497
+selected,780597.java,933,951
+----------------------------------------
+    public List<Favourites> getFavourites(long uid) throws Exception {
+        Session s = null;
+        try {
+            s = HibernateUtils.getSessionFactory().getCurrentSession();
+            s.beginTransaction();
+            String query = "select R from Favourites R where R.uid=? order by R.name";
+            Query q = s.createQuery(query);
+            q.setLong(0, uid);
+            return q.list();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (s != null) HibernateUtils.closeSession();
+        }
+    }
+----------------------------------------
+    public int updateAccountForCategory(Long accountId, Long newcategory) throws Exception {
+        Session s = null;
+        try {
+            s = HibernateUtils.getSessionFactory().getCurrentSession();
+            s.beginTransaction();
+            if (accountId == null || newcategory == null) return -1;
+            String query = "update Account R set R.categoryId=? where R.accountId=?";
+            Query q = s.createQuery(query);
+            q.setLong(0, newcategory);
+            q.setLong(1, accountId);
+            int r = q.executeUpdate();
+            s.getTransaction().commit();
+            return r;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (s != null) HibernateUtils.closeSession();
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,743040.java,546,561
+selected,2165036.java,486,502
+----------------------------------------
+    public boolean modifyMemberfields(Memberfields memberfields) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tr = null;
+        try {
+            tr = session.beginTransaction();
+            session.saveOrUpdate(memberfields);
+            tr.commit();
+            return true;
+        } catch (HibernateException e) {
+            if (tr != null) {
+                tr.rollback();
+            }
+            e.printStackTrace();
+        }
+        return false;
+    }
+----------------------------------------
+    @SuppressWarnings("unchecked")
+    public List<Usergroups> findUsergropsByHql(String hql) {
+        Session session = null;
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tr = null;
+        try {
+            tr = session.beginTransaction();
+            Query query = session.createQuery(hql);
+            List<Usergroups> grouplist = query.list();
+            tr.commit();
+            return grouplist;
+        } catch (HibernateException e) {
+            tr.rollback();
+            e.printStackTrace();
+        }
+        return null;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2095054.java,139,149
+selected,1774296.java,1150,1157
+----------------------------------------
+    public static boolean isEquals(byte[] b1, byte[] b2) {
+        if (b1.length != b2.length) {
+            return false;
+        }
+        for (int i = 0; i < b1.length; i++) {
+            if (b1[i] != b2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+----------------------------------------
+    public static boolean isStrictlyIncreasing(final int[] values, final int startIndex, final int endIndex) {
+        final int d;
+        if ((d = checkIterationRange(values, startIndex, endIndex)) == 0) return true;
+        for (int i = startIndex; i != endIndex; ) {
+            if (values[i] >= values[i += d]) return false;
+        }
+        return true;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,633198.java,93,103
+selected,2468280.java,39,49
+----------------------------------------
+    private String toHexString(byte[] bytes) {
+        StringBuilder sb = new StringBuilder(bytes.length * 2);
+        for (int b : bytes) {
+            b = b & 0xff;
+            if (b < 0xf) {
+                sb.append("0");
+            }
+            sb.append(Integer.toHexString(b));
+        }
+        return sb.toString();
+    }
+----------------------------------------
+    public static String arrayToString(Object[] arr) {
+        StringBuilder sb = new StringBuilder();
+        int len = arr.length;
+        for (int i = 0; i < len; i++) {
+            sb.append(arr[i]);
+            if (i != len - 1) {
+                sb.append(",");
+            }
+        }
+        return sb.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1612687.java,39,48
+default,10640.java,64,71
+----------------------------------------
+    public static String join(String sep, String... words) {
+        StringBuffer s = new StringBuffer();
+        for (int i = 0; i < words.length; i++) {
+            s.append(words[i]);
+            if (i < words.length - 1) {
+                s.append(sep);
+            }
+        }
+        return s.toString();
+    }
+----------------------------------------
+    String sequenceUsingFor(int start, int stop) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = start; i <= stop; i++) {
+            if (i > start) builder.append(',');
+            builder.append(i);
+        }
+        return builder.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,727865.java,203,210
+default,56904.java,54,62
+----------------------------------------
+    protected String join(String[] words, char sep) {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < words.length; i++) {
+            if (i > 0) sb.append(sep);
+            sb.append(words[i]);
+        }
+        return sb.toString();
+    }
+----------------------------------------
+    String sequenceUsingDo(int start, int stop) {
+        StringBuilder builder = new StringBuilder();
+        int i = start;
+        do {
+            if (i > start) builder.append(',');
+            builder.append(i);
+        } while (++i <= stop);
+        return builder.toString();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1051350.java,215,222
+selected,611726.java,175,180
+----------------------------------------
+    public static final double[] modulus(double[] a, double[] b) {
+        int size = a.length;
+        double[] result = new double[size];
+        for (int x = 0; x < size; x++) {
+            result[x] = a[x] % b[x];
+        }
+        return result;
+    }
+----------------------------------------
+    public static float[] mul(float[] v, double scalar) {
+        int iN = v.length;
+        float[] n = new float[iN];
+        for (int i = 0; i < iN; i++) n[i] = (float) (v[i] * scalar);
+        return n;
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1200061.java,283,290
+default,115412.java,54,62
+----------------------------------------
+    public static String join(String[] s, String delimiter) {
+        StringBuffer buffer = new StringBuffer();
+        for (int i = 0; i < s.length; i++) {
+            buffer.append(s[i].toString());
+            if (i + 1 != s.length) buffer.append(delimiter);
+        }
+        return buffer.toString();
+    }
+----------------------------------------
+    String sequenceUsingDo(int start, int stop) {
+        StringBuilder builder = new StringBuilder();
+        int i = start;
+        do {
+            if (i > start) builder.append(',');
+            builder.append(i);
+        } while (++i <= stop);
+        return builder.toString();
+    }
+----------------------------------------

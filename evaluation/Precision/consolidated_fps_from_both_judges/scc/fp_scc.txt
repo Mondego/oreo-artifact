@@ -1,0 +1,288 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,97360.java,495,509
+default,25053.java,394,404
+----------------------------------------
+    public void remove(String[] args, int off, boolean delFiles) throws IOException {
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirWriter w = fact.newDirWriter(dirFile, encodeParam());
+        try {
+            for (int i = off; i < args.length; ++i) {
+                addFileIDs(w, new File(args[i]));
+            }
+            doRemove(w, counter, delFiles);
+        } finally {
+            w.close();
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("removeDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+    private void build(DirWriter w, String[] args, int off) throws IOException {
+        DirBuilderPref pref = getDirBuilderPref();
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirBuilder builder = fact.newDirBuilder(w, pref);
+        for (int i = off; i < args.length; ++i) {
+            append(builder, new File(args[i]), counter);
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("insertDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,116906.java,394,404
+default,6937.java,493,507
+----------------------------------------
+    private void build(DirWriter w, String[] args, int off) throws IOException {
+        DirBuilderPref pref = getDirBuilderPref();
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirBuilder builder = fact.newDirBuilder(w, pref);
+        for (int i = off; i < args.length; ++i) {
+            append(builder, new File(args[i]), counter);
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("insertDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+    public void remove(String[] args, int off, boolean delFiles) throws IOException {
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirWriter w = fact.newDirWriter(dirFile, encodeParam());
+        try {
+            for (int i = off; i < args.length; ++i) {
+                addFileIDs(w, new File(args[i]));
+            }
+            doRemove(w, counter, delFiles);
+        } finally {
+            w.close();
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("removeDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,124843.java,394,404
+default,32654.java,493,507
+----------------------------------------
+    private void build(DirWriter w, String[] args, int off) throws IOException {
+        DirBuilderPref pref = getDirBuilderPref();
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirBuilder builder = fact.newDirBuilder(w, pref);
+        for (int i = off; i < args.length; ++i) {
+            append(builder, new File(args[i]), counter);
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("insertDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+    public void remove(String[] args, int off, boolean delFiles) throws IOException {
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirWriter w = fact.newDirWriter(dirFile, encodeParam());
+        try {
+            for (int i = off; i < args.length; ++i) {
+                addFileIDs(w, new File(args[i]));
+            }
+            doRemove(w, counter, delFiles);
+        } finally {
+            w.close();
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("removeDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,109369.java,493,507
+default,124843.java,394,404
+----------------------------------------
+    public void remove(String[] args, int off, boolean delFiles) throws IOException {
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirWriter w = fact.newDirWriter(dirFile, encodeParam());
+        try {
+            for (int i = off; i < args.length; ++i) {
+                addFileIDs(w, new File(args[i]));
+            }
+            doRemove(w, counter, delFiles);
+        } finally {
+            w.close();
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("removeDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+    private void build(DirWriter w, String[] args, int off) throws IOException {
+        DirBuilderPref pref = getDirBuilderPref();
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirBuilder builder = fact.newDirBuilder(w, pref);
+        for (int i = off; i < args.length; ++i) {
+            append(builder, new File(args[i]), counter);
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("insertDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,87896.java,394,404
+default,33872.java,493,507
+----------------------------------------
+    private void build(DirWriter w, String[] args, int off) throws IOException {
+        DirBuilderPref pref = getDirBuilderPref();
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirBuilder builder = fact.newDirBuilder(w, pref);
+        for (int i = off; i < args.length; ++i) {
+            append(builder, new File(args[i]), counter);
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("insertDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+    public void remove(String[] args, int off, boolean delFiles) throws IOException {
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirWriter w = fact.newDirWriter(dirFile, encodeParam());
+        try {
+            for (int i = off; i < args.length; ++i) {
+                addFileIDs(w, new File(args[i]));
+            }
+            doRemove(w, counter, delFiles);
+        } finally {
+            w.close();
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("removeDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,12819.java,493,507
+default,53104.java,394,404
+----------------------------------------
+    public void remove(String[] args, int off, boolean delFiles) throws IOException {
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirWriter w = fact.newDirWriter(dirFile, encodeParam());
+        try {
+            for (int i = off; i < args.length; ++i) {
+                addFileIDs(w, new File(args[i]));
+            }
+            doRemove(w, counter, delFiles);
+        } finally {
+            w.close();
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("removeDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+    private void build(DirWriter w, String[] args, int off) throws IOException {
+        DirBuilderPref pref = getDirBuilderPref();
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirBuilder builder = fact.newDirBuilder(w, pref);
+        for (int i = off; i < args.length; ++i) {
+            append(builder, new File(args[i]), counter);
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("insertDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,85127.java,394,404
+default,24546.java,493,507
+----------------------------------------
+    private void build(DirWriter w, String[] args, int off) throws IOException {
+        DirBuilderPref pref = getDirBuilderPref();
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirBuilder builder = fact.newDirBuilder(w, pref);
+        for (int i = off; i < args.length; ++i) {
+            append(builder, new File(args[i]), counter);
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("insertDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+    public void remove(String[] args, int off, boolean delFiles) throws IOException {
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirWriter w = fact.newDirWriter(dirFile, encodeParam());
+        try {
+            for (int i = off; i < args.length; ++i) {
+                addFileIDs(w, new File(args[i]));
+            }
+            doRemove(w, counter, delFiles);
+        } finally {
+            w.close();
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("removeDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,55109.java,394,404
+default,44026.java,493,507
+----------------------------------------
+    private void build(DirWriter w, String[] args, int off) throws IOException {
+        DirBuilderPref pref = getDirBuilderPref();
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirBuilder builder = fact.newDirBuilder(w, pref);
+        for (int i = off; i < args.length; ++i) {
+            append(builder, new File(args[i]), counter);
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("insertDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+    public void remove(String[] args, int off, boolean delFiles) throws IOException {
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirWriter w = fact.newDirWriter(dirFile, encodeParam());
+        try {
+            for (int i = off; i < args.length; ++i) {
+                addFileIDs(w, new File(args[i]));
+            }
+            doRemove(w, counter, delFiles);
+        } finally {
+            w.close();
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("removeDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,55109.java,394,404
+default,32654.java,493,507
+----------------------------------------
+    private void build(DirWriter w, String[] args, int off) throws IOException {
+        DirBuilderPref pref = getDirBuilderPref();
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirBuilder builder = fact.newDirBuilder(w, pref);
+        for (int i = off; i < args.length; ++i) {
+            append(builder, new File(args[i]), counter);
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("insertDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------
+    public void remove(String[] args, int off, boolean delFiles) throws IOException {
+        long t1 = System.currentTimeMillis();
+        int[] counter = new int[2];
+        DirWriter w = fact.newDirWriter(dirFile, encodeParam());
+        try {
+            for (int i = off; i < args.length; ++i) {
+                addFileIDs(w, new File(args[i]));
+            }
+            doRemove(w, counter, delFiles);
+        } finally {
+            w.close();
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(MessageFormat.format(messages.getString("removeDone"), new Object[] { String.valueOf(counter[1]), String.valueOf(counter[0]), String.valueOf((t2 - t1) / 1000f) }));
+    }
+----------------------------------------

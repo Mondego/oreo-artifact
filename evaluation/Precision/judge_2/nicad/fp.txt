@@ -1,0 +1,299 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,109780.java,344,370
+selected,474742.java,40,70
+----------------------------------------
+    void makeCutoffPlotFile(PrintStream ps) {
+        ps.println("reset");
+        ps.println("clear");
+        ps.println("cd \"" + project_path + "\"");
+        ps.println("set term png large size 960,720");
+        ps.println("set output \"CutoffsSurfPlot.png\"");
+        ps.println("set border");
+        ps.println("set grid");
+        ps.println("set log yzcb");
+        ps.println("set pm3d at s");
+        ps.println("set title \"TP and FDR by G-statistic & T-Test p-value Cutoffs\"");
+        ps.println("set xlabel \"G-statistic\"");
+        ps.println("set ylabel \"p-value\"");
+        ps.println("set label 1 \"TP\" center rotate by 90 at graph 0, graph 0, graph 0.5 offset -5");
+        ps.println("set key off");
+        ps.println("splot \"pepcResults.txt\"");
+        ps.println("reset");
+        ps.println("set term png large size 960,720");
+        ps.println("set output \"Cutoffs.png\"");
+        ps.println("set border");
+        ps.println("set log ycb");
+        ps.println("set title \"FDR by G-statistict & T-Test p-value Cutoffs\"");
+        ps.println("set xlabel \"G-statistic\"");
+        ps.println("set ylabel \"p-value\"");
+        ps.println("splot \"pepcResults.txt\" with view");
+        ps.flush();
+    }
+----------------------------------------
+    public HtmlParser() {
+        super(fl);
+        synchronized (this) {
+            if (sentenceTagSet.size() == 0) {
+                sentenceTagSet.add("p");
+                sentenceTagSet.add("td");
+                sentenceTagSet.add("div");
+                sentenceTagSet.add("h1");
+                sentenceTagSet.add("h2");
+                sentenceTagSet.add("h3");
+                sentenceTagSet.add("h4");
+                sentenceTagSet.add("h5");
+                sentenceTagSet.add("h6");
+                sentenceTagSet.add("hr");
+                sentenceTagSet.add("li");
+                sentenceTagSet.add("option");
+                sentenceTagSet.add("pre");
+                sentenceTagSet.add("select");
+                sentenceTagSet.add("table");
+                sentenceTagSet.add("tbody");
+                sentenceTagSet.add("td");
+                sentenceTagSet.add("textarea");
+                sentenceTagSet.add("tfoot");
+                sentenceTagSet.add("thead");
+                sentenceTagSet.add("th");
+                sentenceTagSet.add("title");
+                sentenceTagSet.add("tr");
+                sentenceTagSet.add("ul");
+            }
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2547411.java,201,224
+selected,1347120.java,70,99
+----------------------------------------
+    public String getFieldName(int number) {
+        switch(number) {
+            case 1:
+                return "someInt";
+            case 2:
+                return "someString";
+            case 3:
+                return "someBaz";
+            case 4:
+                return "someEnum";
+            case 5:
+                return "someBytes";
+            case 6:
+                return "someBoolean";
+            case 7:
+                return "someFloat";
+            case 8:
+                return "someDouble";
+            case 9:
+                return "someLong";
+            default:
+                return null;
+        }
+    }
+----------------------------------------
+    private String getMonth(int month) {
+        switch(month) {
+            case 0:
+                return "01";
+            case 1:
+                return "02";
+            case 2:
+                return "03";
+            case 3:
+                return "04";
+            case 4:
+                return "05";
+            case 5:
+                return "06";
+            case 6:
+                return "07";
+            case 7:
+                return "08";
+            case 8:
+                return "09";
+            case 9:
+                return "10";
+            case 10:
+                return "11";
+            case 11:
+                return "12";
+            default:
+                return "";
+        }
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,1566050.java,798,823
+selected,614326.java,239,266
+----------------------------------------
+    private void adjustMenuItems() {
+        openMenuItem.setEnabled(false);
+        switchMenuItem.setEnabled(false);
+        resetMenuItem.setEnabled(false);
+        deleteMenuItem.setEnabled(false);
+        saveMenuItem.setEnabled(false);
+        saveClippedMenuItem.setEnabled(false);
+        mergeMenuItem.setEnabled(false);
+        convertMenuItem.setEnabled(false);
+        captureMenuItem.setEnabled(false);
+        pushMenuItem.setEnabled(false);
+        aboutMenuItem.setEnabled(true);
+        if (extendedAction) return;
+        if (captureRunning) captureMenuItem.setEnabled(false); else captureMenuItem.setEnabled(true);
+        if (archiveCover.getSegmentsArray().length == 0) return;
+        openMenuItem.setEnabled(true);
+        switchMenuItem.setEnabled(true);
+        deleteMenuItem.setEnabled(true);
+        if (archiveCover.getSegmentsArray().length > 1) mergeMenuItem.setEnabled(true);
+        if (currentSegment == null) return;
+        convertMenuItem.setEnabled(true);
+        pushMenuItem.setEnabled(true);
+        resetMenuItem.setEnabled(true);
+        saveMenuItem.setEnabled(true);
+        saveClippedMenuItem.setEnabled(true);
+    }
+----------------------------------------
+    private void writeGraph(final PrintWriter out, final String name, final ObjectName objectname, final String redAttribute, final String greenAttribute, final String blueAttribute) {
+        out.println("        <graph name=\"" + name + "\" width=\"900\" height=\"200\">");
+        out.println("          <show_work_period>1</show_work_period>");
+        out.println("          <show_triggers>1</show_triggers>");
+        out.println("          <yaxismin>0.0000</yaxismin>");
+        out.println("          <yaxismax>100.0000</yaxismax>");
+        out.println("          <graph_elements>");
+        out.println("            <graph_element item=\"{HOSTNAME}:jmx[" + objectname + "][" + redAttribute + "]\">");
+        out.println("              <color>990000</color>");
+        out.println("              <yaxisside>1</yaxisside>");
+        out.println("              <calc_fnc>2</calc_fnc>");
+        out.println("              <periods_cnt>5</periods_cnt>");
+        out.println("            </graph_element>");
+        out.println("            <graph_element item=\"{HOSTNAME}:jmx[" + objectname + "][" + greenAttribute + "]\">");
+        out.println("              <color>009900</color>");
+        out.println("              <yaxisside>1</yaxisside>");
+        out.println("              <calc_fnc>2</calc_fnc>");
+        out.println("              <periods_cnt>5</periods_cnt>");
+        out.println("            </graph_element>");
+        out.println("            <graph_element item=\"{HOSTNAME}:jmx[" + objectname + "][" + blueAttribute + "]\">");
+        out.println("              <color>000099</color>");
+        out.println("              <yaxisside>1</yaxisside>");
+        out.println("              <calc_fnc>2</calc_fnc>");
+        out.println("              <periods_cnt>5</periods_cnt>");
+        out.println("            </graph_element>");
+        out.println("          </graph_elements>");
+        out.println("        </graph>");
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+default,767.java,344,370
+selected,2480045.java,658,684
+----------------------------------------
+    void makeCutoffPlotFile(PrintStream ps) {
+        ps.println("reset");
+        ps.println("clear");
+        ps.println("cd \"" + project_path + "\"");
+        ps.println("set term png large size 960,720");
+        ps.println("set output \"CutoffsSurfPlot.png\"");
+        ps.println("set border");
+        ps.println("set grid");
+        ps.println("set log yzcb");
+        ps.println("set pm3d at s");
+        ps.println("set title \"TP and FDR by G-statistic & T-Test p-value Cutoffs\"");
+        ps.println("set xlabel \"G-statistic\"");
+        ps.println("set ylabel \"p-value\"");
+        ps.println("set label 1 \"TP\" center rotate by 90 at graph 0, graph 0, graph 0.5 offset -5");
+        ps.println("set key off");
+        ps.println("splot \"pepcResults.txt\"");
+        ps.println("reset");
+        ps.println("set term png large size 960,720");
+        ps.println("set output \"Cutoffs.png\"");
+        ps.println("set border");
+        ps.println("set log ycb");
+        ps.println("set title \"FDR by G-statistict & T-Test p-value Cutoffs\"");
+        ps.println("set xlabel \"G-statistic\"");
+        ps.println("set ylabel \"p-value\"");
+        ps.println("splot \"pepcResults.txt\" with view");
+        ps.flush();
+    }
+----------------------------------------
+    static void monthlyHeader() throws IOException {
+        File f = new File("output/cvreport2.html");
+        FileOutputStream out = new FileOutputStream(f, true);
+        PrintStream os2 = new PrintStream(out);
+        os2.println("<br style=\"page-break-before: always;\"></br>");
+        os2.println("<table style=\"-fs-table-paginate: paginate;\" cellSpacing=\"0\" cellPadding=\"5\" border=\"1\" id=\"table31\" width=\"650\">");
+        os2.println("<thead>");
+        os2.println("<tr vAlign=\"center\">");
+        os2.println("<th></th>");
+        os2.println("<th>Jan</th>");
+        os2.println("<th>Feb</th>");
+        os2.println("<th>Mar</th>");
+        os2.println("<th>Apr</th>");
+        os2.println("<th>May</th>");
+        os2.println("<th>Jun</th>");
+        os2.println("<th>Jul</th>");
+        os2.println("<th>Aug</th>");
+        os2.println("<th>Sep</th>");
+        os2.println("<th>Oct</th>");
+        os2.println("<th>Nov</th>");
+        os2.println("<th>Dec</th>");
+        os2.println("<th>Total</th>");
+        os2.println("</tr>");
+        os2.println("</thead>");
+        os2.println("<tbody>");
+        os2.close();
+    }
+----------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+selected,2235486.java,393,415
+selected,633992.java,351,376
+----------------------------------------
+    private boolean _jspx_meth_ae_IfTrue_1(PageContext _jspx_page_context) throws Throwable {
+        PageContext pageContext = _jspx_page_context;
+        JspWriter out = _jspx_page_context.getOut();
+        org.activebpel.rt.bpeladmin.war.tags.AeIfTrueTag _jspx_th_ae_IfTrue_1 = (org.activebpel.rt.bpeladmin.war.tags.AeIfTrueTag) _jspx_tagPool_ae_IfTrue_property_name.get(org.activebpel.rt.bpeladmin.war.tags.AeIfTrueTag.class);
+        _jspx_th_ae_IfTrue_1.setPageContext(_jspx_page_context);
+        _jspx_th_ae_IfTrue_1.setParent(null);
+        _jspx_th_ae_IfTrue_1.setName("configBean");
+        _jspx_th_ae_IfTrue_1.setProperty("allowEmptyQuery");
+        int _jspx_eval_ae_IfTrue_1 = _jspx_th_ae_IfTrue_1.doStartTag();
+        if (_jspx_eval_ae_IfTrue_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+            do {
+                out.write("checked");
+                int evalDoAfterBody = _jspx_th_ae_IfTrue_1.doAfterBody();
+                if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN) break;
+            } while (true);
+        }
+        if (_jspx_th_ae_IfTrue_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+            _jspx_tagPool_ae_IfTrue_property_name.reuse(_jspx_th_ae_IfTrue_1);
+            return true;
+        }
+        _jspx_tagPool_ae_IfTrue_property_name.reuse(_jspx_th_ae_IfTrue_1);
+        return false;
+    }
+----------------------------------------
+    private boolean _jspx_meth_logic_005fempty_005f0(PageContext _jspx_page_context) throws Throwable {
+        PageContext pageContext = _jspx_page_context;
+        JspWriter out = _jspx_page_context.getOut();
+        org.apache.struts.taglib.logic.EmptyTag _jspx_th_logic_005fempty_005f0 = (org.apache.struts.taglib.logic.EmptyTag) _005fjspx_005ftagPool_005flogic_005fempty_0026_005fname.get(org.apache.struts.taglib.logic.EmptyTag.class);
+        _jspx_th_logic_005fempty_005f0.setPageContext(_jspx_page_context);
+        _jspx_th_logic_005fempty_005f0.setParent(null);
+        _jspx_th_logic_005fempty_005f0.setName("newMsgs");
+        int _jspx_eval_logic_005fempty_005f0 = _jspx_th_logic_005fempty_005f0.doStartTag();
+        if (_jspx_eval_logic_005fempty_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+            do {
+                out.write("\r\n");
+                out.write("\t\t\t\t\t<tr>\r\n");
+                out.write("\t\t\t\t\t\t<td colspan=\"3\">暂无记录</td>\r\n");
+                out.write("\t\t\t\t\t</tr>\r\n");
+                out.write("\t\t\t\t");
+                int evalDoAfterBody = _jspx_th_logic_005fempty_005f0.doAfterBody();
+                if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN) break;
+            } while (true);
+        }
+        if (_jspx_th_logic_005fempty_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+            _005fjspx_005ftagPool_005flogic_005fempty_0026_005fname.reuse(_jspx_th_logic_005fempty_005f0);
+            return true;
+        }
+        _005fjspx_005ftagPool_005flogic_005fempty_0026_005fname.reuse(_jspx_th_logic_005fempty_005f0);
+        return false;
+    }
+----------------------------------------
